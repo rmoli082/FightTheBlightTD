@@ -13,6 +13,7 @@ public class Node : MonoBehaviour
     private void Awake()
     {
         rend = GetComponent<Renderer>();
+        rend.material = LevelManager.Instance.levelData.nodeMaterial;
         startColor = rend.material.color;
     }
 

@@ -18,3 +18,9 @@ MonoBehaviour:
   backgroundMusic: {fileID: 0}
   shopButtons:
   - {fileID: 8459977177830445553, guid: 8005990eaf0fe8d46b0f3e919de34d8f, type: 3}
+  - {fileID: 8459977177830445553, guid: b32404368844b28418ffbb7ac3f5623a, type: 3}
+  enemies:
+  - {fileID: 2840585089550225269, guid: 16e66ed2cd0e851449385e2857ed2e2c, type: 3}
+  - {fileID: 2840585089550225269, guid: fd40204b0195b2d4a85087420f325dea, type: 3}
+  - {fileID: 2840585089550225269, guid: 5f0d322e1fa5d9540a87f3708c2b4aa0, type: 3}
+  - {fileID: 2840585089550225269, guid: 55abf37e7d2861b4499165275d2d56bf, type: 3}

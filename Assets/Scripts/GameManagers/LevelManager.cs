@@ -12,7 +12,6 @@ public class LevelManager : Singleton<LevelManager>
         base.Awake();
         Decorate();
         SetUpShop();
-        LoadMonsters();
     }
 
     private void SetUpShop()
@@ -25,18 +24,7 @@ public class LevelManager : Singleton<LevelManager>
 
     private void Decorate()
     {
-        GameObject[] nodes = GameObject.FindGameObjectsWithTag("Node");
-
-        foreach (GameObject node in nodes)
-        {
-            node.GetComponent<Renderer>().material = levelData.nodeMaterial;
-        }
-
         sceneData.plane.GetComponent<Renderer>().material = levelData.planeMaterial;
     }
 
-    private void LoadMonsters()
-    {
-        WaveSpawner.Instance.levelData = levelData.waveData;
-    }
 }

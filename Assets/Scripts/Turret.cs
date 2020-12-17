@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Turret : Placeable
 {
-    
 
     private readonly string enemyTag = "Enemy";
     public Transform target;

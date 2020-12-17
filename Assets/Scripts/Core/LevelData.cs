@@ -12,4 +12,6 @@ public class LevelData : ScriptableObject
     public AudioClip backgroundMusic;
 
     public GameObject[] shopButtons;
+
+    public GameObject[] enemies;
 }

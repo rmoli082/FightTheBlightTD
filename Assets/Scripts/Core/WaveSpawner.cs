@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class WaveSpawner : Singleton<WaveSpawner>
 {
-    public TextAsset levelData;
-    public GameObject[] enemies;
+    private GameObject[] enemies;
 
-    string[] waves;
-    string[] order;
+    private string[] waves;
+    private string[] order;
 
     public int waveNumber = 0;
 
@@ -20,11 +19,9 @@ public class WaveSpawner : Singleton<WaveSpawner>
 
     public IEnumerator SpawnWave()
     {
-        ParseWaveData();
         if (waveNumber >= waves.Length)
-        {
             yield break;
-        }
+        ParseWaveData();
         for (int i = 0; i < order.Length; i++)
         {
             SpawnEnemy(i);
@@ -36,14 +33,16 @@ public class WaveSpawner : Singleton<WaveSpawner>
 
     private void ParseLevel()
     {
-        string data = levelData.text;
-        waves = Regex.Split(data, "\n|\r|\r\n");
+        // load wave data
+        string data = LevelManager.Instance.levelData.waveData.text;
+        waves = Regex.Split(data, "\n");
+
+        // load enemies list
+        enemies = LevelManager.Instance.levelData.enemies;
     }
 
     private void ParseWaveData()
     {
-        if (waveNumber >= waves.Length)
-            return;
         string text = waves[waveNumber];
         order = Regex.Split(text, ",");
     }

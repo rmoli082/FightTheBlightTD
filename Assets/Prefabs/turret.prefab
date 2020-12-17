@@ -47,12 +47,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _locationNode: {fileID: 0}
   _turretType: 0
+  _damageAmount: 1
   target: {fileID: 0}
-  range: 6
+  range: 8
   partToRotate: {fileID: 2285667010071133279}
   firePoint: {fileID: 2285667009619601143}
   fireRate: 1
-  projectileForce: 425
+  projectileForce: 325
   projectilePrefab: {fileID: 1765683876587122627, guid: 17410fcdfd5010945ab770070a75bfa0, type: 3}
 --- !u!1 &1455843027632690308
 GameObject:

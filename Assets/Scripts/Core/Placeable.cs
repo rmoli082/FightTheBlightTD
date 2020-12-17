@@ -13,6 +13,10 @@ public class Placeable : MonoBehaviour
     private PlaceableType _turretType = PlaceableType.turret;
     public PlaceableType TurretType { get => _turretType; private set => _turretType = value; }
 
+    [SerializeField]
+    private float _damageAmount;
+    public float DamageAmount { get => _damageAmount; set => _damageAmount = value; }
+
 }
 
 public enum PlaceableType { turret, rapid, bomber, seeker, stunner, hero}
