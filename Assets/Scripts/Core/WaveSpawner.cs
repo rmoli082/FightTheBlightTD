@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
@@ -22,11 +21,17 @@ public class WaveSpawner : Singleton<WaveSpawner>
     public IEnumerator SpawnWave()
     {
         ParseWaveData();
+        if (waveNumber >= waves.Length)
+        {
+            yield break;
+        }
         for (int i = 0; i < order.Length; i++)
         {
             SpawnEnemy(i);
             yield return new WaitForSeconds(0.3f);
         }
+
+        waveNumber++;
     }
 
     private void ParseLevel()
@@ -37,14 +42,16 @@ public class WaveSpawner : Singleton<WaveSpawner>
 
     private void ParseWaveData()
     {
+        if (waveNumber >= waves.Length)
+            return;
         string text = waves[waveNumber];
         order = Regex.Split(text, ",");
     }
 
     private void SpawnEnemy(int i)
     {
-        int enemy = Convert.ToInt32(order[i]);
-        if (enemy == -1)
+        int enemy;
+        if (!int.TryParse(order[i], out enemy))
         {
             return;
         }

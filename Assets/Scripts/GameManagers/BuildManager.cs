@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BuildManager : Singleton<BuildManager>
 {
-    public GameObject selectedTurret;
+    public Blueprint selectedTurret;
 
     protected override void Awake()
     {
@@ -13,9 +13,14 @@ public class BuildManager : Singleton<BuildManager>
         selectedTurret = null;
     }
 
-    public void BuildSelectedTurret(Node node)
+    public void SelectPlaceable(Blueprint blueprint)
     {
-        GameObject turret = Instantiate(selectedTurret, node.transform.position, Quaternion.identity);
+        selectedTurret = blueprint;
+    }
+
+    public void BuildSelectedPlaceable(Node node)
+    {
+        GameObject turret = Instantiate(selectedTurret.prefab, node.transform.position, Quaternion.identity);
         turret.GetComponent<Placeable>().LocationNode = node;
         node.currentTurret = turret.GetComponent<Placeable>();
     }

@@ -35,7 +35,7 @@ public class Node : MonoBehaviour
             return;
         else 
         {
-            BuildManager.Instance.BuildSelectedTurret(this);
+            BuildManager.Instance.BuildSelectedPlaceable(this);
         }
     }
 }
