@@ -49,8 +49,7 @@ public class WaveSpawner : Singleton<WaveSpawner>
 
     private void SpawnEnemy(int i)
     {
-        int enemy;
-        if (!int.TryParse(order[i], out enemy))
+        if (!int.TryParse(order[i], out int enemy))
         {
             return;
         }

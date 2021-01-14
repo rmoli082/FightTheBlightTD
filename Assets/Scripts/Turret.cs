@@ -61,11 +61,11 @@ public class Turret : Placeable
 
         if (nearestEnemy != null && shortestDistance <= range)
         {
-            target = nearestEnemy.transform;
+            SetTarget(nearestEnemy.transform);
         }
         else
         {
-            target = null;
+            SetTarget(null);
         }
     }
 

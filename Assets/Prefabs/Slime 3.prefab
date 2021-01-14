@@ -45,8 +45,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.675279
-  m_Center: {x: -0.61906826, y: 1.4660932, z: -0.8516253}
+  m_Radius: 0.92139375
+  m_Center: {x: -0.48290855, y: 1.9328649, z: -0.99861234}
 --- !u!114 &6201075463762153021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 964e8f5c7f3063c4691529045f91973b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 15
+  health: 4
   dieEffect: {fileID: 0}
 --- !u!1001 &2840585089369049625
 PrefabInstance:

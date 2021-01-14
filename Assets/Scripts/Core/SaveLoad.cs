@@ -9,13 +9,14 @@ public class SaveLoad : MonoBehaviour
 {
 
     public static string path = $"{Application.persistentDataPath}/saves/";
+    public static string extension = ".ksv";
 
     public static void Save<T>(T objectToSave, string key)
     {
         Directory.CreateDirectory(path);
 
         BinaryFormatter formatter = new BinaryFormatter();
-        using (FileStream filestream = new FileStream(path + key + ".ksv", FileMode.Create))
+        using (FileStream filestream = new FileStream(path + key + extension, FileMode.Create))
         {
             formatter.Serialize(filestream, objectToSave);
         }
@@ -26,7 +27,7 @@ public class SaveLoad : MonoBehaviour
     {
         BinaryFormatter formatter = new BinaryFormatter();
         T returnValue = default(T);
-        using (FileStream filestream = new FileStream(path + key + ".ksv", FileMode.Open))
+        using (FileStream filestream = new FileStream(path + key + extension, FileMode.Open))
         {
            returnValue = (T) formatter.Deserialize(filestream);
         }
@@ -36,7 +37,7 @@ public class SaveLoad : MonoBehaviour
 
     public static bool SaveExists(string key)
     {
-        string check = path + key + ".ksv";
+        string check = path + key + extension;
         return File.Exists(check);
     }
 
