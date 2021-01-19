@@ -85,8 +85,21 @@ public class Turret : Placeable
     private void Shoot()
     {
         GameObject bullet = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-        Projectile projectile = bullet.GetComponent<Projectile>();
-        projectile.SetTurret(this);
-        projectile.Launch(target.position - firePoint.position, 425f);
+        
+        if (TurretType == PlaceableType.seeker)
+        {
+            SeekerProjectile sProjectile = bullet.GetComponent<SeekerProjectile>();
+            sProjectile.SetTurret(this);
+            sProjectile.SetTarget(target);
+        }
+        else
+        {
+            Projectile projectile = bullet.GetComponent<Projectile>();
+            projectile.SetTurret(this);
+            projectile.Launch(target.position - firePoint.position, projectileForce);
+        }
+        
     }
+
+  
 }

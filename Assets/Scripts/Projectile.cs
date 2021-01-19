@@ -7,11 +7,15 @@ public class Projectile : MonoBehaviour
     Placeable turret;
     Rigidbody rb;
 
-    public float damageAmount = 1f;
+    public bool canExplode = false;
+    public float explodeRange = 0f;
+    public float stunTime = 0f;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        if (rb == null)
+            rb = gameObject.AddComponent<Rigidbody>();
     }
 
     public void SetTurret(Placeable placeable)
@@ -24,14 +28,53 @@ public class Projectile : MonoBehaviour
         rb.AddForce(direction * force);
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
+            EnemyController ec = other.GetComponent<EnemyController>();
             Enemy e = other.GetComponent<Enemy>();
-            e.Damage(turret.DamageAmount);
+
+            if (turret.TurretType == PlaceableType.stunner && !ec.isStunned)
+            {
+                Stun(ec);
+            }
+            else
+            {
+                e.Damage(turret.DamageAmount);
+                if (canExplode)
+                {
+                    Explode(explodeRange);
+                }
+            }
+            
             Destroy(this.gameObject);
             return;
         }
     }
+
+    void Stun(EnemyController ec)
+    {
+        float originalSpeed = ec.speed;
+        ec.speed *= 0.5f;
+        ec.isStunned = true;
+        ec.stunTime = stunTime;
+    }
+
+    void Explode(float range)
+    {
+        Collider[] exploded = Physics.OverlapSphere(transform.position, range);
+        foreach (Collider c in exploded)
+        {
+            if (c.gameObject.CompareTag("Enemy"))
+            {
+                Enemy e = c.GetComponentInParent<Enemy>();
+                e.Damage(turret.DamageAmount);
+                Destroy(this);
+            }
+            
+        }
+    }
+
 }
