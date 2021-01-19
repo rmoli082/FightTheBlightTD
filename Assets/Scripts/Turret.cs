@@ -52,9 +52,13 @@ public class Turret : Placeable
         foreach (GameObject enemy in enemies)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance)
+            float distance2Enemy = Vector3.Distance(firePoint.position, enemy.transform.position);
+            if (distanceToEnemy < shortestDistance || distance2Enemy < shortestDistance)
             {
-                shortestDistance = distanceToEnemy;
+                if (distanceToEnemy < distance2Enemy)
+                    shortestDistance = distanceToEnemy;
+                else
+                    shortestDistance = distance2Enemy;
                 nearestEnemy = enemy;
             }
         }
@@ -89,6 +93,8 @@ public class Turret : Placeable
         if (TurretType == PlaceableType.seeker)
         {
             SeekerProjectile sProjectile = bullet.GetComponent<SeekerProjectile>();
+            if (sProjectile == null)
+                bullet.AddComponent<SeekerProjectile>();
             sProjectile.SetTurret(this);
             sProjectile.SetTarget(target);
         }
@@ -101,5 +107,11 @@ public class Turret : Placeable
         
     }
 
-  
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, range +2);
+    }
+
+
 }

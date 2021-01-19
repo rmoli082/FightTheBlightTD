@@ -56,7 +56,6 @@ public class Projectile : MonoBehaviour
 
     void Stun(EnemyController ec)
     {
-        float originalSpeed = ec.speed;
         ec.speed *= 0.5f;
         ec.isStunned = true;
         ec.stunTime = stunTime;

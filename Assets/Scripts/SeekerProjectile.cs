@@ -4,43 +4,37 @@ using UnityEngine;
 
 public class SeekerProjectile : MonoBehaviour
 {
-    Turret turret;
-    Rigidbody rb;
+    public Turret turret;
 
-	Transform target;
-
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
-        if (rb == null)
-            rb = gameObject.AddComponent<Rigidbody>();
-    }
+    public Transform target;
 
     private void Update()
     {
         if (target == null)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
             return;
         }
 
         Vector3 dir = target.position - transform.position;
-		float distanceThisFrame = turret.projectileForce * Time.deltaTime;
+        float distanceThisFrame = turret.projectileForce * Time.deltaTime;
 
-		transform.Translate(dir.normalized * distanceThisFrame, Space.World);
-		transform.LookAt(target);
-        
-	}
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Enemy"))
+        if (dir.magnitude <= distanceThisFrame)
         {
-            Enemy e = other.GetComponent<Enemy>();
-            e.Damage(turret.DamageAmount);
+            HitTarget();
+            return;
         }
 
-        Destroy(this);
+        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+        transform.LookAt(target);
+
+    }
+
+    void HitTarget()
+    {
+        Enemy e = target.GetComponent<Enemy>();
+        e.Damage(turret.DamageAmount);
+        Destroy(this.gameObject);
         return;
     }
 
