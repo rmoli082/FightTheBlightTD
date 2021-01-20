@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7113465844470585712}
   - component: {fileID: 4371061578042248399}
   - component: {fileID: 1935949063}
-  - component: {fileID: 5347133703646531943}
   - component: {fileID: 1343393888803217240}
   m_Layer: 0
   m_Name: Stingshot
@@ -61,7 +60,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b94ff7301e30a7c40872e0323a6e0f8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 1
+  canExplode: 0
+  explodeRange: 0
+  stunTime: 0
 --- !u!54 &1935949063
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -78,19 +79,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!135 &5347133703646531943
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1765683876587122627}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!96 &1343393888803217240
 TrailRenderer:
   serializedVersion: 2

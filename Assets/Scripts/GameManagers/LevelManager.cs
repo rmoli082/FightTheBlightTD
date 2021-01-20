@@ -6,12 +6,27 @@ public class LevelManager : Singleton<LevelManager>
 {
     public LevelData levelData;
     public SceneData sceneData;
+    public PlayerStats playerStats;
 
     protected override void Awake()
     {
         base.Awake();
         Decorate();
         SetUpShop();
+        UpdateStats();
+    }
+
+    public void AdjustLives(int lives)
+    {
+        playerStats.playerLives += lives;
+        UpdateLives();
+    }
+
+    public void AdjustGold(int goldAmount)
+    {
+        playerStats.playerGold += goldAmount;
+        UpdateGold();
+        return;
     }
 
     private void SetUpShop()
@@ -25,6 +40,22 @@ public class LevelManager : Singleton<LevelManager>
     private void Decorate()
     {
         sceneData.plane.GetComponent<Renderer>().material = levelData.planeMaterial;
+    }
+
+    private void UpdateStats()
+    {
+        UpdateLives();
+        UpdateGold();
+    }
+
+    private void UpdateLives()
+    {
+        sceneData.playerLives.text = playerStats.playerLives.ToString() + " LIVES";
+    }
+
+    private void UpdateGold()
+    {
+        sceneData.playerGold.text = playerStats.playerGold.ToString() + " GOLD";
     }
 
 }

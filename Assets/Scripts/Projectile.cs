@@ -39,6 +39,8 @@ public class Projectile : MonoBehaviour
             if (turret.TurretType == PlaceableType.stunner && !ec.isStunned)
             {
                 Stun(ec);
+                Destroy(this.gameObject);
+                return;
             }
             else
             {
@@ -47,10 +49,11 @@ public class Projectile : MonoBehaviour
                 {
                     Explode(explodeRange);
                 }
+                Destroy(this.gameObject);
+                return;
             }
             
-            Destroy(this.gameObject);
-            return;
+           
         }
     }
 
