@@ -16,10 +16,20 @@ public class LevelManager : Singleton<LevelManager>
         UpdateStats();
     }
 
+    public int GetLives()
+    {
+        return playerStats.playerLives;
+    }
+
     public void AdjustLives(int lives)
     {
         playerStats.playerLives += lives;
         UpdateLives();
+    }
+
+    public int GetGold()
+    {
+        return playerStats.playerGold;
     }
 
     public void AdjustGold(int goldAmount)

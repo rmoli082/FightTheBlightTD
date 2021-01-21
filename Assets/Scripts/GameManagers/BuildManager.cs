@@ -20,8 +20,17 @@ public class BuildManager : Singleton<BuildManager>
 
     public void BuildSelectedPlaceable(Node node)
     {
-        GameObject turret = Instantiate(selectedTurret.prefab, node.transform.position, Quaternion.identity);
-        turret.GetComponent<Placeable>().LocationNode = node;
-        node.currentTurret = turret.GetComponent<Placeable>();
+        if (LevelManager.Instance.GetGold() >= selectedTurret.turretCost)
+        {
+            GameObject turret = Instantiate(selectedTurret.prefab, node.transform.position, Quaternion.identity);
+            turret.GetComponent<Placeable>().LocationNode = node;
+            node.currentTurret = turret.GetComponent<Placeable>();
+            LevelManager.Instance.AdjustGold(-selectedTurret.turretCost);
+        }
+        else
+        {
+            return;
+        }
+       
     }
 }
