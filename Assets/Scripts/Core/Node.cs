@@ -19,6 +19,8 @@ public class Node : MonoBehaviour
 
     private void OnMouseOver()
     {
+        if (currentTurret != null)
+            return;
         rend.material.color = hoverColor;
     }
 

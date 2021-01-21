@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Turret : Placeable
 {
-
+    [Header("Turret Info")]
     private readonly string enemyTag = "Enemy";
     public Transform target;
     public float range = 6f;
@@ -14,12 +14,22 @@ public class Turret : Placeable
     public float fireRate = 1f;
     public float projectileForce = 325f;
     private float shotCounter = 0;
-
     public GameObject projectilePrefab;
+
+    [Header("Upgrade Slots")]
+    public Upgrade[] turretUpgrades = new Upgrade[3];
+    public int slotOneLevel = 0;
+    public int slotTwoLevel = 0;
+    public int slotThreeLevel = 0;
+
+    [Header("Upgrade Panels")]
+    public GameObject upgradePanel;
+    public GameObject[] upgradeSlotButtons = new GameObject[3];
 
     private void Awake()
     {
         target = null;
+        upgradePanel = LevelManager.Instance.sceneData.turretUpgradePanel;
     }
 
     private void Start()
@@ -42,6 +52,13 @@ public class Turret : Placeable
                 
         }
             
+    }
+
+    private void OnMouseDown()
+    {
+        LocationNode.GetComponent<Renderer>().material.color = LocationNode.hoverColor;
+        PopulateUpgradePanel();
+        upgradePanel.SetActive(true);
     }
 
     private void GetTarget()
@@ -105,6 +122,15 @@ public class Turret : Placeable
             projectile.Launch(target.position - firePoint.position, projectileForce);
         }
         
+    }
+
+   private void PopulateUpgradePanel()
+    {
+        foreach (GameObject button in upgradeSlotButtons)
+        {
+            Instantiate(button, LevelManager.Instance.sceneData.turretButtonList);
+        }
+            
     }
 
     private void OnDrawGizmos()

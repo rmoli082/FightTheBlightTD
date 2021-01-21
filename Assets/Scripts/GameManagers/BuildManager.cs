@@ -26,6 +26,7 @@ public class BuildManager : Singleton<BuildManager>
             turret.GetComponent<Placeable>().LocationNode = node;
             node.currentTurret = turret.GetComponent<Placeable>();
             LevelManager.Instance.AdjustGold(-selectedTurret.turretCost);
+            selectedTurret = null;
         }
         else
         {

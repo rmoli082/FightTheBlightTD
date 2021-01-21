@@ -11,6 +11,11 @@ public class SceneData : MonoBehaviour
     [Header("Level Decorations")]
     public GameObject plane;
 
+    [Header("Upgrade Panels")]
+    public GameObject turretUpgradePanel;
+    public Transform turretButtonList;
+    public GameObject heroUpgradePanel;
+
     [Header("Player Stats")]
     public TextMeshProUGUI playerLives;
     public TextMeshProUGUI playerGold;
