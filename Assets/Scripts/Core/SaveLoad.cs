@@ -21,6 +21,7 @@ public class SaveLoad : MonoBehaviour
             formatter.Serialize(filestream, objectToSave);
         }
 
+        GameEvents.OnSaveInitiated();
     }
 
     public static T Load<T>(string key)
@@ -31,6 +32,8 @@ public class SaveLoad : MonoBehaviour
         {
            returnValue = (T) formatter.Deserialize(filestream);
         }
+
+        GameEvents.OnLoadInitiated();
 
         return returnValue;
     }

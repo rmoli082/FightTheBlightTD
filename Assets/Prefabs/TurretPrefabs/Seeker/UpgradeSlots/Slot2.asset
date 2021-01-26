@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Faster Firing
   upgradeDesc: Increases the rate the turret fires
-  upgradeCost: 250
+  upgradeCost: 400

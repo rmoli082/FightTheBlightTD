@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour
     public bool canExplode = false;
     public float explodeRange = 0f;
     public float stunTime = 0f;
+    public float stunPower = 0.5f;
 
     private void Awake()
     {
@@ -59,7 +60,7 @@ public class Projectile : MonoBehaviour
 
     void Stun(EnemyController ec)
     {
-        ec.speed *= 0.5f;
+        ec.speed *= stunPower;
         ec.isStunned = true;
         ec.stunTime = stunTime;
     }

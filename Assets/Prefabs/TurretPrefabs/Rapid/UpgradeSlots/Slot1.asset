@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea44c9321c237be4684ff207da97df0b, type: 3}
   m_Name: Slot1
   m_EditorClassIdentifier: 
-  upgradeName: More Damage
-  upgradeDesc: Increases the amount of damage the turret deals
-  upgradeCost: 100
+  upgradeName: Faster Firing
+  upgradeDesc: Increases the turret's rate of fire
+  upgradeCost: 150

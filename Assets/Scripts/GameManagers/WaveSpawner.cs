@@ -22,6 +22,7 @@ public class WaveSpawner : Singleton<WaveSpawner>
         if (waveNumber >= waves.Length)
             yield break;
         ParseWaveData();
+        GameEvents.OnWaveStarted();
         for (int i = 0; i < order.Length; i++)
         {
             SpawnEnemy(i);
@@ -29,6 +30,7 @@ public class WaveSpawner : Singleton<WaveSpawner>
         }
 
         waveNumber++;
+        GameEvents.OnWaveEnded();
     }
 
     private void ParseLevel()
@@ -47,12 +49,14 @@ public class WaveSpawner : Singleton<WaveSpawner>
         order = Regex.Split(text, ",");
     }
 
-    private void SpawnEnemy(int i)
+    private GameObject SpawnEnemy(int i)
     {
         if (!int.TryParse(order[i], out int enemy))
         {
-            return;
+            return null;
         }
-        Instantiate(enemies[enemy], transform.position, Quaternion.identity);
+        GameObject e = Instantiate(enemies[enemy], transform.position, Quaternion.identity);
+        GameEvents.OnEnemySpawned(e.GetComponent<Enemy>());
+        return e;
     }
 }

@@ -24,8 +24,10 @@ public class Enemy : MonoBehaviour
         {
             Instantiate(dieEffect, transform.position, Quaternion.identity);
         }
+        GameEvents.OnEnemyKilled();
         LevelManager.Instance.AdjustGold(goldReward);
         Destroy(gameObject);
         return;
     }
+
 }

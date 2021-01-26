@@ -75,7 +75,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 4
-  dieEffect: {fileID: 0}
+  goldReward: 1
+  dieEffect: {fileID: 5989568863842805911, guid: 03cb7549079271c408c722ca7701cd62, type: 3}
 --- !u!1001 &2840585089369049625
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Wider Range
   upgradeDesc: Increases the range the turret finds targets in
-  upgradeCost: 600
+  upgradeCost: 700

@@ -12,7 +12,8 @@ public class BomberUpgrade : MonoBehaviour
 
     public void SecondSlot()
     {
-        LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.fireRate *= 1.5f;
+        LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.projectilePrefab
+            .GetComponent<Projectile>().explodeRange *= 1.5f;
         LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.slotTwoLevel++;
     }
 

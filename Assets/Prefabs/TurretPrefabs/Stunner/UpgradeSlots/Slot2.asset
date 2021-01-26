@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea44c9321c237be4684ff207da97df0b, type: 3}
   m_Name: Slot2
   m_EditorClassIdentifier: 
-  upgradeName: Faster Firing
-  upgradeDesc: Increases the rate the turret fires
-  upgradeCost: 250
+  upgradeName: Stun Time
+  upgradeDesc: Increases the time an enemy stays stunned for
+  upgradeCost: 550
