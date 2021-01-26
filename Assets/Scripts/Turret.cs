@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Turret : Placeable
 {
@@ -19,9 +20,7 @@ public class Turret : Placeable
 
     [Header("Upgrade Slots")]
     public Upgrade[] turretUpgrades = new Upgrade[3];
-    public int slotOneLevel = 0;
-    public int slotTwoLevel = 0;
-    public int slotThreeLevel = 0;
+    public int[] slotLevel = { 0, 0, 0 };
 
     [Header("Upgrade Panels")]
     public GameObject upgradePanel;
@@ -140,17 +139,19 @@ public class Turret : Placeable
         {
             if (index < upgradeSlotButtons.Length)
             {
-                CreateButtons(button);
+                CreateButtons(button, index);
             }
             index++;
         }
 
+       // upgradePanel.GetComponent<UpgradePanel>().PopulateData();
     }
 
-    private GameObject CreateButtons(GameObject button)
+    private GameObject CreateButtons(GameObject button, int index)
     {
         GameObject b = Instantiate(button);
         b.transform.SetParent(LevelManager.Instance.sceneData.turretButtonList);
+        b.GetComponentInChildren<TurretUpgradePanels>().cost.text = (turretUpgrades[index].upgradeCost + (slotLevel[index] * turretUpgrades[index].upgradeCost)).ToString();
         return b;
     }
 

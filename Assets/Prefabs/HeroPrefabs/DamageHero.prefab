@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2356667149124653404}
   - component: {fileID: 7387190356024469745}
   m_Layer: 0
-  m_Name: Hero
+  m_Name: DamageHero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,8 +112,8 @@ MonoBehaviour:
   _locationNode: {fileID: 0}
   _turretType: 5
   _damageAmount: 1
-  target: {fileID: 0}
   range: 12
+  mainPower: {fileID: 2415478245315984913, guid: cb55bb034a6528b40bbfa21a5a493b14, type: 3}
   heroUpgrades:
   - {fileID: 0}
   - {fileID: 0}
@@ -122,7 +122,7 @@ MonoBehaviour:
   slotTwoLevel: 0
   slotThreeLevel: 0
   heroPowerups:
-  - {fileID: 2415478245315984913, guid: cb55bb034a6528b40bbfa21a5a493b14, type: 3}
-  - {fileID: 2415478245315984913, guid: 6eadc3bb2ee920942bf2e1efca97eda5, type: 3}
-  - {fileID: 2415478245315984913, guid: 8256dbee8538eb5459a56439329ed07d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   upgradePanel: {fileID: 0}

@@ -50,6 +50,10 @@ public class LevelManager : Singleton<LevelManager>
     private void Decorate()
     {
         sceneData.plane.GetComponent<Renderer>().material = levelData.planeMaterial;
+        foreach (Transform child in sceneData.nodes.transform)
+        {
+            child.GetComponent<Renderer>().material = levelData.nodeMaterial;
+        }
     }
 
     private void UpdateStats()

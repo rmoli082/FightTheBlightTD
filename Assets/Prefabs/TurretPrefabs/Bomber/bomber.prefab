@@ -56,12 +56,10 @@ MonoBehaviour:
   projectileForce: 400
   projectilePrefab: {fileID: 4800236456513058916, guid: 94d4597708ef8194aa634565ebf8903b, type: 3}
   turretUpgrades:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  slotOneLevel: 0
-  slotTwoLevel: 0
-  slotThreeLevel: 0
+  - {fileID: 11400000, guid: ffc304272b76dfb4982d783a9fb381fb, type: 2}
+  - {fileID: 11400000, guid: 94bce68db25f51d49933b6f9ff614be6, type: 2}
+  - {fileID: 11400000, guid: 5e78de77866a6424ab017687a827a74a, type: 2}
+  slotLevel: 000000000000000000000000
   upgradePanel: {fileID: 0}
   upgradeSlotButtons:
   - {fileID: 1318465776843793117, guid: a6dbaa19ced141243be76b695ef4d06e, type: 3}

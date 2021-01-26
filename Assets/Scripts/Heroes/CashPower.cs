@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CashPower : MonoBehaviour
+public class CashPower : Singleton<CashPower>
 {
     public Hero theHero;
 
     public int endBonusGold;
     public int killBonusGold;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         theHero = gameObject.GetComponentInParent(typeof(Hero)) as Hero;
     }
 
@@ -27,7 +28,7 @@ public class CashPower : MonoBehaviour
 
     private void KillBonus()
     {
-        Debug.Log("Kill Bonus");
         LevelManager.Instance.AdjustGold(killBonusGold);
+        theHero.AdjustXP(1);
     }
 }

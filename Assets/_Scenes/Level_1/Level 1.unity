@@ -6578,7 +6578,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopListing: {fileID: 1658290583}
+  tooltip: {fileID: 0}
   plane: {fileID: 1408477959}
+  nodes: {fileID: 1524024840}
   turretUpgradePanel: {fileID: 799213243}
   turretButtonList: {fileID: 1432727680}
   heroUpgradePanel: {fileID: 844186279}
@@ -11034,68 +11036,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a159e820d9f4ed045b0cd9d9089f79f0, type: 3}
---- !u!1001 &3206254917144297735
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 212413730933524523, guid: c2c38f49bb8669548871f68f600dff49, type: 3}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 212413730933524523, guid: c2c38f49bb8669548871f68f600dff49, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212413730933524523, guid: c2c38f49bb8669548871f68f600dff49, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 212413730933524523, guid: c2c38f49bb8669548871f68f600dff49, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212413730933524523, guid: c2c38f49bb8669548871f68f600dff49, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212413730933524523, guid: c2c38f49bb8669548871f68f600dff49, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212413730933524523, guid: c2c38f49bb8669548871f68f600dff49, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212413730933524523, guid: c2c38f49bb8669548871f68f600dff49, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212413730933524523, guid: c2c38f49bb8669548871f68f600dff49, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212413730933524523, guid: c2c38f49bb8669548871f68f600dff49, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212413730933524523, guid: c2c38f49bb8669548871f68f600dff49, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7387190356024469745, guid: c2c38f49bb8669548871f68f600dff49, type: 3}
-      propertyPath: heroPowerups.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7387190356024469745, guid: c2c38f49bb8669548871f68f600dff49, type: 3}
-      propertyPath: heroPowerups.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8974315520050402264, guid: c2c38f49bb8669548871f68f600dff49, type: 3}
-      propertyPath: m_Name
-      value: Hero
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c2c38f49bb8669548871f68f600dff49, type: 3}

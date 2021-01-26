@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ShopButton : MonoBehaviour
 {
     public Blueprint blueprint;
+    public TextMeshProUGUI cost;
 
-    public void SetPlaceable()
+    private void Start()
     {
-        BuildManager.Instance.SelectPlaceable(blueprint);
+        cost.text = blueprint.turretCost.ToString();
     }
 
     private void Update()
@@ -23,4 +25,10 @@ public class ShopButton : MonoBehaviour
             gameObject.GetComponentInParent<Button>().interactable = true;
         }
     }
+
+    public void SetPlaceable()
+    {
+        BuildManager.Instance.SelectPlaceable(blueprint);
+    }
+
 }

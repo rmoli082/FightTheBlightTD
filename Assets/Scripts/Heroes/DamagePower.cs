@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamagePower : MonoBehaviour
+public class DamagePower : Singleton<DamagePower>
 {
     public Hero theHero;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         theHero = gameObject.GetComponentInParent(typeof(Hero)) as Hero;
     }
 
@@ -19,6 +20,7 @@ public class DamagePower : MonoBehaviour
     private void DamageEnemy(Enemy e)
     {
         e.Damage(theHero.DamageAmount);
+        theHero.AdjustXP(1);
         return;
     }
 }

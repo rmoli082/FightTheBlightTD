@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LivesPower : MonoBehaviour
+public class LivesPower : Singleton<LivesPower>
 {
     public Hero theHero;
 
     public int livesBonus;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         theHero = gameObject.GetComponentInParent(typeof(Hero)) as Hero;
     }
 
@@ -21,5 +22,6 @@ public class LivesPower : MonoBehaviour
     private void LivesBonus()
     {
         LevelManager.Instance.AdjustLives(livesBonus);
+        theHero.AdjustXP(livesBonus);
     }
 }

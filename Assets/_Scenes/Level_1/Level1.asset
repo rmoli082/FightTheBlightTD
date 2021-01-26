@@ -13,15 +13,16 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   waveData: {fileID: 4900000, guid: 2c4b59adb93bdbe43bfe76b942253799, type: 3}
-  nodeMaterial: {fileID: 2100000, guid: 36d268a2d69e4f24f8fedb010203d6fe, type: 2}
-  planeMaterial: {fileID: 2100000, guid: 15ad27b2cdb09e9439131a8af452648e, type: 2}
+  nodeMaterial: {fileID: 2100000, guid: 9eab48f3883d55149bfbd7713b0f39eb, type: 2}
+  planeMaterial: {fileID: 2100000, guid: 36d268a2d69e4f24f8fedb010203d6fe, type: 2}
   backgroundMusic: {fileID: 8300000, guid: ebaaab5cdd8e1304f9f4e24881505a82, type: 3}
   shopButtons:
+  - {fileID: 8459977177830445553, guid: 1c6d846b8d13fe1498db8c5ccdc6379d, type: 3}
   - {fileID: 8459977177830445553, guid: 8005990eaf0fe8d46b0f3e919de34d8f, type: 3}
   - {fileID: 8459977177830445553, guid: b32404368844b28418ffbb7ac3f5623a, type: 3}
   - {fileID: 8459977177830445553, guid: cc0edc27a2796934ea444d49620ec7be, type: 3}
   - {fileID: 8459977177830445553, guid: 00429628c4569b247ba725211b3cf308, type: 3}
-  - {fileID: 8459977177830445553, guid: 1c6d846b8d13fe1498db8c5ccdc6379d, type: 3}
+  - {fileID: 8459977177830445553, guid: 64dec5b226193d648aa1a6bdab0d680c, type: 3}
   enemies:
   - {fileID: 2840585089550225269, guid: 16e66ed2cd0e851449385e2857ed2e2c, type: 3}
   - {fileID: 2840585089550225269, guid: fd40204b0195b2d4a85087420f325dea, type: 3}

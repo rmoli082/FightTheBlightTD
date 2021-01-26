@@ -10,6 +10,7 @@ public class SceneData : MonoBehaviour
 
     [Header("Level Decorations")]
     public GameObject plane;
+    public GameObject nodes;
 
     [Header("Upgrade Panels")]
     public GameObject turretUpgradePanel;
