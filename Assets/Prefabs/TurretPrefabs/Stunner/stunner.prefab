@@ -87,6 +87,18 @@ MonoBehaviour:
   fireRate: 1
   projectileForce: 375
   projectilePrefab: {fileID: 1765683876587122627, guid: 2d89a543124ae104e81979ccb51f9e1a, type: 3}
+  turretUpgrades:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  slotOneLevel: 0
+  slotTwoLevel: 0
+  slotThreeLevel: 0
+  upgradePanel: {fileID: 0}
+  upgradeSlotButtons:
+  - {fileID: 1318465776843793117, guid: a7a34249c8c95b74992f9f7eeb620a82, type: 3}
+  - {fileID: 1318465776843793117, guid: 18078f408b3ba864b99972d5c109ce7f, type: 3}
+  - {fileID: 1318465776843793117, guid: 0778e7a9eb65b954198af3a6fd7a90a9, type: 3}
 --- !u!1 &6059586605560752468
 GameObject:
   m_ObjectHideFlags: 0

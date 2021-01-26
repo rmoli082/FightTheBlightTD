@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Turret : Placeable
 {
@@ -54,11 +55,11 @@ public class Turret : Placeable
             
     }
 
-    private void OnMouseDown()
+    public void PopupUpgradePanel()
     {
         LocationNode.GetComponent<Renderer>().material.color = LocationNode.hoverColor;
         PopulateUpgradePanel();
-        upgradePanel.SetActive(true);
+        upgradePanel.SetActive(!upgradePanel.activeSelf);
     }
 
     private void GetTarget()
@@ -126,11 +127,31 @@ public class Turret : Placeable
 
    private void PopulateUpgradePanel()
     {
+        upgradePanel.GetComponent<UpgradePanel>().SetTurret(this);
+        int index = 0;
+
+        foreach (Transform child in LevelManager.Instance.sceneData.turretButtonList)
+        {
+            if (child.GetComponent<Button>() != null)
+                Destroy(child.gameObject);
+        }
+
         foreach (GameObject button in upgradeSlotButtons)
         {
-            Instantiate(button, LevelManager.Instance.sceneData.turretButtonList);
+            if (index < upgradeSlotButtons.Length)
+            {
+                CreateButtons(button);
+            }
+            index++;
         }
-            
+
+    }
+
+    private GameObject CreateButtons(GameObject button)
+    {
+        GameObject b = Instantiate(button);
+        b.transform.SetParent(LevelManager.Instance.sceneData.turretButtonList);
+        return b;
     }
 
     private void OnDrawGizmos()

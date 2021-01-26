@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class RapidUpgrade : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void FirstSlot()
     {
-        
+        LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.DamageAmount *= 1.4f;
+        LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.slotOneLevel++;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SecondSlot()
     {
-        
+        LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.fireRate *= 1.5f;
+        LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.slotTwoLevel++;
+    }
+
+    public void ThirdSlot()
+    {
+        LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.range *= 1.5f;
+        LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.slotThreeLevel++;
     }
 }

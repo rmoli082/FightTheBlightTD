@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 343301714720174872}
   - component: {fileID: 3797526472150758168}
   - component: {fileID: 6076146062005801543}
-  - component: {fileID: 3626385836218746174}
+  - component: {fileID: -6776653553474304623}
   m_Layer: 5
-  m_Name: TurretUpgrade 3
+  m_Name: SeekerUpgrade 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,8 +122,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5054847585362090923}
-        m_TargetAssemblyTypeName: TurretUpgrade, Assembly-CSharp
+      - m_Target: {fileID: 5524961965593159005}
+        m_TargetAssemblyTypeName: SeekerUpgrade, Assembly-CSharp
         m_MethodName: ThirdSlot
         m_Mode: 1
         m_Arguments:
@@ -134,7 +134,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3626385836218746174
+--- !u!114 &-6776653553474304623
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 3140465577668132690}
   - component: {fileID: 6264288689970751129}
   - component: {fileID: 4234938455432135859}
-  - component: {fileID: 5054847585362090923}
+  - component: {fileID: 5524961965593159005}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5054847585362090923
+--- !u!114 &5524961965593159005
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -298,6 +298,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2707833200216959147}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ee8a0a3296a8864886ff4c28c5409be, type: 3}
+  m_Script: {fileID: 11500000, guid: dc24bab16bc14884b8b1e8e7e17d6ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
