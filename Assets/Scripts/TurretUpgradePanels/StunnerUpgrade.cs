@@ -6,24 +6,36 @@ public class StunnerUpgrade : TurretUpgradePanels
 {
     public void FirstSlot()
     {
-        LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade
+        if (LevelManager.Instance.GetGold() >= upgradeCost)
+        {
+            LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade
             .projectilePrefab.GetComponent<Projectile>().stunPower *= 1.4f;
-        LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.slotLevel[0]++;
-        LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
+            LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.slotLevel[0]++;
+            LevelManager.Instance.AdjustGold(-upgradeCost);
+            LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
+        }
     }
 
     public void SecondSlot()
     {
-        LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade
+        if (LevelManager.Instance.GetGold() >= upgradeCost)
+        {
+            LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade
             .projectilePrefab.GetComponent<Projectile>().stunTime *= 1.5f;
-        LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.slotLevel[1]++;
-        LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
+            LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.slotLevel[1]++;
+            LevelManager.Instance.AdjustGold(-upgradeCost);
+            LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
+        }
     }
 
     public void ThirdSlot()
     {
-        LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.range *= 1.5f;
-        LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.slotLevel[2]++;
-        LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
+        if (LevelManager.Instance.GetGold() >= upgradeCost)
+        {
+            LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.range *= 1.5f;
+            LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.slotLevel[2]++;
+            LevelManager.Instance.AdjustGold(-upgradeCost);
+            LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
+        }
     }
 }

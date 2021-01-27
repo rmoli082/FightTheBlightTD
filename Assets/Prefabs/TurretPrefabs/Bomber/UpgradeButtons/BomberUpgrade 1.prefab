@@ -302,7 +302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6806daf0d5b8df94c8a9e793919a4a42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: {fileID: 7062481828378545099}
+  costSlot: {fileID: 7062481828378545099}
+  upgradeCost: 0
 --- !u!1 &8626640171629855610
 GameObject:
   m_ObjectHideFlags: 0

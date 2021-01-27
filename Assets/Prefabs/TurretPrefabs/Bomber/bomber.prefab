@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1443101333782672550}
   - component: {fileID: 512083261861746308}
+  - component: {fileID: 3200734787859136653}
   m_Layer: 0
   m_Name: bomber
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2255526784402615836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.62, y: -0.49, z: -30.33}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
   - {fileID: 1507048085883113800}
@@ -65,6 +66,19 @@ MonoBehaviour:
   - {fileID: 1318465776843793117, guid: a6dbaa19ced141243be76b695ef4d06e, type: 3}
   - {fileID: 1318465776843793117, guid: 805026a485f1cc846bc117b41aafbc57, type: 3}
   - {fileID: 1318465776843793117, guid: f29b90d7d076cd845a47ab0844b99dc0, type: 3}
+--- !u!65 &3200734787859136653
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2255526784402615836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1955872, y: 2.1811662, z: 1.3656658}
+  m_Center: {x: 0, y: 1.0618919, z: 0.054949094}
 --- !u!1 &2872820405958469672
 GameObject:
   m_ObjectHideFlags: 0

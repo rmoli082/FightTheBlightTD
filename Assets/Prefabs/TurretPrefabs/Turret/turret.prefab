@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1743714890636968203}
   - component: {fileID: 1403218561279302578}
+  - component: {fileID: 2998587756529454421}
   m_Layer: 0
   m_Name: turret
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1403218561279302577}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.25, y: 0.33, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children:
   - {fileID: 3189478612856527470}
@@ -59,13 +60,25 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 64cf906c942857e49aa020d2287ae13c, type: 2}
   - {fileID: 11400000, guid: 958e2860d93e83d44b726bcd615f9932, type: 2}
   - {fileID: 11400000, guid: 7d2d69591cac05c4d936e7ce18697673, type: 2}
-  slotOneLevel: 0
-  slotTwoLevel: 0
-  slotThreeLevel: 0
+  slotLevel: 000000000000000000000000
+  upgradePanel: {fileID: 0}
   upgradeSlotButtons:
   - {fileID: 1318465776843793117, guid: 05d45cca360b569469d2c00a5a1adba9, type: 3}
   - {fileID: 1318465776843793117, guid: 522bfd91d4c14f3449479fb043ae6b7d, type: 3}
   - {fileID: 1318465776843793117, guid: 29f59df32c6c6714fbf01b567c31c55c, type: 3}
+--- !u!65 &2998587756529454421
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403218561279302577}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1992805, y: 4.927285, z: 3.2217226}
+  m_Center: {x: 0.089766584, y: 1.9636428, z: -0.011221171}
 --- !u!1 &1455843027632690308
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3303396091629210325}
   - component: {fileID: 9145241868368086282}
+  - component: {fileID: 4752276403489578043}
   m_Layer: 0
   m_Name: seeker
   m_TagString: Untagged
@@ -57,7 +58,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2779800221738684527}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.397, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
   - {fileID: 3257496737044361019}
@@ -97,6 +98,19 @@ MonoBehaviour:
   - {fileID: 1318465776843793117, guid: 79a9063e2b34c2644ae27fbc48aec6b3, type: 3}
   - {fileID: 1318465776843793117, guid: 53f69d7cf95d3c849acc3ef8f50d6982, type: 3}
   - {fileID: 1318465776843793117, guid: 8065f3b925916aa4f81e7ca4a62805ea, type: 3}
+--- !u!65 &4752276403489578043
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2779800221738684527}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1030432, y: 1.3079576, z: 1.0969816}
+  m_Center: {x: -0.02121458, y: 0.42694092, z: -0.0060613155}
 --- !u!1 &3125808691298505102
 GameObject:
   m_ObjectHideFlags: 0

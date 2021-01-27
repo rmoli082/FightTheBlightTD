@@ -4264,6 +4264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretToUpgrade: {fileID: 0}
+  contentListing: {fileID: 1432727680}
 --- !u!1 &801328870
 GameObject:
   m_ObjectHideFlags: 0
@@ -5611,8 +5612,8 @@ Camera:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.009433985, g: 0.009029416, b: 0.008668586, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -6578,7 +6579,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopListing: {fileID: 1658290583}
-  tooltip: {fileID: 0}
   plane: {fileID: 1408477959}
   nodes: {fileID: 1524024840}
   turretUpgradePanel: {fileID: 799213243}

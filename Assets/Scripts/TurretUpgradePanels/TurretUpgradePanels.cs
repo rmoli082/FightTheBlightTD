@@ -5,5 +5,6 @@ using TMPro;
 
 public class TurretUpgradePanels : MonoBehaviour
 {
-    public TextMeshProUGUI cost;
+    public TextMeshProUGUI costSlot;
+    public int upgradeCost;
 }

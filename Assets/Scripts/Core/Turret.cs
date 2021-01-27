@@ -54,6 +54,12 @@ public class Turret : Placeable
             
     }
 
+    private void OnMouseDown()
+    {
+        PopupUpgradePanel();
+        LocationNode.GetComponent<Renderer>().material.color = LocationNode.hoverColor;
+    }
+
     public void PopupUpgradePanel()
     {
         LocationNode.GetComponent<Renderer>().material.color = LocationNode.hoverColor;
@@ -151,7 +157,8 @@ public class Turret : Placeable
     {
         GameObject b = Instantiate(button);
         b.transform.SetParent(LevelManager.Instance.sceneData.turretButtonList);
-        b.GetComponentInChildren<TurretUpgradePanels>().cost.text = (turretUpgrades[index].upgradeCost + (slotLevel[index] * turretUpgrades[index].upgradeCost)).ToString();
+        b.GetComponentInChildren<TurretUpgradePanels>().upgradeCost = (int)(turretUpgrades[index].upgradeCost + (slotLevel[index] * turretUpgrades[index].upgradeCost));
+        b.GetComponentInChildren<TurretUpgradePanels>().costSlot.text = b.GetComponentInChildren<TurretUpgradePanels>().upgradeCost.ToString();
         return b;
     }
 

@@ -19,7 +19,7 @@ public class Node : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (currentTurret != null)
+        if (currentTurret != null || BuildManager.Instance.selectedTurret == null)
             return;
         rend.material.color = hoverColor;
     }
@@ -31,12 +31,6 @@ public class Node : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (currentTurret != null)
-        {
-            Turret _turret = (Turret)currentTurret;
-            _turret.PopupUpgradePanel();
-        }
-
         if (BuildManager.Instance.selectedTurret == null)
             return;
         else 

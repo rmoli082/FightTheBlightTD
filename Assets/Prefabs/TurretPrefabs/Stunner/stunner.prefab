@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3456833936139451027}
   - component: {fileID: 5070936707621797184}
+  - component: {fileID: 1638555522425529953}
   m_Layer: 0
   m_Name: stunner
   m_TagString: Untagged
@@ -97,6 +98,19 @@ MonoBehaviour:
   - {fileID: 1318465776843793117, guid: a7a34249c8c95b74992f9f7eeb620a82, type: 3}
   - {fileID: 1318465776843793117, guid: 18078f408b3ba864b99972d5c109ce7f, type: 3}
   - {fileID: 1318465776843793117, guid: 0778e7a9eb65b954198af3a6fd7a90a9, type: 3}
+--- !u!65 &1638555522425529953
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2644444808011784233}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0360472, y: 1.2890195, z: 1.0509433}
+  m_Center: {x: -0.12900868, y: 0.42699298, z: 0.11888116}
 --- !u!1 &6059586605560752468
 GameObject:
   m_ObjectHideFlags: 0
