@@ -33,7 +33,7 @@ public class SeekerProjectile : MonoBehaviour
     void HitTarget()
     {
         Enemy e = target.GetComponent<Enemy>();
-        e.Damage(turret.DamageAmount);
+        e.Damage(turret.DamageAmount, turret.TurretType.ToString());
         Destroy(this.gameObject);
         return;
     }

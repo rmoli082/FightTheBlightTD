@@ -31,6 +31,7 @@ public class WaveSpawner : Singleton<WaveSpawner>
 
         waveNumber++;
         GameEvents.OnWaveEnded();
+        GameEvents.OnSaveInitiated();
     }
 
     private void ParseLevel()

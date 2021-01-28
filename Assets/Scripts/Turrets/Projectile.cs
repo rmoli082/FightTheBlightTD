@@ -45,15 +45,14 @@ public class Projectile : MonoBehaviour
             }
             else
             {
-                e.Damage(turret.DamageAmount);
+                e.Damage(turret.DamageAmount, turret.TurretType.ToString());
                 if (canExplode)
                 {
                     Explode(explodeRange);
                 }
                 Destroy(this.gameObject);
                 return;
-            }
-            
+            } 
            
         }
     }
@@ -73,7 +72,7 @@ public class Projectile : MonoBehaviour
             if (c.gameObject.CompareTag("Enemy"))
             {
                 Enemy e = c.GetComponentInParent<Enemy>();
-                e.Damage(turret.DamageAmount);
+                e.Damage(turret.DamageAmount, turret.TurretType.ToString());
                 Destroy(this);
             }
             

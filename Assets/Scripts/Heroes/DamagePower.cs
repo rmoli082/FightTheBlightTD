@@ -19,7 +19,7 @@ public class DamagePower : Singleton<DamagePower>
 
     private void DamageEnemy(Enemy e)
     {
-        e.Damage(theHero.DamageAmount);
+        e.Damage(theHero.DamageAmount, theHero.TurretType.ToString());
         theHero.AdjustXP(1);
         return;
     }

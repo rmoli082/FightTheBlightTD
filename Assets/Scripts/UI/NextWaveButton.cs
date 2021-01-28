@@ -6,7 +6,6 @@ public class NextWaveButton : MonoBehaviour
 {
     public void StartWave()
     {
-        Debug.Log($"Wave {WaveSpawner.Instance.waveNumber}");
         StartCoroutine(WaveSpawner.Instance.SpawnWave());
     }
 }

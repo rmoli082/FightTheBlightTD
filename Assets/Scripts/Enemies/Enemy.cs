@@ -9,16 +9,16 @@ public class Enemy : MonoBehaviour
 
     public GameObject dieEffect;
 
-    public void Damage(float damageAmount)
+    public void Damage(float damageAmount, string turretType)
     {
         health -= damageAmount;
         if (health <= 0)
         {
-            Die();
+            Die(turretType);
         }
     }
 
-    private void Die()
+    private void Die(string turretType)
     {
         if (dieEffect != null)
         {
@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
         }
         GameEvents.OnEnemyKilled();
         LevelManager.Instance.AdjustGold(goldReward);
+        TurretStats.Instance.AddTurretKills(turretType, 1);
         Destroy(gameObject);
         return;
     }

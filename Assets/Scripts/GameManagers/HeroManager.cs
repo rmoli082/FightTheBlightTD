@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class HeroManager : Singleton<HeroManager>
@@ -14,17 +15,25 @@ public class HeroManager : Singleton<HeroManager>
     private readonly int levels = 50;
     private readonly int xp_for_first_level = 100;
     private readonly int xp_for_last_level = 100000;
+    private readonly string saveTag = "Hero";
 
-    private int CalculateXP(int level)
+    protected override void Awake()
     {
-        float B = Mathf.Log(1.0f * xp_for_last_level / xp_for_first_level) / (levels - 1);
-        float A = 1.0f * xp_for_first_level / (Mathf.Exp(B) - 1.0f);
+        base.Awake();
 
-        int x = (int)(A * Mathf.Exp(B * level));
-        int y = (int)Mathf.Pow(10f, Mathf.Log(x) / Mathf.Log(10) - 2.2f);
+        if (SaveLoad.SaveExists(saveTag))
+        {
+            LoadHero();
+        }
 
-        return (int)(x / y) * y;
+        DontDestroyOnLoad(gameObject);
     }
+
+    private void Start()
+    {
+        GameEvents.SaveInitiated += Save;
+    }
+
 
     public void CalculateLevel()
     {
@@ -49,6 +58,53 @@ public class HeroManager : Singleton<HeroManager>
         if (heroLevel >= 30)
         {
             isThirdUpgradeActive = true;
+        }
+    }
+
+    private int CalculateXP(int level)
+    {
+        float B = Mathf.Log(1.0f * xp_for_last_level / xp_for_first_level) / (levels - 1);
+        float A = 1.0f * xp_for_first_level / (Mathf.Exp(B) - 1.0f);
+
+        int x = (int)(A * Mathf.Exp(B * level));
+        int y = (int)Mathf.Pow(10f, Mathf.Log(x) / Mathf.Log(10) - 2.2f);
+
+        return (int)(x / y) * y;
+    }
+
+    private void Save()
+    {
+        SaveLoad.Save<HeroSave>(new HeroSave(heroLevel, heroXP, isFirstUpgradeActive, isSecondUpgradeActive, isThirdUpgradeActive), saveTag);
+    }
+
+    private void LoadHero()
+    {
+        HeroSave hero = SaveLoad.Load<HeroSave>(saveTag);
+
+        heroLevel = hero.heroLevel;
+        heroXP = hero.heroXP;
+        isFirstUpgradeActive = hero.firstActive;
+        isSecondUpgradeActive = hero.secondActive;
+        isThirdUpgradeActive = hero.thirdActive;
+    }
+
+    [Serializable]
+    protected class HeroSave
+    {
+        public int heroLevel;
+        public int heroXP;
+        public bool firstActive;
+        public bool secondActive;
+        public bool thirdActive;
+
+        public HeroSave() { }
+        public HeroSave(int _heroLevel, int _heroXP, bool _firstActive, bool _secondActive, bool _thirdActive)
+        {
+            heroLevel = _heroLevel;
+            heroXP = _heroXP;
+            firstActive = _firstActive;
+            secondActive = _secondActive;
+            thirdActive = _thirdActive;
         }
     }
 }
