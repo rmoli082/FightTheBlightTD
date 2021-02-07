@@ -9,8 +9,17 @@ EditorBuildSettings:
     path: Assets/_Scenes/MainMenu.unity
     guid: 6e3767a1fb8f312468835fb996eb755d
   - enabled: 1
+    path: Assets/_Scenes/TurretDetails.unity
+    guid: da9b912f34f87a745b5ddf6ceadb4df8
+  - enabled: 1
+    path: Assets/_Scenes/HeroDetails.unity
+    guid: 77d9a9361398c144abf029082585f8de
+  - enabled: 1
     path: Assets/_Scenes/LevelSelect.unity
     guid: 064b9f2d5593d6c439f4129062e12b69
+  - enabled: 1
+    path: Assets/_Scenes/Shop.unity
+    guid: ae0c82228bc076e43b95f04e985e3036
   - enabled: 1
     path: Assets/_Scenes/Level_1/Level 1.unity
     guid: 7cdb53002549671489f041e044d873bf

@@ -34,13 +34,33 @@ public class HeroManager : Singleton<HeroManager>
         GameEvents.SaveInitiated += Save;
     }
 
+    public int GetHeroXP()
+    {
+        return heroXP;
+    }
 
-    public void CalculateLevel()
+    public void AddHeroXP(int xpAmount)
+    {
+        heroXP += xpAmount;
+        CalculateLevel();
+        UIXpBar.Instance.SetXpValue((float)heroXP / (float)(CalculateXP(heroLevel + 1)));
+        Debug.Log($"{heroLevel} : {heroXP}");
+        Debug.Log($"{heroXP / (float)(CalculateXP(heroLevel + 1))}");
+    }
+
+    public int CalculateLevel()
     {
         if (heroXP >= CalculateXP(heroLevel + 1))
         {
             heroLevel = Mathf.Clamp(heroLevel + 1, 1, 50);
         }
+
+        for (int i = 1; i <= levels; i++ )
+        {
+            Debug.Log(CalculateXP(i));
+        }
+
+        return heroLevel;
     }
 
     public void ActivateUpgradeSlots()

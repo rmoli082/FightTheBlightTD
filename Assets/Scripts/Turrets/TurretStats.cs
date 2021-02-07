@@ -30,7 +30,9 @@ public class TurretStats : Singleton<TurretStats>
 
     public int GetTurretStats(string turretType)
     {
-        return turretKills[turretType];
+        if (turretKills.ContainsKey(turretType))
+            return turretKills[turretType];
+        else return 0;
     }
 
     public void AddTurretKills(string turretType, int killAmount)
@@ -49,9 +51,5 @@ public class TurretStats : Singleton<TurretStats>
     private void LoadStats()
     {
         turretKills = SaveLoad.Load<Dictionary<string, int>>(saveTag);
-        foreach (KeyValuePair<string, int> keypair in turretKills)
-        {
-            Debug.Log($"{keypair.Key}: {keypair.Value}");
-        }
     }
 }
