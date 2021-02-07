@@ -140,45 +140,32 @@ public class Purchaser : MonoBehaviour, IStoreListener
         if (String.Equals(purchaseEvent.purchasedProduct.definition.id, pileOfGems, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", purchaseEvent.purchasedProduct.definition.id));
-            // The consumable item has been successfully purchased, add 100 coins to the player's in-game score.
             Player.Instance.AdjustGems(pileGemAmount);
-            Debug.Log($"Gem total: {Player.Instance.GetGems()}");
         }
-        // Or ... a non-consumable product has been purchased by this user.
         else if (String.Equals(purchaseEvent.purchasedProduct.definition.id, jarOfGems, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", purchaseEvent.purchasedProduct.definition.id));
-            // The consumable item has been successfully purchased, add 100 coins to the player's in-game score.
             Player.Instance.AdjustGems(jarGemAmount);
-            Debug.Log($"Gem total: {Player.Instance.GetGems()}");
         }
         else if (String.Equals(purchaseEvent.purchasedProduct.definition.id, bagOfGems, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", purchaseEvent.purchasedProduct.definition.id));
-            // The consumable item has been successfully purchased, add 100 coins to the player's in-game score.
             Player.Instance.AdjustGems(bagGemAmount);
-            Debug.Log($"Gem total: {Player.Instance.GetGems()}");
         }
         else if (String.Equals(purchaseEvent.purchasedProduct.definition.id, sackOfGems, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", purchaseEvent.purchasedProduct.definition.id));
-            // The consumable item has been successfully purchased, add 100 coins to the player's in-game score.
             Player.Instance.AdjustGems(sackGemAmount);
-            Debug.Log($"Gem total: {Player.Instance.GetGems()}");
         }
         else if (String.Equals(purchaseEvent.purchasedProduct.definition.id, boxOfGems, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", purchaseEvent.purchasedProduct.definition.id));
-            // The consumable item has been successfully purchased, add 100 coins to the player's in-game score.
             Player.Instance.AdjustGems(boxGemAmount);
-            Debug.Log($"Gem total: {Player.Instance.GetGems()}");
         }
         else if (String.Equals(purchaseEvent.purchasedProduct.definition.id, chestOfGems, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", purchaseEvent.purchasedProduct.definition.id));
-            // The consumable item has been successfully purchased, add 100 coins to the player's in-game score.
             Player.Instance.AdjustGems(chestGemAmount);
-            Debug.Log($"Gem total: {Player.Instance.GetGems()}");
         }
         else
         {

@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b020e4e2bd86e44c9c72ef4dcfb3b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroLevel: 1
+  heroLevel: 0
   heroXP: 0
   isFirstUpgradeActive: 0
   isSecondUpgradeActive: 0

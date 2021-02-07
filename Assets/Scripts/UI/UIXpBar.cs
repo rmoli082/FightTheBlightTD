@@ -11,16 +11,13 @@ public class UIXpBar : Singleton<UIXpBar>
 
 	float xpOriginalSize;
 
-    protected override void Awake()
-    {
-		base.Awake();
-    }
-
     void Start()
 	{
 		xpOriginalSize = xpBar.rectTransform.rect.width;
-
-		HeroManager.Instance.AddHeroXP(950);
+		if (HeroManager.Instance.GetHeroXP() == 0)
+        {
+			SetXpValue(0);
+        }
 	}
 
 	public void SetXpValue(float value)
