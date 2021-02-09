@@ -43,4 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77f2cc1d749eeb47a9734811bddc7f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeName: Damage Boost
   theHero: {fileID: 0}

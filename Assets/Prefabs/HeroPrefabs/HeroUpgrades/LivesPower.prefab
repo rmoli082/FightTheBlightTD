@@ -43,5 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ae7484365b4a04581596dbfa2c8c6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeName: Lives Boost
   theHero: {fileID: 0}
   livesBonus: 5

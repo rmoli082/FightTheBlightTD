@@ -114,15 +114,13 @@ MonoBehaviour:
   _damageAmount: 1
   range: 12
   mainPower: {fileID: 2415478245315984913, guid: cb55bb034a6528b40bbfa21a5a493b14, type: 3}
+  matchLevel: 1
+  levelXP: 0
   heroUpgrades:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  slotOneLevel: 0
-  slotTwoLevel: 0
-  slotThreeLevel: 0
-  heroPowerups:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  slotOneEnabled: 0
+  slotTwoEnabled: 0
+  slotThreeEnabled: 0
   upgradePanel: {fileID: 0}

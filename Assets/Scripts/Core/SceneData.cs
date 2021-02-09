@@ -13,6 +13,11 @@ public class SceneData : MonoBehaviour
     public GameObject nodes;
     public GameObject menuPanel;
 
+    [Header("Game Over")]
+    public GameObject winPanel;
+    public TextMeshProUGUI winGems;
+    public GameObject losePanel;
+
     [Header("Upgrade Panels")]
     public GameObject turretUpgradePanel;
     public Transform turretButtonList;
@@ -21,4 +26,5 @@ public class SceneData : MonoBehaviour
     [Header("Player Stats")]
     public TextMeshProUGUI playerLives;
     public TextMeshProUGUI playerGold;
+    public TextMeshProUGUI playerGems;
 }

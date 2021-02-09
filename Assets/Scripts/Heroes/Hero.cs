@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
+[Serializable]
 public class Hero : Placeable
 {
     [Header("Hero Info")]
@@ -11,7 +13,8 @@ public class Hero : Placeable
     public int levelXP = 0;
 
     [Header("Upgrade Slots")]
-    public Upgrade[] heroUpgrades = new Upgrade[3];
+    public HeroUpgrade[] heroUpgrades = new HeroUpgrade[3];
+
     public bool slotOneEnabled = false;
     public bool slotTwoEnabled = false;
     public bool slotThreeEnabled = false;
@@ -34,29 +37,34 @@ public class Hero : Placeable
             slotOneEnabled = true;
             if (!slotOneSpawned)
             {
-                Instantiate(heroUpgrades[0], this.transform);
+                Instantiate((UnityEngine.Object)heroUpgrades[0], this.transform);
                 slotOneSpawned = true;
             }
         }
 
-        if (matchLevel >= 6 && HeroManager.Instance.isSecondUpgradeActive)
+        if (matchLevel >= 8 && HeroManager.Instance.isSecondUpgradeActive)
         {
             slotTwoEnabled = true;
             if (!slotTwoSpawned)
             {
-                Instantiate(heroUpgrades[1], this.transform);
+                Instantiate((UnityEngine.Object)heroUpgrades[1], this.transform);
                 slotTwoSpawned = true;
             }
         }
 
-        if (matchLevel >= 9 && HeroManager.Instance.isThirdUpgradeActive)
+        if (matchLevel >= 13 && HeroManager.Instance.isThirdUpgradeActive)
         {
             slotThreeEnabled = true;
             if (!slotThreeSpawned)
             {
-                Instantiate(heroUpgrades[2], this.transform);
+                Instantiate((UnityEngine.Object)heroUpgrades[2], this.transform);
                 slotThreeSpawned = true;
             }    
+        }
+
+        if (matchLevel % 3 == 0)
+        {
+            DamageAmount++;
         }
     }
 

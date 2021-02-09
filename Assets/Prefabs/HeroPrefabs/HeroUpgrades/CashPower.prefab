@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cef15d1ad5dec3f469a7cbc536e1f639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeName: Gold Boost
   theHero: {fileID: 0}
   endBonusGold: 200
   killBonusGold: 1

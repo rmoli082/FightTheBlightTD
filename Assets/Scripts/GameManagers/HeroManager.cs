@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class HeroManager : Singleton<HeroManager>
 {
+    [SerializeField]
+    public Hero theHero;
     private int heroLevel = 0;
     private int heroXP = 0;
     private int xpCollected = 0;
@@ -40,6 +42,16 @@ public class HeroManager : Singleton<HeroManager>
     public int GetHeroLevel()
     {
         return heroLevel;
+    }
+
+    public Hero GetHero()
+    {
+        return theHero;
+    }
+
+    public void SetHero(Hero hero)
+    {
+        theHero = hero;
     }
 
     public void AddHeroXP(int xpAmount)

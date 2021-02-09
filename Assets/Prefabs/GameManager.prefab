@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6545916789141061514}
+  - component: {fileID: 1975808234}
   - component: {fileID: 6545916789141061515}
   - component: {fileID: 6545916789141061512}
   - component: {fileID: 6545916789141061513}
@@ -33,6 +34,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1975808234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6545916789141061527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24e05fdee3a3b134ab224a64ddbb004a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6545916789141061515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,8 +70,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b020e4e2bd86e44c9c72ef4dcfb3b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroLevel: 0
-  heroXP: 0
   isFirstUpgradeActive: 0
   isSecondUpgradeActive: 0
   isThirdUpgradeActive: 0

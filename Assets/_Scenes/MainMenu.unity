@@ -617,6 +617,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469305239}
   m_CullTransparentMesh: 1
+--- !u!1 &496912831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 496912833}
+  - component: {fileID: 496912832}
+  m_Layer: 0
+  m_Name: SceneData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &496912832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496912831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e6c67744b4f6994daad29b407f4031f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopListing: {fileID: 0}
+  plane: {fileID: 0}
+  nodes: {fileID: 0}
+  menuPanel: {fileID: 0}
+  winPanel: {fileID: 0}
+  winGems: {fileID: 0}
+  losePanel: {fileID: 0}
+  turretUpgradePanel: {fileID: 0}
+  turretButtonList: {fileID: 0}
+  heroUpgradePanel: {fileID: 0}
+  playerLives: {fileID: 0}
+  playerGold: {fileID: 0}
+  playerGems: {fileID: 714395707}
+--- !u!4 &496912833
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496912831}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 105.38023, y: 142.47443, z: -2619.8357}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &603002518
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,6 +973,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6545916789141061512, guid: a15987396516dc24784b49f8c540db77, type: 3}
+      propertyPath: theHero
+      value: 
+      objectReference: {fileID: 7387190356024469745, guid: c2c38f49bb8669548871f68f600dff49, type: 3}
+    - target: {fileID: 6545916789141061512, guid: a15987396516dc24784b49f8c540db77, type: 3}
+      propertyPath: isFirstUpgradeActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6545916789141061512, guid: a15987396516dc24784b49f8c540db77, type: 3}
+      propertyPath: isSecondUpgradeActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6545916789141061514, guid: a15987396516dc24784b49f8c540db77, type: 3}
       propertyPath: m_RootOrder
       value: 0

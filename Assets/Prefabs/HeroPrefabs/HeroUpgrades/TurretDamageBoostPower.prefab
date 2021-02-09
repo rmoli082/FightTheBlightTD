@@ -43,5 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dadb4578c0ff6744a742dfa0d5e8c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeName: Turret Boost
   theHero: {fileID: 0}
   turretBonus: 1.1

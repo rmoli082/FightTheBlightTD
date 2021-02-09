@@ -2,15 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretDamageBoostPower : Singleton<TurretDamageBoostPower>
+public class TurretDamageBoostPower : HeroUpgrade
 {
     public Hero theHero;
 
     public float turretBonus;
 
-    protected override void Awake()
+    private static TurretDamageBoostPower _instance;
+    public static TurretDamageBoostPower Instance
     {
-        base.Awake();
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<TurretDamageBoostPower>();
+
+                if (_instance == null)
+                {
+                    GameObject container = new GameObject();
+                    _instance = container.AddComponent<TurretDamageBoostPower>();
+                }
+            }
+
+            return _instance;
+        }
+    }
+
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this as TurretDamageBoostPower;
+        }
+        else if (_instance != this)
+        {
+            Destroy(this);
+            return;
+        }
         theHero = gameObject.GetComponentInParent(typeof(Hero)) as Hero;
     }
 

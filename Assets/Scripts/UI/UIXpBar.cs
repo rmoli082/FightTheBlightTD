@@ -11,6 +11,11 @@ public class UIXpBar : Singleton<UIXpBar>
 
 	float xpOriginalSize;
 
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
     void Start()
 	{
 		xpOriginalSize = xpBar.rectTransform.rect.width;
