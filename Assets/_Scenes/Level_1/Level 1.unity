@@ -8650,7 +8650,7 @@ MonoBehaviour:
   heroUpgradePanel: {fileID: 844186279}
   playerLives: {fileID: 514232135}
   playerGold: {fileID: 1394971439}
-  playerGems: {fileID: 0}
+  playerGems: {fileID: 839518979}
 --- !u!4 &1217236141
 Transform:
   m_ObjectHideFlags: 0

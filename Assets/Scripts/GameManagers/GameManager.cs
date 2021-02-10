@@ -11,15 +11,18 @@ public class GameManager : Singleton<GameManager>
     protected override void Awake()
     {
         base.Awake();
-        data = GameObject.FindObjectOfType<SceneData>();
-        UpdateGemsDisplay();
         DontDestroyOnLoad(gameObject);
+
+        data = GameObject.FindObjectOfType<SceneData>();
+        
     }
 
     private void Start()
     {
+        UpdateGemsDisplay();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
+
 
     public void LoadScene(string sceneName)
     {
@@ -44,7 +47,6 @@ public class GameManager : Singleton<GameManager>
     public void UpdateGemsDisplay()
     {
         data.playerGems.text = $"§{ Player.Instance.GetGems()}";
-        Debug.Log($"updating gems");
     }
 
     public void Win()
@@ -65,5 +67,6 @@ public class GameManager : Singleton<GameManager>
     {
         data = GameObject.FindObjectOfType<SceneData>();
         UpdateGemsDisplay();
+        
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class HeroManager : Singleton<HeroManager>
 {
     [SerializeField]
-    public Hero theHero;
+    private Hero theHero;
     private int heroLevel = 0;
     private int heroXP = 0;
     private int xpCollected = 0;
@@ -14,6 +14,11 @@ public class HeroManager : Singleton<HeroManager>
     public bool isFirstUpgradeActive = false;
     public bool isSecondUpgradeActive = false;
     public bool isThirdUpgradeActive = false;
+
+
+    public HeroUpgrade[] availableBoosts;
+
+    public HeroUpgrade[] activeUpgrades = new HeroUpgrade[3];
 
     private readonly string saveTag = "Hero";
 
@@ -96,7 +101,13 @@ public class HeroManager : Singleton<HeroManager>
 
     private void Save()
     {
-        SaveLoad.Save<HeroSave>(new HeroSave(heroLevel, heroXP, isFirstUpgradeActive, isSecondUpgradeActive, isThirdUpgradeActive), saveTag);
+        string[] upgrades = new string[3];
+        for (int i = 0; i < 3; i++)
+        {
+            if (activeUpgrades[i] != null)
+                upgrades[i] = activeUpgrades[i].UpgradeName;
+        }
+        SaveLoad.Save<HeroSave>(new HeroSave(heroLevel, heroXP, isFirstUpgradeActive, isSecondUpgradeActive, isThirdUpgradeActive, upgrades), saveTag);
     }
 
     private void LoadHero()
@@ -108,6 +119,20 @@ public class HeroManager : Singleton<HeroManager>
         isFirstUpgradeActive = hero.firstActive;
         isSecondUpgradeActive = hero.secondActive;
         isThirdUpgradeActive = hero.thirdActive;
+
+        for (int i = 0; i <3; i++)
+        {
+            if (hero.upgradeList[i] != null)
+            {
+                foreach (HeroUpgrade upgrade in availableBoosts)
+                {
+                    if (hero.upgradeList[i].Equals(upgrade.UpgradeName))
+                    {
+                        activeUpgrades[i] = upgrade;
+                    }
+                }
+            }
+        }
     }
 
     [Serializable]
@@ -118,15 +143,17 @@ public class HeroManager : Singleton<HeroManager>
         public bool firstActive;
         public bool secondActive;
         public bool thirdActive;
+        public string[] upgradeList;
 
         public HeroSave() { }
-        public HeroSave(int _heroLevel, int _heroXP, bool _firstActive, bool _secondActive, bool _thirdActive)
+        public HeroSave(int _heroLevel, int _heroXP, bool _firstActive, bool _secondActive, bool _thirdActive, string[] _upgrades)
         {
             heroLevel = _heroLevel;
             heroXP = _heroXP;
             firstActive = _firstActive;
             secondActive = _secondActive;
             thirdActive = _thirdActive;
+            upgradeList = _upgrades;
         }
     }
 }

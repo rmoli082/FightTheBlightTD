@@ -1,26 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
+    private static object m_Lock = new object();
+
     private static T _instance;
     public static T Instance
     {
         get
         {
-            if (_instance == null)
+            lock (m_Lock)
             {
-                _instance = FindObjectOfType<T>();
-
                 if (_instance == null)
                 {
-                    GameObject container = new GameObject();
-                    _instance = container.AddComponent<T>();
+                    _instance = FindObjectOfType<T>();
+
+                    if (_instance == null && SceneManager.GetActiveScene().name != "MainMenu")
+                    {
+                        GameObject container = new GameObject();
+                        _instance = container.AddComponent<T>();
+                    }
                 }
+
+                return _instance;
             }
-                
-            return _instance;
+            
         }
     }
 
@@ -32,7 +39,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         }
         else if (_instance != this)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
             return;
         }
     }

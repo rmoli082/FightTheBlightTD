@@ -15,8 +15,8 @@ public class HeroUpgradeSlot : MonoBehaviour
         titleText.text = $"{boost.UpgradeName} ACTIVATED";
     }
 
-    public void ActivateBoostButton()
+    public void ActivateBoostButton(bool status)
     {
-        boostButton.SetActive(true);
+        boostButton.SetActive(status);
     }
 }

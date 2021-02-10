@@ -985,6 +985,26 @@ PrefabInstance:
       propertyPath: isSecondUpgradeActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6545916789141061512, guid: a15987396516dc24784b49f8c540db77, type: 3}
+      propertyPath: availableBoosts.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6545916789141061512, guid: a15987396516dc24784b49f8c540db77, type: 3}
+      propertyPath: availableBoosts.Array.data[0]
+      value: 
+      objectReference: {fileID: 3038727045220134344, guid: 6eadc3bb2ee920942bf2e1efca97eda5, type: 3}
+    - target: {fileID: 6545916789141061512, guid: a15987396516dc24784b49f8c540db77, type: 3}
+      propertyPath: availableBoosts.Array.data[1]
+      value: 
+      objectReference: {fileID: -1171017486116434416, guid: cb55bb034a6528b40bbfa21a5a493b14, type: 3}
+    - target: {fileID: 6545916789141061512, guid: a15987396516dc24784b49f8c540db77, type: 3}
+      propertyPath: availableBoosts.Array.data[2]
+      value: 
+      objectReference: {fileID: -2982954749608429091, guid: 8256dbee8538eb5459a56439329ed07d, type: 3}
+    - target: {fileID: 6545916789141061512, guid: a15987396516dc24784b49f8c540db77, type: 3}
+      propertyPath: availableBoosts.Array.data[3]
+      value: 
+      objectReference: {fileID: 6206766622030422568, guid: b6b1c2944e67ad246ad30ed64fd57edb, type: 3}
     - target: {fileID: 6545916789141061514, guid: a15987396516dc24784b49f8c540db77, type: 3}
       propertyPath: m_RootOrder
       value: 0

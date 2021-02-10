@@ -9,38 +9,11 @@ public class CashPower : HeroUpgrade
     public int endBonusGold;
     public int killBonusGold;
 
-    private static CashPower _instance;
-    public static CashPower Instance
+    private void Awake()
     {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType<CashPower>();
-
-                if (_instance == null)
-                {
-                    GameObject container = new GameObject();
-                    _instance = container.AddComponent<CashPower>();
-                }
-            }
-
-            return _instance;
-        }
-    }
-
-    protected virtual void Awake()
-    {
-        if (_instance == null)
-        {
-            _instance = this as CashPower;
-        }
-        else if (_instance != this)
-        {
-            Destroy(this);
-            return;
-        }
-    theHero = gameObject.GetComponentInParent(typeof(Hero)) as Hero;
+        UpgradeName = "Gold Boost";
+        isActivated = false;
+        theHero = gameObject.GetComponentInParent(typeof(Hero)) as Hero;
     }
 
     private void Start()
@@ -51,12 +24,19 @@ public class CashPower : HeroUpgrade
 
     private void EndBonus()
     {
-        LevelManager.Instance.AdjustGold(endBonusGold);
+        if (isActivated)
+            LevelManager.Instance.AdjustGold(endBonusGold);
     }
 
     private void KillBonus()
     {
-        LevelManager.Instance.AdjustGold(killBonusGold);
-        theHero.AdjustXP(1);
+        if (isActivated)
+        {
+            Debug.Log("payout");
+            Debug.Log($"{isActivated}");
+            LevelManager.Instance.AdjustGold(killBonusGold);
+            theHero.AdjustXP(1);
+        }
+        
     }
 }

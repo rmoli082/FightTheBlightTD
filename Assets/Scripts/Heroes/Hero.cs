@@ -13,52 +13,58 @@ public class Hero : Placeable
     public int levelXP = 0;
 
     [Header("Upgrade Slots")]
-    public HeroUpgrade[] heroUpgrades = new HeroUpgrade[3];
+    public HeroUpgrade[] heroUpgrade = new HeroUpgrade[3];
 
-    public bool slotOneEnabled = false;
-    public bool slotTwoEnabled = false;
-    public bool slotThreeEnabled = false;
-    private bool slotOneSpawned = false;
-    private bool slotTwoSpawned = false;
-    private bool slotThreeSpawned = false;
+    private bool[] slotSpawned = { false, false, false };
 
     [Header("Upgrade Panels")]
     public GameObject upgradePanel; 
 
     private void Awake()
     {
-        Instantiate(mainPower, this.transform);
+        GameObject k = Instantiate(mainPower, this.transform);
+        k.GetComponent<HeroUpgrade>().isActivated = true;
+
     }
 
     private void Update()
     {
+        for (int i = 0; i < 3; i++)
+        {
+            if (HeroManager.Instance.activeUpgrades[i] != null)
+            {
+                heroUpgrade[i] = HeroManager.Instance.activeUpgrades[i];
+                heroUpgrade[i].isActivated = false;
+            }
+        }
+
         if (matchLevel >= 3 && HeroManager.Instance.isFirstUpgradeActive)
         {
-            slotOneEnabled = true;
-            if (!slotOneSpawned)
+            if (!slotSpawned[0])
             {
-                Instantiate((UnityEngine.Object)heroUpgrades[0], this.transform);
-                slotOneSpawned = true;
+                HeroUpgrade k = Instantiate(heroUpgrade[0], this.transform);
+                k.isActivated = true;
+                slotSpawned[0] = true;
             }
         }
 
         if (matchLevel >= 8 && HeroManager.Instance.isSecondUpgradeActive)
         {
-            slotTwoEnabled = true;
-            if (!slotTwoSpawned)
+            if (!slotSpawned[1])
             {
-                Instantiate((UnityEngine.Object)heroUpgrades[1], this.transform);
-                slotTwoSpawned = true;
+                HeroUpgrade k = Instantiate(heroUpgrade[1], this.transform);
+                k.isActivated = true;
+                slotSpawned[1] = true;
             }
         }
 
         if (matchLevel >= 13 && HeroManager.Instance.isThirdUpgradeActive)
         {
-            slotThreeEnabled = true;
-            if (!slotThreeSpawned)
+            if (!slotSpawned[2])
             {
-                Instantiate((UnityEngine.Object)heroUpgrades[2], this.transform);
-                slotThreeSpawned = true;
+                HeroUpgrade k = Instantiate(heroUpgrade[2], this.transform);
+                k.isActivated = true;
+                slotSpawned[2] = true;
             }    
         }
 
@@ -76,7 +82,7 @@ public class Hero : Placeable
 
     private int CalculateLevel()
     {
-        return (int)(50 + (Mathf.Log(levelXP * 100) / 50));
+        return Mathf.FloorToInt((30 + (Mathf.Sqrt(325 + 100 * levelXP))) / 60);
     }
 
     

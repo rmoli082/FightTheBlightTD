@@ -21,14 +21,20 @@ public class Player : Singleton<Player>
         else
         {
             gems = 1500;
+            boosts = new List<string>();
         }
 
-        boosts = new List<string>();
+        DontDestroyOnLoad(this);
     }
 
     private void Start()
     {
         GameEvents.SaveInitiated += Save;
+    }
+
+    public List<string> GetBoosts()
+    {
+        return boosts;
     }
 
     public int GetGems()
@@ -45,7 +51,7 @@ public class Player : Singleton<Player>
 
     public void AddBoost(GameObject boost)
     {
-        boosts.Add(boost.name);
+        boosts.Add(boost.GetComponent<HeroUpgrade>().UpgradeName);
     }
 
     public void ApplyBoost(string boost)
