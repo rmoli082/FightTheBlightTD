@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2840585089550225270}
   - component: {fileID: 2840585089550225271}
   - component: {fileID: 6201075463762153021}
-  - component: {fileID: -7271795496847206505}
+  - component: {fileID: -8619940587450986108}
   m_Layer: 0
-  m_Name: Slime
+  m_Name: Slime 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,8 +45,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.9846264
-  m_Center: {x: -0.52988183, y: 2.0060034, z: -1.0316359}
+  m_Radius: 1.0542381
+  m_Center: {x: 0.005186059, y: 1.9673462, z: 0.0000074823192}
 --- !u!114 &6201075463762153021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,10 +59,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149d330dbc7083a4dbb6f2cfc54cfa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 12
   isStunned: 0
   stunTime: 0
---- !u!114 &-7271795496847206505
+--- !u!114 &-8619940587450986108
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,8 +74,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 964e8f5c7f3063c4691529045f91973b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
-  goldReward: 1
+  health: 3
+  goldReward: 2
   dieEffect: {fileID: 5989568863842805911, guid: 03cb7549079271c408c722ca7701cd62, type: 3}
 --- !u!1001 &2840585089369049625
 PrefabInstance:
@@ -128,6 +128,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5572266905149518935, guid: b4bbb4bcabbf1e049b5aa8ae8a10d1aa, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c0d7059ed8d16b9419960a73e1e310b5, type: 2}
     - target: {fileID: 919132149155446097, guid: b4bbb4bcabbf1e049b5aa8ae8a10d1aa, type: 3}
       propertyPath: m_Name
       value: slime

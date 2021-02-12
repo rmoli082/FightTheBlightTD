@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2840585089550225270}
   - component: {fileID: 2840585089550225271}
   - component: {fileID: 6201075463762153021}
-  - component: {fileID: 8954430256733345769}
+  - component: {fileID: -7271795496847206505}
   m_Layer: 0
-  m_Name: Slime 3
+  m_Name: Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,8 +45,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.92139375
-  m_Center: {x: -0.48290855, y: 1.9328649, z: -0.99861234}
+  m_Radius: 1.0542381
+  m_Center: {x: 0.005186059, y: 1.9673462, z: 0.0000074823192}
 --- !u!114 &6201075463762153021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,10 +59,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149d330dbc7083a4dbb6f2cfc54cfa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
   isStunned: 0
   stunTime: 0
---- !u!114 &8954430256733345769
+--- !u!114 &-7271795496847206505
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 964e8f5c7f3063c4691529045f91973b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 4
+  health: 1
   goldReward: 1
   dieEffect: {fileID: 5989568863842805911, guid: 03cb7549079271c408c722ca7701cd62, type: 3}
 --- !u!1001 &2840585089369049625
@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4bbb4bcabbf1e049b5aa8ae8a10d1aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4bbb4bcabbf1e049b5aa8ae8a10d1aa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -98,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4bbb4bcabbf1e049b5aa8ae8a10d1aa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4bbb4bcabbf1e049b5aa8ae8a10d1aa, type: 3}
       propertyPath: m_LocalRotation.w
@@ -128,10 +128,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -5572266905149518935, guid: b4bbb4bcabbf1e049b5aa8ae8a10d1aa, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e81693f805e27794b828d1657ed72134, type: 2}
     - target: {fileID: 919132149155446097, guid: b4bbb4bcabbf1e049b5aa8ae8a10d1aa, type: 3}
       propertyPath: m_Name
       value: slime
