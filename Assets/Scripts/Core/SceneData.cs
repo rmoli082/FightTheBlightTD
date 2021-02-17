@@ -12,6 +12,7 @@ public class SceneData : MonoBehaviour
     public GameObject plane;
     public GameObject nodes;
     public GameObject menuPanel;
+    public GameObject nextWaveButton;
 
     [Header("Game Over")]
     public GameObject winPanel;
@@ -27,4 +28,5 @@ public class SceneData : MonoBehaviour
     public TextMeshProUGUI playerLives;
     public TextMeshProUGUI playerGold;
     public TextMeshProUGUI playerGems;
+    public TextMeshProUGUI currentWave;
 }

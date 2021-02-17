@@ -7,7 +7,9 @@ public class LevelData : ScriptableObject
 {
     [Header("Wave Data")]
     public TextAsset waveData;
+    public int totalWaves;
     public int winGems;
+    public int replayGems;
 
     [Header("Level Decorations")]
     public Material nodeMaterial;

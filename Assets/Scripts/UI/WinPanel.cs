@@ -14,10 +14,12 @@ public class WinPanel : MonoBehaviour
     public void Replay()
     {
         GameManager.Instance.LoadScene(current.name);
+        GameManager.Instance.PausePlay();
     }
 
     public void Exit()
     {
         GameManager.Instance.LoadScene("MainMenu");
+        GameManager.Instance.PausePlay();
     }
 }

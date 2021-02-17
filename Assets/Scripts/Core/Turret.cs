@@ -112,6 +112,7 @@ public class Turret : Placeable
     private void Shoot()
     {
         GameObject bullet = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+        Destroy(bullet, 2f);
         
         if (TurretType == PlaceableType.seeker)
         {

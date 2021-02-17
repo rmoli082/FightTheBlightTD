@@ -12,6 +12,8 @@ public class Projectile : MonoBehaviour
     public float stunTime = 0f;
     public float stunPower = 0.5f;
 
+    private static object mLock = new object();
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -34,25 +36,30 @@ public class Projectile : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            EnemyController ec = other.GetComponent<EnemyController>();
-            Enemy e = other.GetComponent<Enemy>();
+            lock (mLock)
+            {
+                gameObject.GetComponent<Collider>().enabled = false;
+                EnemyController ec = other.GetComponent<EnemyController>();
+                Enemy e = other.GetComponent<Enemy>();
 
-            if (turret.TurretType == PlaceableType.stunner && !ec.isStunned)
-            {
-                Stun(ec);
-                Destroy(this.gameObject);
-                return;
-            }
-            else
-            {
-                e.Damage(turret.DamageAmount, turret.TurretType.ToString());
-                if (canExplode)
+                if (turret.TurretType == PlaceableType.stunner && !ec.isStunned)
                 {
-                    Explode(explodeRange);
+                    Stun(ec);
+                    Destroy(this.gameObject);
+                    return;
                 }
-                Destroy(this.gameObject);
-                return;
-            } 
+                else
+                {
+                    e.Damage(turret.DamageAmount, turret.TurretType.ToString());
+                    if (canExplode)
+                    {
+                        Explode(explodeRange);
+                    }
+                    Destroy(this.gameObject);
+                    return;
+                }
+            }
+             
            
         }
     }

@@ -18,10 +18,12 @@ public class LosePanel : MonoBehaviour
     {
         Player.Instance.AdjustGems(-replayCost);
         GameManager.Instance.LoadScene(current.name);
+        GameManager.Instance.PausePlay();
     }
 
     public void Exit()
     {
         GameManager.Instance.LoadScene("MainMenu");
+        GameManager.Instance.PausePlay();
     }
 }

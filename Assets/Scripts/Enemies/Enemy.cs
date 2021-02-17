@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
         GameEvents.OnEnemyKilled();
         LevelManager.Instance.AdjustGold(goldReward);
         TurretStats.Instance.AddTurretKills(turretType, 1);
+        GameManager.Instance.EnemiesRemaining--;
         Destroy(gameObject);
         return;
     }

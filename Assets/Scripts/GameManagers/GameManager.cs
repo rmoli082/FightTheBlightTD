@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Analytics;
 
 public class GameManager : Singleton<GameManager>
 {
     private bool isPaused = false;
     private SceneData data;
+
+    public int EnemiesRemaining;
 
     protected override void Awake()
     {
@@ -55,12 +58,24 @@ public class GameManager : Singleton<GameManager>
         LevelManager.Instance.sceneData.winGems.text = $"§{LevelManager.Instance.levelData.winGems}";
         LevelManager.Instance.sceneData.winPanel.SetActive(true);
         Player.Instance.AdjustGems(LevelManager.Instance.levelData.winGems);
+        Analytics.CustomEvent("LevelWin", 
+            new Dictionary<string, object> {
+                { "Level", SceneManager.GetActiveScene().name},
+                { "Gold", LevelManager.Instance.playerStats.playerGold },
+                { "Lives", LevelManager.Instance.playerStats.playerLives }
+            });
     }
 
     public void Lose()
     {
         PausePlay();
-        LevelManager.Instance.sceneData.winPanel.SetActive(true);
+        LevelManager.Instance.sceneData.losePanel.SetActive(true);
+        Analytics.CustomEvent("LevelLose",
+            new Dictionary<string, object> {
+                { "Level", SceneManager.GetActiveScene().name},
+                { "Wave", WaveSpawner.Instance.waveNumber + 1 },
+                { "Gold", LevelManager.Instance.playerStats.playerGold }
+            });
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)

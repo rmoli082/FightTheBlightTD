@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    [SerializeField]
     private Transform target;
+    [SerializeField]
     private int waypointIndex = 0;
 
     public float speed = 5f;
@@ -47,7 +49,6 @@ public class EnemyController : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         target = WaypointManager.Instance.Waypoints[waypointIndex];
     }
 

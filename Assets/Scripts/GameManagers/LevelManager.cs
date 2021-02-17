@@ -16,6 +16,11 @@ public class LevelManager : Singleton<LevelManager>
         UpdateStats();
     }
 
+    private void Start()
+    {
+        GameEvents.WaveEnded += CheckForWin;
+    }
+
     public int GetLives()
     {
         return playerStats.playerLives;
@@ -25,6 +30,10 @@ public class LevelManager : Singleton<LevelManager>
     {
         playerStats.playerLives += lives;
         UpdateLives();
+        if (playerStats.playerLives <= 0)
+        {
+            GameManager.Instance.Lose();
+        }
     }
 
     public int GetGold()
@@ -72,4 +81,11 @@ public class LevelManager : Singleton<LevelManager>
         sceneData.playerGold.text = playerStats.playerGold.ToString() + " GOLD";
     }
 
+    private void CheckForWin()
+    {
+        if (WaveSpawner.Instance.waveNumber > levelData.totalWaves)
+        {
+            GameManager.Instance.Win();
+        }
+    }
 }

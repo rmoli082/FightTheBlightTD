@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canExplode: 1
   explodeRange: 2
+  stunTime: 0
+  stunPower: 0.5
 --- !u!54 &99918386407311545
 Rigidbody:
   m_ObjectHideFlags: 0
