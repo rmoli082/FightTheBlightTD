@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class Turret : Placeable
 {
@@ -56,8 +57,11 @@ public class Turret : Placeable
 
     private void OnMouseDown()
     {
-        PopupUpgradePanel();
-        LocationNode.GetComponent<Renderer>().material.color = LocationNode.hoverColor;
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            PopupUpgradePanel();
+            LocationNode.GetComponent<Renderer>().material.color = LocationNode.hoverColor;
+        }
     }
 
     public void PopupUpgradePanel()
@@ -86,14 +90,22 @@ public class Turret : Placeable
             }
         }
 
-        if (nearestEnemy != null && shortestDistance <= range)
+        if (TurretType == PlaceableType.stunner && (nearestEnemy == null 
+            || nearestEnemy.GetComponent<EnemyController>().isStunned))
+        {
+            SetTarget(null);
+        }
+        else if (nearestEnemy != null && shortestDistance <= range)
         {
             SetTarget(nearestEnemy.transform);
+            
         }
         else
         {
             SetTarget(null);
         }
+
+        
     }
 
     void LockOnTarget()

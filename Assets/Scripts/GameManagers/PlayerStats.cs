@@ -8,4 +8,5 @@ public class PlayerStats
 {
     public int playerGold;
     public int playerLives;
+    public int continues = 0;
 }

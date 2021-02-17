@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 11
-  goldReward: 1
+  goldReward: 8
   dieEffect: {fileID: 5989568863842805911, guid: 03cb7549079271c408c722ca7701cd62, type: 3}
 --- !u!114 &6152732186006236238
 MonoBehaviour:
@@ -174,6 +174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149d330dbc7083a4dbb6f2cfc54cfa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  waypointIndex: 0
   speed: 12
   isStunned: 0
   stunTime: 0

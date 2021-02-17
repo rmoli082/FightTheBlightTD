@@ -1526,6 +1526,8 @@ MonoBehaviour:
   playerStats:
     playerGold: 650
     playerLives: 100
+    continues: 0
+  totalWaves: 0
 --- !u!4 &157991612 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 658487567574321308, guid: a159e820d9f4ed045b0cd9d9089f79f0, type: 3}
@@ -2475,7 +2477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52b29285d24ebda44af281d9ac747322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveNumber: 0
+  waveNumber: 1
   spawnPause: 0.45
 --- !u!4 &302130587
 Transform:
@@ -4148,7 +4150,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.15
+  m_fontSize: 18.7
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4406,7 +4408,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.2
+  m_fontSize: 29.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4983,7 +4985,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36.95
+  m_fontSize: 38.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6454,7 +6456,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.15
+  m_fontSize: 30.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7142,7 +7144,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 31.65
+  m_fontSize: 32.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7906,7 +7908,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33
+  m_fontSize: 33.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -8783,6 +8785,8 @@ MonoBehaviour:
   winPanel: {fileID: 163735264}
   winGems: {fileID: 799322582}
   losePanel: {fileID: 1714119785}
+  loseButton: {fileID: 0}
+  loseReplayText: {fileID: 1278209743}
   turretUpgradePanel: {fileID: 799213243}
   turretButtonList: {fileID: 1432727680}
   heroUpgradePanel: {fileID: 844186279}
@@ -9157,7 +9161,7 @@ GameObject:
   - component: {fileID: 1278209744}
   - component: {fileID: 1278209743}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: LoseReplayText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9202,7 +9206,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Try Again \n(-\xA7100)\n"
+  m_text: '
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10066,7 +10072,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33.75
+  m_fontSize: 34.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

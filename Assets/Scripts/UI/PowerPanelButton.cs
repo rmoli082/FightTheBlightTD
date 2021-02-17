@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PowerPanelButton : MonoBehaviour
 {
@@ -9,7 +10,14 @@ public class PowerPanelButton : MonoBehaviour
 
     public void BuyBoost()
     {
-        Player.Instance.AddBoost(boost);
-        Player.Instance.AdjustGems(-gemCost);
+        if (Player.Instance.GetGems() >= gemCost)
+        {
+            Player.Instance.AddBoost(boost);
+            Player.Instance.AdjustGems(-gemCost);
+        }
+        else
+        {
+            gameObject.GetComponent<Button>().interactable = false;
+        }
     }
 }

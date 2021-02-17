@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class SceneData : MonoBehaviour
@@ -18,6 +19,8 @@ public class SceneData : MonoBehaviour
     public GameObject winPanel;
     public TextMeshProUGUI winGems;
     public GameObject losePanel;
+    public Button loseButton;
+    public TextMeshProUGUI loseReplayText;
 
     [Header("Upgrade Panels")]
     public GameObject turretUpgradePanel;

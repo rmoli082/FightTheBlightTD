@@ -45,7 +45,8 @@ public class EnemyController : MonoBehaviour
         
         if (waypointIndex >= WaypointManager.Instance.Waypoints.Length)
         {
-            LevelManager.Instance.AdjustLives(-(Mathf.RoundToInt(gameObject.GetComponent<Enemy>().health)));
+            LevelManager.Instance.AdjustLives(-(Mathf.CeilToInt(gameObject.GetComponent<Enemy>().health)));
+            GameManager.Instance.EnemiesRemaining--;
             Destroy(gameObject);
             return;
         }

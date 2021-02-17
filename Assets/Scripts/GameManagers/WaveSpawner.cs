@@ -11,7 +11,7 @@ public class WaveSpawner : Singleton<WaveSpawner>
     private string[] waves;
     private string[] order;
 
-    public int waveNumber = 0;
+    public int waveNumber = 1;
     public float spawnPause = 0.45f;
 
     protected override void Awake()
@@ -31,7 +31,7 @@ public class WaveSpawner : Singleton<WaveSpawner>
             yield break;
         ParseWaveData();
         GameEvents.OnWaveStarted();
-        LevelManager.Instance.sceneData.currentWave.text = $"WAVE {waveNumber + 1}";
+        LevelManager.Instance.sceneData.currentWave.text = $"WAVE {waveNumber}";
         for (int i = 0; i < order.Length; i++)
         {
             SpawnEnemy(i);
@@ -50,7 +50,7 @@ public class WaveSpawner : Singleton<WaveSpawner>
         string data = LevelManager.Instance.levelData.waveData.text;
         waves = Regex.Split(data, "\n");
 
-        LevelManager.Instance.levelData.totalWaves = waves.Length;
+        LevelManager.Instance.totalWaves = waves.Length;
 
         // load enemies list
         enemies = LevelManager.Instance.levelData.enemies;

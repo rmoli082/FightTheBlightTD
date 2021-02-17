@@ -8,6 +8,8 @@ public class LevelManager : Singleton<LevelManager>
     public SceneData sceneData;
     public PlayerStats playerStats;
 
+    public int totalWaves;
+
     protected override void Awake()
     {
         base.Awake();
@@ -83,7 +85,7 @@ public class LevelManager : Singleton<LevelManager>
 
     private void CheckForWin()
     {
-        if (WaveSpawner.Instance.waveNumber > levelData.totalWaves)
+        if (WaveSpawner.Instance.waveNumber >= totalWaves)
         {
             GameManager.Instance.Win();
         }

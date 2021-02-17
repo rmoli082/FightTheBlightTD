@@ -9,28 +9,33 @@ public class Enemy : MonoBehaviour
 
     public GameObject dieEffect;
 
+    private bool isAlive = true;
+
+
     public void Damage(float damageAmount, string turretType)
     {
         health -= damageAmount;
-        if (health <= 0)
+        if (health <= 0 && isAlive == true)
         {
+            isAlive = false;
             Die(turretType);
         }
     }
 
     private void Die(string turretType)
     {
-        if (dieEffect != null)
-        {
-            GameObject die = Instantiate(dieEffect, transform.position, Quaternion.identity);
-            Destroy(die, 3f);
-        }
-        GameEvents.OnEnemyKilled();
-        LevelManager.Instance.AdjustGold(goldReward);
-        TurretStats.Instance.AddTurretKills(turretType, 1);
-        GameManager.Instance.EnemiesRemaining--;
-        Destroy(gameObject);
-        return;
+            if (dieEffect != null)
+            {
+                GameObject die = Instantiate(dieEffect, transform.position, Quaternion.identity);
+                Destroy(die, 2.1f);
+            }
+            GameEvents.OnEnemyKilled();
+            LevelManager.Instance.AdjustGold(goldReward);
+            TurretStats.Instance.AddTurretKills(turretType, 1);
+            GameManager.Instance.EnemiesRemaining--;
+            Destroy(gameObject);
+            return;
+        
     }
 
 }
