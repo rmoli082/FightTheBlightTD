@@ -92,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8.9
+  m_fontSize: 10.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -284,6 +284,9 @@ MonoBehaviour:
   blueprint:
     prefab: {fileID: 2779800221738684527, guid: b800c58e9aa41084cabe0ed9c9d9bac2, type: 3}
     turretCost: 350
+    turretName: 
+    turretDescription: 
+    turretImage: {fileID: 0}
   cost: {fileID: 2924354128084952718}
 --- !u!1 &5903942905013568883
 GameObject:
@@ -317,10 +320,10 @@ RectTransform:
   m_Father: {fileID: 7774393889987482916}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 11.491913}
-  m_SizeDelta: {x: 100, y: 77.0162}
+  m_AnchorMin: {x: 0, y: 0.25}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.5, y: -0.18005}
+  m_SizeDelta: {x: 0, y: 0.3601}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2545162755824651022
 CanvasRenderer:
@@ -371,7 +374,7 @@ GameObject:
   - component: {fileID: 7774393889987482916}
   - component: {fileID: 2739600770711074826}
   - component: {fileID: 4231215616874245530}
-  - component: {fileID: 109032865330772635}
+  - component: {fileID: -2005817058649779359}
   m_Layer: 5
   m_Name: SeekerShopButton
   m_TagString: Untagged
@@ -398,8 +401,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12.9, y: 4.6}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 125, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2739600770711074826
 CanvasRenderer:
@@ -465,7 +468,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &109032865330772635
+--- !u!114 &-2005817058649779359
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -480,10 +483,10 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 100
-  m_PreferredHeight: 100
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: 1
+  m_FlexibleHeight: 1
   m_LayoutPriority: 1
 --- !u!1 &8924542177578229011
 GameObject:
@@ -518,10 +521,10 @@ RectTransform:
   m_Father: {fileID: 7774393889987482916}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30.4043, y: -15.4206}
-  m_SizeDelta: {x: 36.4399, y: 19.9823}
+  m_AnchorMin: {x: 0.708, y: 0.25}
+  m_AnchorMax: {x: 1, y: 0.48000002}
+  m_AnchoredPosition: {x: 0.27999878, y: 0.064100266}
+  m_SizeDelta: {x: 0.43989944, y: 0.12849998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &404861423520136436
 CanvasRenderer:

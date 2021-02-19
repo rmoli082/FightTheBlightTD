@@ -54,8 +54,9 @@ MonoBehaviour:
   partToRotate: {fileID: 2285667010071133279}
   firePoint: {fileID: 2285667009619601143}
   fireRate: 1
-  projectileForce: 325
+  projectileForce: 300
   projectilePrefab: {fileID: 1765683876587122627, guid: 17410fcdfd5010945ab770070a75bfa0, type: 3}
+  shotFX: {fileID: 8300000, guid: 28b2d6152070b264eb43d2d30c4566d8, type: 3}
   turretUpgrades:
   - {fileID: 11400000, guid: 64cf906c942857e49aa020d2287ae13c, type: 2}
   - {fileID: 11400000, guid: 958e2860d93e83d44b726bcd615f9932, type: 2}

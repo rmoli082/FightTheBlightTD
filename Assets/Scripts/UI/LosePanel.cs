@@ -17,7 +17,7 @@ public class LosePanel : MonoBehaviour
         LevelManager.Instance.sceneData.loseReplayText.text = $"Continue?{System.Environment.NewLine}-§{currentReplayCost}";
     }
 
-    public void Replay()
+    public void Continue()
     {
         if (Player.Instance.GetGems() >= currentReplayCost)
         {
@@ -34,12 +34,14 @@ public class LosePanel : MonoBehaviour
 
     public void ReplayStartOver()
     {
+        LevelManager.Instance.sceneData.losePanel.SetActive(false);
         GameManager.Instance.LoadScene(current.name);
         GameManager.Instance.PausePlay();
     }
 
     public void Exit()
     {
+        LevelManager.Instance.sceneData.losePanel.SetActive(false);
         GameManager.Instance.LoadScene("MainMenu");
         GameManager.Instance.PausePlay();
     }

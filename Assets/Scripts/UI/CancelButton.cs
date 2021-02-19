@@ -10,7 +10,8 @@ public class CancelButton : MonoBehaviour
     public void CloseItem()
     {
         objectToClose.SetActive(false);
-        GameManager.Instance.PausePlay();
+        if (GameManager.Instance.IsPaused)
+            GameManager.Instance.PausePlay();
     }
 
     public void ExitScreen()

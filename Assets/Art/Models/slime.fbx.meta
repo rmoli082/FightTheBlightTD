@@ -1,26 +1,26 @@
 fileFormatVersion: 2
-guid: b4bbb4bcabbf1e049b5aa8ae8a10d1aa
+guid: 0a30043444444de40a1f072eecf5af89
 ModelImporter:
-  serializedVersion: 20101
+  serializedVersion: 20200
   internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: a36bbc5a15323c94b9dd703f892326c0, type: 2}
+      name: BodyMaterial
+    second: {fileID: 2100000, guid: ba04814eabd6a0e42bbba10273856233, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.002
-    second: {fileID: 2100000, guid: de70bbc6de06f3b4f837e04b092d201e, type: 2}
+      name: BumpMaterial
+    second: {fileID: 2100000, guid: 78fad0fb81a70a148ad68180f32e6544, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.003
-    second: {fileID: 2100000, guid: 368398f4a408501448f32b0fc0295a60, type: 2}
+      name: EyeMaterial
+    second: {fileID: 2100000, guid: a72406dd043e2df46b9490ffce57c88b, type: 2}
   materials:
-    materialImportMode: 1
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -110,6 +110,7 @@ ModelImporter:
   animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

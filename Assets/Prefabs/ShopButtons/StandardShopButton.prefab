@@ -32,10 +32,10 @@ RectTransform:
   m_Father: {fileID: 7774393889987482916}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 11.491913}
-  m_SizeDelta: {x: 100, y: 77.0162}
+  m_AnchorMin: {x: 0, y: 0.25}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -0.20600128}
+  m_SizeDelta: {x: 1, y: 0.41200256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3902324840771501239
 CanvasRenderer:
@@ -108,10 +108,10 @@ RectTransform:
   m_Father: {fileID: 7774393889987482916}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30.4043, y: -15.4206}
-  m_SizeDelta: {x: 36.4399, y: 19.9823}
+  m_AnchorMin: {x: 0.708, y: 0.25}
+  m_AnchorMax: {x: 1, y: 0.48000002}
+  m_AnchoredPosition: {x: 0.27999878, y: 0.064100266}
+  m_SizeDelta: {x: 0.43989944, y: 0.12849998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1863922791361562035
 CanvasRenderer:
@@ -301,6 +301,9 @@ MonoBehaviour:
   blueprint:
     prefab: {fileID: 1403218561279302577, guid: dc6c6e2c393a47e44a4beef6a52f8949, type: 3}
     turretCost: 100
+    turretName: 
+    turretDescription: 
+    turretImage: {fileID: 0}
   cost: {fileID: 2834845330883927274}
 --- !u!1 &6243506104900080899
 GameObject:
@@ -394,7 +397,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8.9
+  m_fontSize: 10.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -447,7 +450,7 @@ GameObject:
   - component: {fileID: 7774393889987482916}
   - component: {fileID: 2739600770711074826}
   - component: {fileID: 4231215616874245530}
-  - component: {fileID: 109032865330772635}
+  - component: {fileID: -2273443294622015157}
   m_Layer: 5
   m_Name: StandardShopButton
   m_TagString: Untagged
@@ -474,8 +477,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12.9, y: 4.6}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 125, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2739600770711074826
 CanvasRenderer:
@@ -541,7 +544,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &109032865330772635
+--- !u!114 &-2273443294622015157
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -556,8 +559,8 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 100
-  m_PreferredHeight: 100
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: 1
+  m_FlexibleHeight: 1
   m_LayoutPriority: 1

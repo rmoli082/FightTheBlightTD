@@ -11,19 +11,18 @@ public class MenuPanel : MonoBehaviour
     public void MainMenu()
     {
         GameManager.Instance.LoadScene(mainMenu);
+        GameManager.Instance.PausePlay();
     }
 
     public void LevelSelect()
     {
         GameManager.Instance.LoadScene(levelSelect);
+        GameManager.Instance.PausePlay();
     }
 
-    public void ExitGame()
+    public void Settings()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        LevelManager.Instance.sceneData.settingsPanel.SetActive(true);
+        LevelManager.Instance.sceneData.menuPanel.SetActive(false);
     }
 }

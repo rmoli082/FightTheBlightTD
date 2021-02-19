@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Analytics;
 
 public class TurretUpgrade : TurretUpgradePanels
 {
@@ -15,6 +16,7 @@ public class TurretUpgrade : TurretUpgradePanels
             LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.slotLevel[0]++;
             LevelManager.Instance.AdjustGold(-upgradeCost);
             LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
+            Analytics.CustomEvent("First Turret Upgrade Bought");
         }
     }
 
@@ -26,6 +28,7 @@ public class TurretUpgrade : TurretUpgradePanels
             LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.slotLevel[1]++;
             LevelManager.Instance.AdjustGold(-upgradeCost);
             LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
+            Analytics.CustomEvent("Second Turret Upgrade Bought");
         }
     }
 
@@ -37,6 +40,7 @@ public class TurretUpgrade : TurretUpgradePanels
             LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.slotLevel[2]++;
             LevelManager.Instance.AdjustGold(-upgradeCost);
             LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
+            Analytics.CustomEvent("Third Turret Upgrade Bought");
         }
     }
 }

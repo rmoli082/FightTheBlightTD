@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Analytics;
 
 public class BuildManager : Singleton<BuildManager>
 {
@@ -26,6 +28,12 @@ public class BuildManager : Singleton<BuildManager>
             turret.GetComponent<Placeable>().LocationNode = node;
             node.currentTurret = turret.GetComponent<Placeable>();
             LevelManager.Instance.AdjustGold(-selectedTurret.turretCost);
+            Analytics.CustomEvent("TurretPurchase", new Dictionary<string, object>
+            {
+                {"Level", SceneManager.GetActiveScene().name },
+                {"Wave", WaveSpawner.Instance.waveNumber },
+                {"Turret Bought", $"{turret.GetComponent<Placeable>().TurretType}"}
+            });
             selectedTurret = null;
         }
         else

@@ -82,5 +82,6 @@ public class WaveSpawner : Singleton<WaveSpawner>
     {
         LevelManager.Instance.sceneData.nextWaveButton.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
         LevelManager.Instance.sceneData.nextWaveButton.GetComponentInChildren<TextMeshProUGUI>().color = new Color(0, 0, 0, 1f);
+        LevelManager.Instance.AdjustGold(LevelManager.Instance.levelData.waveGoldReward);
     }
 }

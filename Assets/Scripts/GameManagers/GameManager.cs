@@ -6,7 +6,9 @@ using UnityEngine.Analytics;
 
 public class GameManager : Singleton<GameManager>
 {
+    [SerializeField]
     private bool isPaused = false;
+    public bool IsPaused { get => isPaused; }
     private SceneData data;
 
     public int EnemiesRemaining;
@@ -45,6 +47,7 @@ public class GameManager : Singleton<GameManager>
             isPaused = !isPaused;
         }
 
+        data.playPauseButton.GetComponent<PausePlayButton>().UpdateButtonText();
     }
 
     public void UpdateGemsDisplay()
@@ -73,7 +76,7 @@ public class GameManager : Singleton<GameManager>
         Analytics.CustomEvent("LevelLose",
             new Dictionary<string, object> {
                 { "Level", SceneManager.GetActiveScene().name},
-                { "Wave", WaveSpawner.Instance.waveNumber + 1 },
+                { $"{SceneManager.GetActiveScene().name} wave", WaveSpawner.Instance.waveNumber + 1 },
                 { "Gold", LevelManager.Instance.playerStats.playerGold }
             });
     }

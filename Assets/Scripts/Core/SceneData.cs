@@ -12,8 +12,18 @@ public class SceneData : MonoBehaviour
     [Header("Level Decorations")]
     public GameObject plane;
     public GameObject nodes;
-    public GameObject menuPanel;
+
+    [Header("On Screen Buttons")]
     public GameObject nextWaveButton;
+    public GameObject playPauseButton;
+
+    [Header("Audio Sources")]
+    public AudioSource backgroundMusic;
+    public AudioSource soundEffects;
+
+    [Header("Screen Panels")]
+    public GameObject menuPanel;
+    public GameObject settingsPanel;
 
     [Header("Game Over")]
     public GameObject winPanel;

@@ -19,6 +19,9 @@ public class Turret : Placeable
     private float shotCounter = 0;
     public GameObject projectilePrefab;
 
+    [Header("Turret Effects")]
+    public AudioClip shotFX;
+
     [Header("Upgrade Slots")]
     public Upgrade[] turretUpgrades = new Upgrade[3];
     public int[] slotLevel = { 0, 0, 0 };
@@ -76,6 +79,7 @@ public class Turret : Placeable
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
+
         foreach (GameObject enemy in enemies)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
@@ -123,6 +127,9 @@ public class Turret : Placeable
 
     private void Shoot()
     {
+        if (shotFX != null)
+            LevelManager.Instance.sceneData.soundEffects.PlayOneShot(shotFX);
+
         GameObject bullet = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
         Destroy(bullet, 2f);
         
@@ -162,8 +169,6 @@ public class Turret : Placeable
             }
             index++;
         }
-
-       // upgradePanel.GetComponent<UpgradePanel>().PopulateData();
     }
 
     private GameObject CreateButtons(GameObject button, int index)

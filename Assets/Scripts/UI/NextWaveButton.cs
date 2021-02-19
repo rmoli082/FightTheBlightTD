@@ -17,7 +17,7 @@ public class NextWaveButton : MonoBehaviour
 
     private void WaveStarted()
     {
-        gameObject.GetComponent<TextMeshProUGUI>().color = new Color(0, 0, 0, 0f);
-        gameObject.transform.parent.GetComponent<Image>().color = new Color(0, 0, 0, 0f);
+        LevelManager.Instance.sceneData.nextWaveButton.GetComponentInChildren<TextMeshProUGUI>().color = new Color(0, 0, 0, 0f);
+        LevelManager.Instance.sceneData.nextWaveButton.GetComponent<Image>().color = new Color(0, 0, 0, 0f);
     }
 }

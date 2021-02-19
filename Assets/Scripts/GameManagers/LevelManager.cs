@@ -16,6 +16,7 @@ public class LevelManager : Singleton<LevelManager>
         Decorate();
         SetUpShop();
         UpdateStats();
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
 
     private void Start()
@@ -65,6 +66,8 @@ public class LevelManager : Singleton<LevelManager>
         {
             child.GetComponent<Renderer>().material = levelData.nodeMaterial;
         }
+        sceneData.backgroundMusic.clip = levelData.backgroundMusic;
+        sceneData.backgroundMusic.Play();
     }
 
     private void UpdateStats()
