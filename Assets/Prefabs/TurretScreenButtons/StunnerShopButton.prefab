@@ -227,12 +227,13 @@ MonoBehaviour:
     turretCost: 0
     turretName: Stunner
     turretDescription: The stunner shoots a bullet that slows an enemy down on impact.
-    turretImage: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    turretImage: {fileID: 21300000, guid: 3397dab2f84616947b313deac4f3bdaf, type: 3}
   upgradeButtons:
   - {fileID: 7748248952777746512, guid: f9287e785edb78446aea0a45a53a5a8f, type: 3}
   - {fileID: 7748248952777746512, guid: ea64cae298d976b408ba46fe30a16434, type: 3}
   - {fileID: 7748248952777746512, guid: a94ad7384d4879d4aafdee4b44af2d02, type: 3}
   screenData: {fileID: 0}
+  turretImage: {fileID: 6279311899944606591}
 --- !u!1 &8459977177830445553
 GameObject:
   m_ObjectHideFlags: 0

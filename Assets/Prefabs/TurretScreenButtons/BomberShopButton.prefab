@@ -230,12 +230,13 @@ MonoBehaviour:
     turretName: Bomber
     turretDescription: Launches a missile that explodes on impact, damaging the surrounding
       enemies as well.
-    turretImage: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    turretImage: {fileID: 21300000, guid: 20357dbff88f716478c503d6d9c677e0, type: 3}
   upgradeButtons:
   - {fileID: 7748248952777746512, guid: 2c654fb391ba5404aa7ba3fc4dbbd1b9, type: 3}
   - {fileID: 7748248952777746512, guid: 986516b4f730d3a4eaa30418650163a6, type: 3}
   - {fileID: 7748248952777746512, guid: dd054983773b15241883f5cc6a46b578, type: 3}
   screenData: {fileID: 0}
+  turretImage: {fileID: 2254995740294664444}
 --- !u!1 &8459977177830445553
 GameObject:
   m_ObjectHideFlags: 0

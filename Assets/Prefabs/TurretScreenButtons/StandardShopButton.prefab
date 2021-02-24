@@ -227,12 +227,13 @@ MonoBehaviour:
     turretCost: 0
     turretName: Turret
     turretDescription: A basic turret that shoots a firebal at approaching enemies.
-    turretImage: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    turretImage: {fileID: 21300000, guid: b465db50e785435448e291839f46ec80, type: 3}
   upgradeButtons:
   - {fileID: 7748248952777746512, guid: 3c61a3b9e8c5e554caa996fbdde36f9d, type: 3}
   - {fileID: 7748248952777746512, guid: 1aa017e4410b0584eab58c984137e775, type: 3}
   - {fileID: 7748248952777746512, guid: 0403ee5833db03c4c8091bc446ed1e48, type: 3}
   screenData: {fileID: 0}
+  turretImage: {fileID: 3094276241558370773}
 --- !u!1 &8459977177830445553
 GameObject:
   m_ObjectHideFlags: 0

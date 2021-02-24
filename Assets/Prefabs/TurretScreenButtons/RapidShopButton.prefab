@@ -227,12 +227,13 @@ MonoBehaviour:
     turretCost: 0
     turretName: Rapid
     turretDescription: Rapidly fires a fast moving bullet at the target.
-    turretImage: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    turretImage: {fileID: 21300000, guid: 389efaa062fae1043a8a72a433b296b0, type: 3}
   upgradeButtons:
   - {fileID: 7748248952777746512, guid: f300ab6066c226f45a2117172439edf3, type: 3}
   - {fileID: 7748248952777746512, guid: 2d2dee278eb870248bb88174dd96e603, type: 3}
   - {fileID: 7748248952777746512, guid: ff817049fec7a5c4cb5d6370747cc9d0, type: 3}
   screenData: {fileID: 0}
+  turretImage: {fileID: 6384597171734406812}
 --- !u!1 &8459977177830445553
 GameObject:
   m_ObjectHideFlags: 0

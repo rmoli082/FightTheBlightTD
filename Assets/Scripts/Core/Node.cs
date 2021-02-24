@@ -31,7 +31,7 @@ public class Node : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (BuildManager.Instance.selectedTurret == null)
+        if (BuildManager.Instance.selectedTurret == null || currentTurret != null)
             return;
         else 
         {

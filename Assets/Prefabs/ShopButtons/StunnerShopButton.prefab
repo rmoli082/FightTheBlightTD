@@ -227,8 +227,10 @@ MonoBehaviour:
     turretCost: 450
     turretName: 
     turretDescription: 
-    turretImage: {fileID: 0}
+    turretImage: {fileID: 21300000, guid: 3397dab2f84616947b313deac4f3bdaf, type: 3}
   cost: {fileID: 8839147697935587245}
+  costTag: {fileID: 6096022619542482710}
+  buttonImage: {fileID: 6279311899944606591}
 --- !u!1 &6096022619542482710
 GameObject:
   m_ObjectHideFlags: 0

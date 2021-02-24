@@ -9,9 +9,12 @@ public class TurretScreenButton : MonoBehaviour
     public GameObject[] upgradeButtons;
     public TurretScreen screenData;
 
+    public Image turretImage;
+
     private void Start()
     {
         screenData = GameObject.FindObjectOfType<TurretScreen>();
+        turretImage.sprite = blueprint.turretImage;
     }
 
     public void SetDetails()
