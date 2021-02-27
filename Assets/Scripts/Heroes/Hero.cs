@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 [Serializable]
 public class Hero : Placeable
@@ -22,12 +23,29 @@ public class Hero : Placeable
 
     private void Awake()
     {
-        GameObject k = Instantiate(mainPower, this.transform);
-        k.GetComponent<HeroUpgrade>().isActivated = true;
-
+        GameObject mainPowerObj = Instantiate(mainPower, this.transform);
+        mainPowerObj.GetComponent<HeroUpgrade>().isActivated = true;
+        HeroManager.Instance.isSpawned = true;
     }
 
-    private void Update()
+    private void OnDisable()
+    {
+        HeroManager.Instance.isSpawned = false;
+    }
+
+    public void AdjustXP(int amount)
+    {
+        levelXP += amount;
+        matchLevel = Mathf.Clamp(CalculateLevel(), 1, 20);
+        CalculateUpgrades();
+    }
+
+    private int CalculateLevel()
+    {
+        return Mathf.FloorToInt((30 + (Mathf.Sqrt(325 + 100 * levelXP))) / 60);
+    }
+
+    private void CalculateUpgrades()
     {
         for (int i = 0; i < 3; i++)
         {
@@ -65,25 +83,10 @@ public class Hero : Placeable
                 HeroUpgrade k = Instantiate(heroUpgrade[2], this.transform);
                 k.isActivated = true;
                 slotSpawned[2] = true;
-            }    
+            }
         }
 
-        if (matchLevel % 3 == 0)
-        {
-            DamageAmount++;
-        }
+        DamageAmount = 1 + (matchLevel / 3);
     }
-
-    public void AdjustXP(int amount)
-    {
-        levelXP += amount;
-        matchLevel = Mathf.Clamp(CalculateLevel(), 1, 20);
-    }
-
-    private int CalculateLevel()
-    {
-        return Mathf.FloorToInt((30 + (Mathf.Sqrt(325 + 100 * levelXP))) / 60);
-    }
-
     
 }

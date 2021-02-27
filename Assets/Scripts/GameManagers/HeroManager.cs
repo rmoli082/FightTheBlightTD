@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class HeroManager : Singleton<HeroManager>
 {
-    [SerializeField]
-    private Hero theHero;
+    public Hero theHero;
     private int heroLevel = 0;
+    [SerializeField]
     private int heroXP = 0;
     private int xpCollected = 0;
 
@@ -15,6 +15,7 @@ public class HeroManager : Singleton<HeroManager>
     public bool isSecondUpgradeActive = false;
     public bool isThirdUpgradeActive = false;
 
+    public bool isSpawned = false;
 
     public HeroUpgrade[] availableBoosts;
 
@@ -37,6 +38,8 @@ public class HeroManager : Singleton<HeroManager>
     private void Start()
     {
         GameEvents.SaveInitiated += Save;
+        GameEvents.GameOverWin += WinAwards;
+        GameEvents.GameOverLose += LoseAwards;
     }
 
     public int GetHeroXP()
@@ -65,6 +68,7 @@ public class HeroManager : Singleton<HeroManager>
         xpCollected += xpAmount;
         CheckForLevelUp();
         UIXpBar.Instance.SetXpValue((float)xpCollected / ((float)XpForLevel(heroLevel + 1) - XpForLevel(heroLevel)));
+        GameEvents.OnSaveInitiated();
     }
 
     public void ActivateUpgradeSlots()
@@ -133,6 +137,16 @@ public class HeroManager : Singleton<HeroManager>
                 }
             }
         }
+    }
+
+    private void WinAwards()
+    {
+        AddHeroXP(10);
+    }
+
+    private void LoseAwards()
+    {
+        AddHeroXP(5);
     }
 
     [Serializable]

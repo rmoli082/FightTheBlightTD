@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Node : MonoBehaviour
@@ -8,34 +9,34 @@ public class Node : MonoBehaviour
     public Color hoverColor;
 
     private Renderer rend;
-    private Color startColor;
 
     private void Awake()
     {
         rend = GetComponent<Renderer>();
         rend.material = LevelManager.Instance.levelData.nodeMaterial;
-        startColor = rend.material.color;
     }
 
-    private void OnMouseOver()
+    private void Start()
     {
-        if (currentTurret != null || BuildManager.Instance.selectedTurret == null)
-            return;
-        rend.material.color = hoverColor;
+        gameObject.GetComponent<Collider>().enabled = true;
     }
 
-    private void OnMouseExit()
+    private void OnMouseUp()
     {
-        rend.material.color = startColor;
-    }
-
-    private void OnMouseDown()
-    {
-        if (BuildManager.Instance.selectedTurret == null || currentTurret != null)
-            return;
-        else 
+        try
         {
-            BuildManager.Instance.BuildSelectedPlaceable(this);
+            if (BuildManager.Instance.selectedTurret == null || BuildManager.Instance.selectedTurret.Equals(null)
+                || currentTurret != null)
+                return;
+            else
+            {
+                BuildManager.Instance.BuildSelectedPlaceable(this);
+            }
         }
+        catch (NullReferenceException e)
+        {
+            Debug.Log(e.Message);
+        }
+        
     }
 }

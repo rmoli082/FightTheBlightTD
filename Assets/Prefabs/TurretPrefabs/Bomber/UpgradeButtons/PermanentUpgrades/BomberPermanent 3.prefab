@@ -149,6 +149,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6625dd9487f57c47a26af6958993d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeDescription: {fileID: 7748248951221362677}
+  upgradeCost: {fileID: 7748248951898857385}
+  blueprint:
+    description: Upgraded Machinery:<br>Bomber fires more rapidly and over a wider
+      range
+    cost: 40000
+  upgradeNumber: 2
 --- !u!1 &7748248951898857399
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,10 +248,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
+  m_fontSize: 2
   m_fontSizeBase: 20
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 2
   m_fontSizeMax: 100
   m_fontStyle: 0
@@ -277,7 +284,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 7, w: 0}
+  m_margin: {x: 5, y: 5, z: 5, w: 5}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -296,7 +303,7 @@ GameObject:
   - component: {fileID: 7748248952777746516}
   - component: {fileID: 7748248952777746517}
   m_Layer: 5
-  m_Name: BomberPermanent 1
+  m_Name: BomberPermanent 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -405,13 +412,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7748248951221362675}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 451316780756956382}
+        m_TargetAssemblyTypeName: BomberUpgradeButton, Assembly-CSharp
+        m_MethodName: BuyUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

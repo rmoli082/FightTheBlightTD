@@ -20,6 +20,12 @@ public class TurretDamageBoostPower : HeroUpgrade
         GameEvents.WaveStarted += BoostTurrets;
     }
 
+    private void OnDisable()
+    {
+        GameEvents.WaveStarted -= BoostTurrets;
+    }
+        
+
     private void BoostTurrets()
     {
         int xpBoost = 0;

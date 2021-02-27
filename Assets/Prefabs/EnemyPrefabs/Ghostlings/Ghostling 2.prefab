@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 756890651272752443}
   - component: {fileID: 6192155406178540303}
   - component: {fileID: 2538840640203100023}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ghostling 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -131,13 +131,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: -6060934540939853529, guid: a25d5ad11851fed468005b5a2ccc0a1f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -4157524182732408741, guid: a25d5ad11851fed468005b5a2ccc0a1f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 551a96bdea95b9b4aa339ab00160b9b3, type: 2}
+    - target: {fileID: -3661985432938654458, guid: a25d5ad11851fed468005b5a2ccc0a1f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -2423723570599938229, guid: a25d5ad11851fed468005b5a2ccc0a1f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -761392958045987157, guid: a25d5ad11851fed468005b5a2ccc0a1f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -259972160606440404, guid: a25d5ad11851fed468005b5a2ccc0a1f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 635547659545568360, guid: a25d5ad11851fed468005b5a2ccc0a1f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a25d5ad11851fed468005b5a2ccc0a1f, type: 3}
       propertyPath: m_Name
       value: ghostling
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a25d5ad11851fed468005b5a2ccc0a1f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6413430945410268847, guid: a25d5ad11851fed468005b5a2ccc0a1f, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a25d5ad11851fed468005b5a2ccc0a1f, type: 3}

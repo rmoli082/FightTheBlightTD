@@ -17,7 +17,9 @@ public class HeroUpgradesPanel : MonoBehaviour
     public GameObject boostSelectorPanel;
     public GameObject boostButtonPrefab;
 
-    private void Awake()
+    public readonly string message = "Level up your hero to unlock!";
+
+    public void PopulateHeroUpgrades()
     {
         if (HeroManager.Instance.isFirstUpgradeActive)
         {
@@ -31,6 +33,11 @@ public class HeroUpgradesPanel : MonoBehaviour
             {
                 firstSlot.GetComponent<HeroUpgradeSlot>().ActivateBoostButton(true);
             }
+        }
+        else
+        {
+            firstSlot.GetComponent<HeroUpgradeSlot>().titleText.text = message;
+            firstSlot.GetComponent<HeroUpgradeSlot>().titleText.gameObject.SetActive(true);
         }
 
         if (HeroManager.Instance.isSecondUpgradeActive)
@@ -46,6 +53,11 @@ public class HeroUpgradesPanel : MonoBehaviour
                 secondSlot.GetComponent<HeroUpgradeSlot>().ActivateBoostButton(true);
             }
         }
+        else
+        {
+            secondSlot.GetComponent<HeroUpgradeSlot>().titleText.text = message;
+            secondSlot.GetComponent<HeroUpgradeSlot>().titleText.gameObject.SetActive(true);
+        }
 
         if (HeroManager.Instance.isThirdUpgradeActive)
         {
@@ -59,6 +71,11 @@ public class HeroUpgradesPanel : MonoBehaviour
             {
                 thirdSlot.GetComponent<HeroUpgradeSlot>().ActivateBoostButton(true);
             }
+        }
+        else
+        {
+            thirdSlot.GetComponent<HeroUpgradeSlot>().titleText.text = message;
+            thirdSlot.GetComponent<HeroUpgradeSlot>().titleText.gameObject.SetActive(true);
         }
 
     }

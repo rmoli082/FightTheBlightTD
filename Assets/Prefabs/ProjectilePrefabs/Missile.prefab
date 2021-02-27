@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3920457505084918245}
   - component: {fileID: 99918386407311545}
   - component: {fileID: 8061599204171303420}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Missile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,6 +146,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ba831dc0a225b964487e1dbf8c5d367a, type: 3}
       propertyPath: m_Name
       value: missile
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ba831dc0a225b964487e1dbf8c5d367a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba831dc0a225b964487e1dbf8c5d367a, type: 3}

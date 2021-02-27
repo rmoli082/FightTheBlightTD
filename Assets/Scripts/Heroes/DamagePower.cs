@@ -18,6 +18,11 @@ public class DamagePower : HeroUpgrade
         GameEvents.EnemySpawned += DamageEnemy;
     }
 
+    private void OnDisable()
+    {
+        GameEvents.EnemySpawned -= DamageEnemy;
+    }
+
     private void DamageEnemy(Enemy e)
     {
         if (isActivated)

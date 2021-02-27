@@ -20,7 +20,7 @@ public class HeroScreen : MonoBehaviour
         PopulateSelectionPanel();
     }
 
-    private void PopulateSelectionPanel()
+    public void PopulateSelectionPanel()
     {
         foreach (Transform child in selectionPanel)
         {

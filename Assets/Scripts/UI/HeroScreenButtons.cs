@@ -33,5 +33,7 @@ public class HeroScreenButtons : MonoBehaviour
         {
             Instantiate(button, screenData.upgradesPanel);
         }
+
+        screenData.upgradesPanel.GetComponent<HeroUpgradesPanel>().PopulateHeroUpgrades();
     }
 }

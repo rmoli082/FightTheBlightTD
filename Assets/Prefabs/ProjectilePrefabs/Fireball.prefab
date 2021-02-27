@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7113465844470585712}
   - component: {fileID: 4371061578042248399}
   - component: {fileID: 1935949063}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 4
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1001 &8184023982877509256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -145,6 +145,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 29cf440ebf41cc64ebea5d23e449454b, type: 3}
       propertyPath: m_Name
       value: fireball
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 29cf440ebf41cc64ebea5d23e449454b, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29cf440ebf41cc64ebea5d23e449454b, type: 3}

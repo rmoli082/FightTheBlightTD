@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9051097530372702349}
   - component: {fileID: 5324187493388652358}
   - component: {fileID: 3390775486512589408}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SeekShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,6 +143,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 29cf440ebf41cc64ebea5d23e449454b, type: 3}
       propertyPath: m_Name
       value: fireball
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 29cf440ebf41cc64ebea5d23e449454b, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29cf440ebf41cc64ebea5d23e449454b, type: 3}

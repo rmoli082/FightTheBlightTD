@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1846613572698234699}
   - component: {fileID: 8109169757400775315}
   - component: {fileID: 277428670287553111}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2882272966835778202}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: mushrooma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: -7814317728186761893}
   - component: {fileID: 6152732186006236238}
   - component: {fileID: -4689544859769577294}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mushroom Boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 5564227354215313433}
   - component: {fileID: 3496925222861312285}
   - component: {fileID: 7365878309834140970}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -31,9 +31,9 @@ public class LevelManager : Singleton<LevelManager>
 
     public void AdjustLives(int lives)
     {
-        playerStats.playerLives += lives;
+        playerStats.playerLives = Mathf.Clamp(playerStats.playerLives + lives, 0, 100);
         UpdateLives();
-        if (playerStats.playerLives <= 0)
+        if (playerStats.playerLives == 0)
         {
             GameManager.Instance.Lose();
         }
@@ -76,7 +76,7 @@ public class LevelManager : Singleton<LevelManager>
         UpdateGold();
     }
 
-    private void UpdateLives()
+    public void UpdateLives()
     {
         sceneData.playerLives.text = playerStats.playerLives.ToString() + " LIVES";
     }

@@ -67,6 +67,7 @@ public class GameManager : Singleton<GameManager>
                 { "Gold", LevelManager.Instance.playerStats.playerGold },
                 { "Lives", LevelManager.Instance.playerStats.playerLives }
             });
+        GameEvents.OnGameOverWin();
     }
 
     public void Lose()
@@ -85,6 +86,5 @@ public class GameManager : Singleton<GameManager>
     {
         data = GameObject.FindObjectOfType<SceneData>();
         UpdateGemsDisplay();
-        
     }
 }

@@ -13,9 +13,10 @@ public class Turret : Placeable
     public float range = 6f;
     public Transform partToRotate;
     public Transform firePoint;
-    private float turnSpeed = 10f;
+    private readonly float turnSpeed = 10f;
     public float fireRate = 1f;
     public float projectileForce = 325f;
+    [SerializeField]
     private float shotCounter = 0;
     public GameObject projectilePrefab;
 
@@ -39,6 +40,25 @@ public class Turret : Placeable
     private void Start()
     {
         InvokeRepeating(nameof(GetTarget), 0f, 0.33f);
+
+        switch(TurretType)
+        {
+            case PlaceableType.turret:
+                GetTurretPerms();
+                break;
+            case PlaceableType.rapid:
+                GetRapidPerms();
+                break;
+            case PlaceableType.bomber:
+                GetBomberPerms();
+                break;
+            case PlaceableType.seeker:
+                GetSeekerPerms();
+                break;
+            case PlaceableType.stunner:
+                GetStunnerPerms();
+                break;
+        }
     }
 
     private void Update()
@@ -50,7 +70,14 @@ public class Turret : Placeable
             LockOnTarget();
             if (shotCounter <= 0)
             {
-                Shoot();
+                if (TurretType == PlaceableType.turret && TurretStats.Instance.turretPermanentBought[2])
+                {
+                    StartCoroutine(DoubleShot());
+                }
+                else
+                {
+                    Shoot();
+                }               
                 shotCounter = 1 / fireRate;
             }
                 
@@ -58,18 +85,16 @@ public class Turret : Placeable
             
     }
 
-    private void OnMouseDown()
+    private void OnMouseUp()
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
             PopupUpgradePanel();
-            LocationNode.GetComponent<Renderer>().material.color = LocationNode.hoverColor;
         }
     }
 
     public void PopupUpgradePanel()
     {
-        LocationNode.GetComponent<Renderer>().material.color = LocationNode.hoverColor;
         PopulateUpgradePanel();
         upgradePanel.SetActive(!upgradePanel.activeSelf);
     }
@@ -131,8 +156,7 @@ public class Turret : Placeable
             LevelManager.Instance.sceneData.soundEffects.PlayOneShot(shotFX);
 
         GameObject bullet = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-        Destroy(bullet, 2f);
-        
+
         if (TurretType == PlaceableType.seeker)
         {
             SeekerProjectile sProjectile = bullet.GetComponent<SeekerProjectile>();
@@ -147,7 +171,14 @@ public class Turret : Placeable
             projectile.SetTurret(this);
             projectile.Launch(target.position - firePoint.position, projectileForce);
         }
-        
+
+    }
+
+    private IEnumerator DoubleShot()
+    {
+        Shoot();
+        yield return new WaitForSeconds(0.125f);
+        Shoot();
     }
 
    private void PopulateUpgradePanel()
@@ -180,11 +211,95 @@ public class Turret : Placeable
         return b;
     }
 
+    private void GetTurretPerms()
+    {
+        if (TurretStats.Instance.turretPermanentBought[0])
+        {
+            projectileForce = 400f;
+            DamageAmount = 3;
+        }
+        if (TurretStats.Instance.turretPermanentBought[1])
+        {
+            fireRate = 1.5f;
+        }
+    }
+
+    private void GetRapidPerms()
+    {
+        if (TurretStats.Instance.rapidPermanentBought[0])
+        {
+            fireRate = 2.25f;
+        }
+        if (TurretStats.Instance.rapidPermanentBought[1])
+        {
+            DamageAmount = 2;
+        }
+        if (TurretStats.Instance.rapidPermanentBought[2])
+        {
+            projectileForce = 15f;
+            projectilePrefab = Resources.Load<GameObject>("Projectile/RapidSeeker.prefab");
+        }
+    }
+
+    private void GetBomberPerms()
+    {
+        if (TurretStats.Instance.bomberPermanentBought[0])
+        {
+            DamageAmount = 4.5f;
+        }
+        if (TurretStats.Instance.bomberPermanentBought[1])
+        {
+            projectilePrefab.GetComponent<Projectile>().explodeRange = 4f;
+        }
+        if (TurretStats.Instance.bomberPermanentBought[2])
+        {
+            fireRate = 1.25f;
+            range = 16f;
+        }
+    }
+
+    private void GetSeekerPerms()
+    {
+        if (TurretStats.Instance.seekerPermanentBought[0])
+        {
+            if (TurretStats.Instance.seekerPermanentBought[0])
+            {
+                fireRate = 1.35f;
+            }
+            if (TurretStats.Instance.seekerPermanentBought[1])
+            {
+                projectileForce = 13f;
+                DamageAmount = 3;
+            }
+            if (TurretStats.Instance.seekerPermanentBought[2])
+            {
+                projectilePrefab = Resources.Load<GameObject>("Projectile/SeekerExplode.prefab");
+            }
+        }
+    }
+
+    private void GetStunnerPerms()
+    {
+        Projectile p = projectilePrefab.GetComponent<Projectile>();
+        if (TurretStats.Instance.stunnerPermanentBought[0])
+        {
+            p.stunTime = 7;
+            p.stunPower = 2.5f;
+        }
+        if (TurretStats.Instance.stunnerPermanentBought[1])
+        {
+            DamageAmount = 1;
+        }
+        if (TurretStats.Instance.stunnerPermanentBought[2])
+        {
+            p.stunTime = float.PositiveInfinity;
+        }
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range +2);
     }
-
 
 }

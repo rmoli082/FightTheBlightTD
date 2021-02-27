@@ -22,6 +22,12 @@ public class CashPower : HeroUpgrade
         GameEvents.EnemyKilled += KillBonus;
     }
 
+    private void OnDisable()
+    {
+        GameEvents.WaveEnded -= EndBonus;
+        GameEvents.EnemyKilled -= KillBonus;
+    }
+
     private void EndBonus()
     {
         if (isActivated)

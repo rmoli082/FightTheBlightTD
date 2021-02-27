@@ -21,6 +21,11 @@ public class LivesPower : HeroUpgrade
         GameEvents.WaveEnded += LivesBonus;
     }
 
+    private void OnDisable()
+    {
+        GameEvents.WaveEnded -= LivesBonus;
+    }
+
     private void LivesBonus()
     {
         LevelManager.Instance.AdjustLives(livesBonus);

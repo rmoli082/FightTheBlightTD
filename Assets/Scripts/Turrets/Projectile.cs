@@ -6,11 +6,12 @@ public class Projectile : MonoBehaviour
 {
     Placeable turret;
     Rigidbody rb;
+    Collider coll;
 
     public bool canExplode = false;
     public float explodeRange = 0f;
     public float stunTime = 0f;
-    public float stunPower = 0.5f;
+    public float stunPower = 2f;
 
     private static object mLock = new object();
 
@@ -19,6 +20,8 @@ public class Projectile : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         if (rb == null)
             rb = gameObject.AddComponent<Rigidbody>();
+       coll = GetComponent<Collider>();
+       coll.enabled = true;
     }
 
     public void SetTurret(Placeable placeable)
@@ -45,7 +48,7 @@ public class Projectile : MonoBehaviour
                 if (turret.TurretType == PlaceableType.stunner && !ec.isStunned)
                 {
                     Stun(ec);
-                    Destroy(this.gameObject);
+                   Destroy(gameObject);
                     return;
                 }
                 else
@@ -55,18 +58,15 @@ public class Projectile : MonoBehaviour
                     {
                         Explode(explodeRange);
                     }
-                    Destroy(this.gameObject);
-                    return;
+                    Destroy(gameObject);
                 }
             }
-             
-           
         }
     }
 
     void Stun(EnemyController ec)
     {
-        ec.speed *= stunPower;
+        ec.speed /= stunPower;
         ec.isStunned = true;
         ec.stunTime = stunTime;
     }
@@ -80,10 +80,18 @@ public class Projectile : MonoBehaviour
             {
                 Enemy e = c.GetComponentInParent<Enemy>();
                 e.Damage(turret.DamageAmount, turret.TurretType.ToString());
-                Destroy(this);
+                Destroy(gameObject);
+                return;
             }
             
         }
     }
 
+    /*
+    private IEnumerator DeactivateBullet(float time)
+    {
+        yield return new WaitForSeconds(time);
+        this.gameObject.SetActive(false);
+    }
+    */
 }

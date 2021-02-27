@@ -10,7 +10,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     private static T _instance;
     public static T Instance
     {
-        get
+    get
         {
             lock (m_Lock)
             {
@@ -43,4 +43,5 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             return;
         }
     }
+
 }

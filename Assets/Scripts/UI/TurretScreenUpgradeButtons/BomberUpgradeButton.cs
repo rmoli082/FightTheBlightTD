@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class BomberUpgradeButton : TurretScreenUpgrade
 {
-    public override void FirstUpgrade()
+    protected override void Awake()
     {
-
+        base.Awake();
     }
 
-    public override void SecondUpgrade()
+    public override void BuyUpgrade()
     {
-
-    }
-
-    public override void ThirdUpgrade()
-    {
-
+        if (TurretStats.Instance.GetTurretStats(PlaceableType.bomber.ToString()) >= blueprint.cost)
+        {
+            TurretStats.Instance.bomberPermanentBought[upgradeNumber] = true;
+            TurretStats.Instance.AddTurretKills(PlaceableType.bomber.ToString(), -blueprint.cost);
+            screenData.turretKills.text = TurretStats.Instance.GetTurretStats(PlaceableType.turret.ToString()).ToString();
+            GameEvents.OnSaveInitiated();
+        }
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -7271795496847206505}
   - component: {fileID: -3482491594215725215}
   - component: {fileID: 8288491414575993452}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime Boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -147,9 +147,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -5
       objectReference: {fileID: 0}
+    - target: {fileID: -8051763963591733883, guid: 0a30043444444de40a1f072eecf5af89, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0a30043444444de40a1f072eecf5af89, type: 3}
       propertyPath: m_Name
       value: new_slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0a30043444444de40a1f072eecf5af89, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 963633591556896644, guid: 0a30043444444de40a1f072eecf5af89, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1322170976606968265, guid: 0a30043444444de40a1f072eecf5af89, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3352899286047173837, guid: 0a30043444444de40a1f072eecf5af89, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4055827957445337758, guid: 0a30043444444de40a1f072eecf5af89, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467034720194441767, guid: 0a30043444444de40a1f072eecf5af89, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4585479245022207308, guid: 0a30043444444de40a1f072eecf5af89, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077412232772351612, guid: 0a30043444444de40a1f072eecf5af89, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440999357753003623, guid: 0a30043444444de40a1f072eecf5af89, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6692505490914550920, guid: 0a30043444444de40a1f072eecf5af89, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055006361636027702, guid: 0a30043444444de40a1f072eecf5af89, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881294971424081661, guid: 0a30043444444de40a1f072eecf5af89, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a30043444444de40a1f072eecf5af89, type: 3}

@@ -13,8 +13,12 @@ public class LosePanel : MonoBehaviour
     private void Awake()
     {
         current = SceneManager.GetActiveScene();
+    }
+
+    private void OnEnable()
+    {
         currentReplayCost = replayCost + (LevelManager.Instance.playerStats.continues * replayCost);
-        LevelManager.Instance.sceneData.loseReplayText.text = $"Continue?{System.Environment.NewLine}-§{currentReplayCost}";
+        LevelManager.Instance.sceneData.loseReplayText.text = $"Continue wave?{System.Environment.NewLine}-§{currentReplayCost}";
     }
 
     public void Continue()
@@ -22,8 +26,9 @@ public class LosePanel : MonoBehaviour
         if (Player.Instance.GetGems() >= currentReplayCost)
         {
             Player.Instance.AdjustGems(-currentReplayCost);
-            GameManager.Instance.PausePlay();
+            LevelManager.Instance.AdjustLives(100);
             LevelManager.Instance.sceneData.losePanel.SetActive(false);
+            LevelManager.Instance.playerStats.continues++;
         }
         else
         {
@@ -37,6 +42,7 @@ public class LosePanel : MonoBehaviour
         LevelManager.Instance.sceneData.losePanel.SetActive(false);
         GameManager.Instance.LoadScene(current.name);
         GameManager.Instance.PausePlay();
+        GameEvents.OnGameOverLose();
     }
 
     public void Exit()
@@ -44,5 +50,6 @@ public class LosePanel : MonoBehaviour
         LevelManager.Instance.sceneData.losePanel.SetActive(false);
         GameManager.Instance.LoadScene("MainMenu");
         GameManager.Instance.PausePlay();
+        GameEvents.OnGameOverLose();
     }
 }

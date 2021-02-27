@@ -27,6 +27,7 @@ public class BuildManager : Singleton<BuildManager>
             GameObject turret = Instantiate(selectedTurret.prefab, node.transform.position, Quaternion.identity);
             turret.GetComponent<Placeable>().LocationNode = node;
             node.currentTurret = turret.GetComponent<Placeable>();
+            node.gameObject.GetComponent<Collider>().enabled = false;
             LevelManager.Instance.AdjustGold(-selectedTurret.turretCost);
             Analytics.CustomEvent("TurretPurchase", new Dictionary<string, object>
             {
@@ -34,7 +35,8 @@ public class BuildManager : Singleton<BuildManager>
                 {"Wave", WaveSpawner.Instance.waveNumber },
                 {"Turret Bought", $"{turret.GetComponent<Placeable>().TurretType}"}
             });
-            selectedTurret = null;
+                selectedTurret = null;
+            
         }
         else
         {

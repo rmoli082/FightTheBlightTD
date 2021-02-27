@@ -10,6 +10,8 @@ public class GameEvents : MonoBehaviour
     public static System.Action EnemyKilled;
     public static System.Action WaveStarted;
     public static System.Action WaveEnded;
+    public static System.Action GameOverWin;
+    public static System.Action GameOverLose;
 
     public static void OnSaveInitiated()
     {
@@ -39,5 +41,15 @@ public class GameEvents : MonoBehaviour
     public static void OnWaveEnded()
     {
         WaveEnded?.Invoke();
+    }
+
+    public static void OnGameOverWin()
+    {
+        GameOverWin?.Invoke();
+    }
+
+    public static void OnGameOverLose()
+    {
+        GameOverLose?.Invoke();
     }
 }

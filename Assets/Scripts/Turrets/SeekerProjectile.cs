@@ -8,11 +8,14 @@ public class SeekerProjectile : MonoBehaviour
 
     public Transform target;
 
+    public bool canExplode = false;
+    private float range = 3f;
+
     private void Update()
     {
         if (target == null)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             return;
         }
 
@@ -34,7 +37,11 @@ public class SeekerProjectile : MonoBehaviour
     {
         Enemy e = target.GetComponent<Enemy>();
         e.Damage(turret.DamageAmount, turret.TurretType.ToString());
-        Destroy(this.gameObject);
+        if (canExplode)
+        {
+            Explode(range);
+        }
+        Destroy(gameObject);
         return;
     }
 
@@ -46,5 +53,21 @@ public class SeekerProjectile : MonoBehaviour
     public void SetTarget(Transform _target)
     {
         target = _target;
+    }
+
+    void Explode(float range)
+    {
+        Collider[] exploded = Physics.OverlapSphere(transform.position, range);
+        foreach (Collider c in exploded)
+        {
+            if (c.gameObject.CompareTag("Enemy"))
+            {
+                Enemy e = c.GetComponentInParent<Enemy>();
+                e.Damage(turret.DamageAmount, turret.TurretType.ToString());
+                Destroy(gameObject);
+                return;
+            }
+
+        }
     }
 }
