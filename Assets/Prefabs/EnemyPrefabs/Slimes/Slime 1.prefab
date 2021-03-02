@@ -80,6 +80,8 @@ MonoBehaviour:
   health: 2
   goldReward: 1
   dieEffect: {fileID: 5989568863842805911, guid: 03cb7549079271c408c722ca7701cd62, type: 3}
+  isMiniBoss: 0
+  isBoss: 0
 --- !u!54 &5273711723136883370
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -162,6 +164,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0a30043444444de40a1f072eecf5af89, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0a30043444444de40a1f072eecf5af89, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 963633591556896644, guid: 0a30043444444de40a1f072eecf5af89, type: 3}
       propertyPath: m_Layer

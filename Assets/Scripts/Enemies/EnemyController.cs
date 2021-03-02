@@ -25,7 +25,11 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         if (isStunned && stunTime <= 0)
+        {
             speed = originalSpeed;
+            isStunned = false;
+        }
+            
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
 
@@ -46,6 +50,7 @@ public class EnemyController : MonoBehaviour
         if (waypointIndex >= WaypointManager.Instance.Waypoints.Length)
         {
             LevelManager.Instance.AdjustLives(-(Mathf.CeilToInt(gameObject.GetComponent<Enemy>().health)));
+            WaveSpawner.Instance.livesLostThisWave += (Mathf.CeilToInt(gameObject.GetComponent<Enemy>().health));
             GameManager.Instance.EnemiesRemaining--;
             Destroy(gameObject);
             return;

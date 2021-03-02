@@ -17,6 +17,10 @@ public class Placeable : MonoBehaviour
     private float _damageAmount;
     public float DamageAmount { get => _damageAmount; set => _damageAmount = value; }
 
+    [SerializeField]
+    private int _sellCost;
+    public int SellCost { get => _sellCost; set => _sellCost = value; }
+
 }
 
 public enum PlaceableType { turret, rapid, bomber, seeker, stunner, hero}

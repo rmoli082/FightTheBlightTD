@@ -86,7 +86,7 @@ public class Hero : Placeable
             }
         }
 
-        DamageAmount = 1 + (matchLevel / 3);
+        DamageAmount = 1 + (matchLevel / 4);
     }
     
 }

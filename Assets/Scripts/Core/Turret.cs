@@ -16,6 +16,9 @@ public class Turret : Placeable
     private readonly float turnSpeed = 10f;
     public float fireRate = 1f;
     public float projectileForce = 325f;
+    public float stunPower = 0f;
+    public float stunTime = 0f;
+    public float explodeRange = 0f;
     [SerializeField]
     private float shotCounter = 0;
     public GameObject projectilePrefab;
@@ -156,6 +159,7 @@ public class Turret : Placeable
             LevelManager.Instance.sceneData.soundEffects.PlayOneShot(shotFX);
 
         GameObject bullet = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+        Destroy(bullet, 2f);
 
         if (TurretType == PlaceableType.seeker)
         {
@@ -205,9 +209,20 @@ public class Turret : Placeable
     private GameObject CreateButtons(GameObject button, int index)
     {
         GameObject b = Instantiate(button);
+        TurretUpgradePanels uPanel = b.GetComponentInChildren<TurretUpgradePanels>();
         b.transform.SetParent(LevelManager.Instance.sceneData.turretButtonList);
-        b.GetComponentInChildren<TurretUpgradePanels>().upgradeCost = (int)(turretUpgrades[index].upgradeCost + (slotLevel[index] * turretUpgrades[index].upgradeCost));
-        b.GetComponentInChildren<TurretUpgradePanels>().costSlot.text = b.GetComponentInChildren<TurretUpgradePanels>().upgradeCost.ToString();
+        uPanel.upgradeCost = (int)((((slotLevel[index] * (slotLevel[index] + 1)) / 2) * turretUpgrades[index].upgradeCost) 
+            + turretUpgrades[index].upgradeCost);
+        if (slotLevel[index] >= 5 || slotLevel[0] + slotLevel[1] + slotLevel[2] >= 12)
+        {
+            uPanel.costSlot.text = "MAX";
+            b.GetComponent<Button>().interactable = false;
+        }
+        else
+        {
+            uPanel.costSlot.text = uPanel.upgradeCost.ToString();
+        }
+        
         return b;
     }
 
@@ -249,7 +264,7 @@ public class Turret : Placeable
         }
         if (TurretStats.Instance.bomberPermanentBought[1])
         {
-            projectilePrefab.GetComponent<Projectile>().explodeRange = 4f;
+            explodeRange = 4f;
         }
         if (TurretStats.Instance.bomberPermanentBought[2])
         {
@@ -280,11 +295,10 @@ public class Turret : Placeable
 
     private void GetStunnerPerms()
     {
-        Projectile p = projectilePrefab.GetComponent<Projectile>();
         if (TurretStats.Instance.stunnerPermanentBought[0])
         {
-            p.stunTime = 7;
-            p.stunPower = 2.5f;
+            stunTime = 7;
+            stunPower = 2.5f;
         }
         if (TurretStats.Instance.stunnerPermanentBought[1])
         {
@@ -292,7 +306,7 @@ public class Turret : Placeable
         }
         if (TurretStats.Instance.stunnerPermanentBought[2])
         {
-            p.stunTime = float.PositiveInfinity;
+            stunTime = float.PositiveInfinity;
         }
     }
 

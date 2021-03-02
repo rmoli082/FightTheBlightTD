@@ -49,12 +49,17 @@ MonoBehaviour:
   _locationNode: {fileID: 0}
   _turretType: 2
   _damageAmount: 3
+  _sellCost: 0
   target: {fileID: 0}
   range: 12
   partToRotate: {fileID: 2929416166214317018}
   firePoint: {fileID: 6036395899952368855}
   fireRate: 0.75
   projectileForce: 385
+  stunPower: 0
+  stunTime: 0
+  explodeRange: 2
+  shotCounter: 0
   projectilePrefab: {fileID: 4800236456513058916, guid: 94d4597708ef8194aa634565ebf8903b, type: 3}
   shotFX: {fileID: 8300000, guid: 28b2d6152070b264eb43d2d30c4566d8, type: 3}
   turretUpgrades:

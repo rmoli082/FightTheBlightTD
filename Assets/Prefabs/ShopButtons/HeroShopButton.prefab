@@ -300,7 +300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blueprint:
     prefab: {fileID: 8974315520050402264, guid: c2c38f49bb8669548871f68f600dff49, type: 3}
-    turretCost: 800
+    turretCost: 950
     turretName: 
     turretDescription: 
     turretImage: {fileID: 0}

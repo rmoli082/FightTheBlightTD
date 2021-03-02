@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canExplode: 1
-  explodeRange: 2
+  explodeRange: 4
   stunTime: 0
   stunPower: 0.5
 --- !u!54 &99918386407311545

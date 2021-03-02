@@ -14,6 +14,12 @@ public class WaveSpawner : Singleton<WaveSpawner>
     public int waveNumber = 1;
     public float spawnPause = 0.45f;
 
+    private float healthModifier = 1f;
+    private float speedModifier = 1f;
+    private int perfectStreak = 0;
+    private float goldAdjustment = 1f;
+    public int livesLostThisWave = 0;
+
     protected override void Awake()
     {
         base.Awake();
@@ -34,7 +40,8 @@ public class WaveSpawner : Singleton<WaveSpawner>
         LevelManager.Instance.sceneData.currentWave.text = $"WAVE {waveNumber}";
         for (int i = 0; i < order.Length; i++)
         {
-            SpawnEnemy(i);
+            GameObject enemy = SpawnEnemy(i);
+            ApplyModifiers(enemy);
             yield return new WaitForSeconds(spawnPause);
         }
 
@@ -70,18 +77,94 @@ public class WaveSpawner : Singleton<WaveSpawner>
             return null;
         }
         GameObject e = Instantiate(enemies[enemy], transform.position, Quaternion.identity);
+        Enemy en = e.GetComponent<Enemy>();
+        if (en.bossAlert)
+            LevelManager.Instance.sceneData.soundEffects.PlayOneShot(en.bossAlert);
         GameManager.Instance.EnemiesRemaining++;
         Vector3 pos = transform.position;
         pos.y = 0;
         transform.position = pos;
-        GameEvents.OnEnemySpawned(e.GetComponent<Enemy>());
+        GameEvents.OnEnemySpawned(en);
         return e;
     }
 
     private void WaveEndedStuff()
     {
         LevelManager.Instance.sceneData.nextWaveButton.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
+        LevelManager.Instance.sceneData.nextWaveButton.GetComponentInChildren<TextMeshProUGUI>().text = "Next Wave";
         LevelManager.Instance.sceneData.nextWaveButton.GetComponentInChildren<TextMeshProUGUI>().color = new Color(0, 0, 0, 1f);
-        LevelManager.Instance.AdjustGold(LevelManager.Instance.levelData.waveGoldReward);
+        SetDifficultyModifiers();
+        LevelManager.Instance.AdjustGold(Mathf.CeilToInt(LevelManager.Instance.levelData.waveGoldReward * goldAdjustment));
+        livesLostThisWave = 0;
+        goldAdjustment = 1f;
+    }
+
+    private void SetDifficultyModifiers()
+    {
+        if (livesLostThisWave == 0)
+        {
+            healthModifier += 0.1f;
+            speedModifier += 0.05f;
+            perfectStreak++;
+            Debug.Log($"No lives lost");
+        }
+        else if (livesLostThisWave <= 3)
+        {
+            healthModifier += 0.05f;
+            speedModifier += 0.05f;
+            perfectStreak = 0;
+            Debug.Log($"3 or less lives lost");
+        }
+        else if (livesLostThisWave <= 6)
+        {
+            perfectStreak = 0;
+            Debug.Log($"6 or less lives lost");
+        }
+        else if (livesLostThisWave <= 9)
+        {
+            perfectStreak = 0;
+            healthModifier -= 0.05f;
+            speedModifier -= 0.05f;
+            goldAdjustment += 0.25f;
+            Debug.Log($"9 or less lives lost");
+        }
+        else if (livesLostThisWave >= 10)
+        {
+            perfectStreak = 0;
+            healthModifier -= 0.1f;
+            speedModifier -= 0.1f;
+            goldAdjustment += 0.5f;
+            Debug.Log($"10 or more lives lost");
+        }
+
+        Debug.Log($"Health modifier: {healthModifier}");
+        Debug.Log($"Speed modifier: {speedModifier}");
+        if (perfectStreak == 5)
+        {
+            goldAdjustment += 1.5f;
+            perfectStreak = 0;
+        }
+    }
+
+    private void ApplyModifiers(GameObject enemy)
+    {
+        ApplyHealthModifier(enemy);
+        ApplySpeedModifier(enemy);
+    }
+
+    private void ApplyHealthModifier(GameObject enemy)
+    {
+        Enemy e = enemy.GetComponent<Enemy>();
+        if (e.isBoss || e.isMiniBoss)
+            return;
+        e.health *= healthModifier;
+    }
+
+    private void ApplySpeedModifier(GameObject enemy)
+    {
+        Enemy e = enemy.GetComponent<Enemy>();
+        if (e.isBoss || e.isMiniBoss)
+            return;
+        enemy.GetComponent<EnemyController>().speed *= speedModifier;
     }
 }

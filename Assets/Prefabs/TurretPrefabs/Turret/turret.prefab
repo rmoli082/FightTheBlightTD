@@ -48,13 +48,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _locationNode: {fileID: 0}
   _turretType: 0
-  _damageAmount: 2
+  _damageAmount: 1
+  _sellCost: 0
   target: {fileID: 0}
   range: 8
   partToRotate: {fileID: 2285667010071133279}
   firePoint: {fileID: 2285667009619601143}
   fireRate: 1
   projectileForce: 300
+  shotCounter: 0
   projectilePrefab: {fileID: 1765683876587122627, guid: 17410fcdfd5010945ab770070a75bfa0, type: 3}
   shotFX: {fileID: 8300000, guid: 28b2d6152070b264eb43d2d30c4566d8, type: 3}
   turretUpgrades:

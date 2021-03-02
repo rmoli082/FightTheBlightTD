@@ -9,9 +9,7 @@ public class Projectile : MonoBehaviour
     Collider coll;
 
     public bool canExplode = false;
-    public float explodeRange = 0f;
-    public float stunTime = 0f;
-    public float stunPower = 2f;
+    public bool isStunner = true;
 
     private static object mLock = new object();
 
@@ -45,18 +43,19 @@ public class Projectile : MonoBehaviour
                 EnemyController ec = other.GetComponent<EnemyController>();
                 Enemy e = other.GetComponent<Enemy>();
 
-                if (turret.TurretType == PlaceableType.stunner && !ec.isStunned)
+                if (isStunner && !ec.isStunned)
                 {
                     Stun(ec);
-                   Destroy(gameObject);
+                    Destroy(gameObject);
                     return;
                 }
                 else
                 {
+                    Turret exploder = (Turret)turret;
                     e.Damage(turret.DamageAmount, turret.TurretType.ToString());
                     if (canExplode)
                     {
-                        Explode(explodeRange);
+                        Explode(exploder.explodeRange);
                     }
                     Destroy(gameObject);
                 }
@@ -66,32 +65,24 @@ public class Projectile : MonoBehaviour
 
     void Stun(EnemyController ec)
     {
-        ec.speed /= stunPower;
+        Turret stunner = (Turret)turret;
+        ec.speed /= stunner.stunPower;
         ec.isStunned = true;
-        ec.stunTime = stunTime;
+        ec.stunTime = stunner.stunTime;
     }
 
     void Explode(float range)
     {
-        Collider[] exploded = Physics.OverlapSphere(transform.position, range);
+        Collider[] exploded = Physics.OverlapSphere(this.transform.position, range);
+
         foreach (Collider c in exploded)
         {
             if (c.gameObject.CompareTag("Enemy"))
             {
-                Enemy e = c.GetComponentInParent<Enemy>();
+                Enemy e = c.GetComponent<Enemy>();
                 e.Damage(turret.DamageAmount, turret.TurretType.ToString());
-                Destroy(gameObject);
-                return;
-            }
-            
+            }  
         }
     }
 
-    /*
-    private IEnumerator DeactivateBullet(float time)
-    {
-        yield return new WaitForSeconds(time);
-        this.gameObject.SetActive(false);
-    }
-    */
 }

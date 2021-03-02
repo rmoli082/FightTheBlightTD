@@ -26,6 +26,7 @@ public class BuildManager : Singleton<BuildManager>
         {
             GameObject turret = Instantiate(selectedTurret.prefab, node.transform.position, Quaternion.identity);
             turret.GetComponent<Placeable>().LocationNode = node;
+            turret.GetComponent<Placeable>().SellCost = selectedTurret.turretCost / 2;
             node.currentTurret = turret.GetComponent<Placeable>();
             node.gameObject.GetComponent<Collider>().enabled = false;
             LevelManager.Instance.AdjustGold(-selectedTurret.turretCost);

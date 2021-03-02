@@ -9,8 +9,9 @@ public class RapidUpgrade : TurretUpgradePanels
     {
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
-            LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.fireRate *= 1.4f;
-            LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.slotLevel[0]++;
+            upgradePanel.turretToUpgrade.fireRate *= 1.2f;
+            upgradePanel.turretToUpgrade.slotLevel[0]++;
+            upgradePanel.turretToUpgrade.SellCost = upgradePanel.turretToUpgrade.SellCost + (upgradeCost / 2);
             LevelManager.Instance.AdjustGold(-upgradeCost);
             LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
             Analytics.CustomEvent("First Rapid Upgrade Bought");
@@ -21,8 +22,9 @@ public class RapidUpgrade : TurretUpgradePanels
     {
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
-            LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.DamageAmount *= 1.5f;
-            LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.slotLevel[1]++;
+            upgradePanel.turretToUpgrade.DamageAmount *= 1.5f;
+            upgradePanel.turretToUpgrade.slotLevel[1]++;
+            upgradePanel.turretToUpgrade.SellCost = upgradePanel.turretToUpgrade.SellCost + (upgradeCost / 2);
             LevelManager.Instance.AdjustGold(-upgradeCost);
             LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
             Analytics.CustomEvent("Second Rapid Upgrade Bought");
@@ -33,8 +35,9 @@ public class RapidUpgrade : TurretUpgradePanels
     {
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
-            LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.projectileForce *= 1.5f;
-            LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>().turretToUpgrade.slotLevel[2]++;
+            upgradePanel.turretToUpgrade.projectileForce *= 1.25f;
+            upgradePanel.turretToUpgrade.slotLevel[2]++;
+            upgradePanel.turretToUpgrade.SellCost = upgradePanel.turretToUpgrade.SellCost + (upgradeCost / 2);
             LevelManager.Instance.AdjustGold(-upgradeCost);
             LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
             Analytics.CustomEvent("Third Rapid Upgrade Bought");

@@ -10,6 +10,10 @@ public class Enemy : MonoBehaviour
     public GameObject dieEffect;
 
     private bool isAlive = true;
+    public bool isMiniBoss = false;
+    public bool isBoss = false;
+
+    public AudioClip bossAlert;
 
 
     public void Damage(float damageAmount, string turretType)

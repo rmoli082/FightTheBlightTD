@@ -27,6 +27,7 @@ public class LosePanel : MonoBehaviour
         {
             Player.Instance.AdjustGems(-currentReplayCost);
             LevelManager.Instance.AdjustLives(100);
+            LevelManager.Instance.AdjustGold(650);
             LevelManager.Instance.sceneData.losePanel.SetActive(false);
             LevelManager.Instance.playerStats.continues++;
         }

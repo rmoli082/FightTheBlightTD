@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour
 {
@@ -23,19 +24,22 @@ public class Node : MonoBehaviour
 
     private void OnMouseUp()
     {
-        try
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
-            if (BuildManager.Instance.selectedTurret == null || BuildManager.Instance.selectedTurret.Equals(null)
-                || currentTurret != null)
-                return;
-            else
+            try
             {
-                BuildManager.Instance.BuildSelectedPlaceable(this);
+                if (BuildManager.Instance.selectedTurret == null || BuildManager.Instance.selectedTurret.Equals(null)
+                    || currentTurret != null)
+                    return;
+                else
+                {
+                    BuildManager.Instance.BuildSelectedPlaceable(this);
+                }
             }
-        }
-        catch (NullReferenceException e)
-        {
-            Debug.Log(e.Message);
+            catch (ArgumentException e)
+            {
+                Debug.Log(e.Message);
+            }
         }
         
     }

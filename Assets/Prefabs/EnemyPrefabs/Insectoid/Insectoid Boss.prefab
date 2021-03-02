@@ -46,9 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 964e8f5c7f3063c4691529045f91973b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 150
-  goldReward: 10
+  health: 100
+  goldReward: 125
   dieEffect: {fileID: 5989568863842805911, guid: 03cb7549079271c408c722ca7701cd62, type: 3}
+  isMiniBoss: 1
+  isBoss: 0
+  bossAlert: {fileID: 8300000, guid: af7a8aaf5bc23aa49a924748fc1aea28, type: 3}
 --- !u!114 &9818835516160177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,7 +66,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   waypointIndex: 0
-  speed: 5
+  speed: 8
   isStunned: 0
   stunTime: 0
 --- !u!136 &995898142015723186

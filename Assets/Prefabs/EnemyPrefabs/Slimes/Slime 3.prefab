@@ -77,9 +77,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 964e8f5c7f3063c4691529045f91973b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 4
+  health: 8
   goldReward: 3
   dieEffect: {fileID: 5989568863842805911, guid: 03cb7549079271c408c722ca7701cd62, type: 3}
+  isMiniBoss: 0
+  isBoss: 0
 --- !u!54 &-2142958442181007566
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -162,6 +164,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0a30043444444de40a1f072eecf5af89, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0a30043444444de40a1f072eecf5af89, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 963633591556896644, guid: 0a30043444444de40a1f072eecf5af89, type: 3}
       propertyPath: m_Layer
