@@ -17,11 +17,16 @@ public class LevelManager : Singleton<LevelManager>
         SetUpShop();
         UpdateStats();
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
     }
 
     private void Start()
     {
         GameEvents.WaveEnded += CheckForWin;
+        if (GameManager.Instance.IsFirstRun)
+        {
+            LoadTutorial();
+        }
     }
 
     public int GetLives()
@@ -84,6 +89,11 @@ public class LevelManager : Singleton<LevelManager>
     private void UpdateGold()
     {
         sceneData.playerGold.text = playerStats.playerGold.ToString() + " GOLD";
+    }
+
+    private void LoadTutorial()
+    {
+        TutorialManager.Instance.StartTutorial();
     }
 
     private void CheckForWin()

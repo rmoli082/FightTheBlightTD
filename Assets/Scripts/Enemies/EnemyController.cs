@@ -58,6 +58,22 @@ public class EnemyController : MonoBehaviour
         target = WaypointManager.Instance.Waypoints[waypointIndex];
     }
 
+    public void GetNearestWaypoint()
+    {
+        float shortestDistance = Mathf.Infinity;
+        foreach (Transform waypoint in WaypointManager.Instance.Waypoints)
+        {
+            float distanceToWaypoint = Vector3.Distance(transform.position, waypoint.position);
+            if (distanceToWaypoint < shortestDistance )
+            {
+                shortestDistance = distanceToWaypoint;
+                target = waypoint;
+                waypointIndex = waypoint.GetSiblingIndex();
+            }        
+        }
+
+    }
+
     private void LookAtTarget()
     {
         Vector3 dir = target.position - transform.position;

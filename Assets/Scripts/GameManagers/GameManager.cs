@@ -9,6 +9,11 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private bool isPaused = false;
     public bool IsPaused { get => isPaused; }
+
+    private bool isFirstRun = true;
+    public bool IsFirstRun { get => isFirstRun; }
+
+    [SerializeField]
     private SceneData data;
 
     public int EnemiesRemaining;
@@ -19,7 +24,15 @@ public class GameManager : Singleton<GameManager>
         DontDestroyOnLoad(gameObject);
 
         data = GameObject.FindObjectOfType<SceneData>();
-        
+
+        if (PlayerPrefs.HasKey("FirstRunComplete"))
+        {
+            isFirstRun = false;
+        }
+        else
+        {
+            isFirstRun = true;
+        }
     }
 
     private void Start()
