@@ -12,9 +12,9 @@ public class Enemy : MonoBehaviour
     private bool isAlive = true;
     public bool isMiniBoss = false;
     public bool isBoss = false;
-    public int trojanHorseSpawns = 0;
 
     public AudioClip bossAlert;
+    public GameObject bossSpawn;
 
 
     public void Damage(float damageAmount, string turretType)
@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
             {
                 if (isBoss)
                 {
-                    StartCoroutine(TrojanHorse(trojanHorseSpawns, turretType));
+                    StartCoroutine(TrojanHorse(turretType));
                 }
             }
             else
@@ -56,17 +56,18 @@ public class Enemy : MonoBehaviour
 
     }
 
-    private IEnumerator TrojanHorse(int spawnAmount, string turretType)
+    private IEnumerator TrojanHorse(string turretType)
     {
+        int spawnAmount = Random.Range(5, 15);
         gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
         gameObject.GetComponent<EnemyController>().enabled = false;
         gameObject.tag = "Waypoint";
         for (int i = 0; i < spawnAmount; i++)
         {
-            GameObject b = Instantiate(LevelManager.Instance.levelData.enemies[1], transform.position, Quaternion.identity);
+            GameObject b = Instantiate(LevelManager.Instance.levelData.bossSpawn, transform.position, Quaternion.identity);
             b.GetComponent<EnemyController>().GetNearestWaypoint();
             GameManager.Instance.EnemiesRemaining++;
-            yield return new WaitForSeconds(0.35f);
+            yield return new WaitForSeconds(0.55f);
         }
         GameManager.Instance.EnemiesRemaining--;
         yield return new WaitUntil(() => GameManager.Instance.EnemiesRemaining == 0);

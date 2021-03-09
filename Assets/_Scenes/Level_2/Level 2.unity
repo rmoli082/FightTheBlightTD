@@ -4650,6 +4650,10 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetMusicVol
       objectReference: {fileID: 0}
+    - target: {fileID: 7253883537510380800, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -5.000046
+      objectReference: {fileID: 0}
     - target: {fileID: 7253883537539938129, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -4678,6 +4682,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4278190080
       objectReference: {fileID: 0}
+    - target: {fileID: 7253883538170682893, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.0000305
+      objectReference: {fileID: 0}
     - target: {fileID: 7253883538214292175, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -4692,7 +4700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7253883538253672255, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.2000732
+      value: 2.2000122
       objectReference: {fileID: 0}
     - target: {fileID: 7253883538270031333, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
       propertyPath: m_Name
@@ -4782,6 +4790,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7253883538541916753, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.0000305
+      objectReference: {fileID: 0}
     - target: {fileID: 7253883538748856891, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -4817,6 +4829,14 @@ PrefabInstance:
     - target: {fileID: 7253883538837948310, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253883538881466686, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253883538882906837, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -5.000046
       objectReference: {fileID: 0}
     - target: {fileID: 7253883539340013915, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
       propertyPath: m_fontColor.b

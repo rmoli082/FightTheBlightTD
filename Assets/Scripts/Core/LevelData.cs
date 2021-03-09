@@ -21,6 +21,8 @@ public class LevelData : ScriptableObject
     [Header("Level Enemies")]
     public GameObject[] enemies;
 
+    public GameObject bossSpawn;
+
     [Header("Level Rewards")]
     public int waveGoldReward;
 }
