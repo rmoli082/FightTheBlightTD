@@ -10,6 +10,7 @@ public class WinPanel : MonoBehaviour
     private void Awake()
     {
         current = SceneManager.GetActiveScene();
+        PlayerPrefs.SetInt($"{current} Completed", 1);
     }
     public void Replay()
     {

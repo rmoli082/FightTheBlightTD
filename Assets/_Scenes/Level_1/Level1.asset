@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveData: {fileID: 4900000, guid: 2c4b59adb93bdbe43bfe76b942253799, type: 3}
   winGems: 100
-  replayGems: 0
+  replayGems: 100
   nodeMaterial: {fileID: 2100000, guid: 36d268a2d69e4f24f8fedb010203d6fe, type: 2}
   planeMaterial: {fileID: 2100000, guid: 15ad27b2cdb09e9439131a8af452648e, type: 2}
   backgroundMusic: {fileID: 8300000, guid: ebaaab5cdd8e1304f9f4e24881505a82, type: 3}

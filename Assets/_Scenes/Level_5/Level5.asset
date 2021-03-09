@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb2c9348a5fdbcb40a91e300cd76f51f, type: 3}
+  m_Name: Level5
+  m_EditorClassIdentifier: 
+  waveData: {fileID: 4900000, guid: 2c4b59adb93bdbe43bfe76b942253799, type: 3}
+  winGems: 100
+  replayGems: 100
+  nodeMaterial: {fileID: 2100000, guid: 87c7862fe9d0f4a4cb885ada2595d559, type: 2}
+  planeMaterial: {fileID: 2100000, guid: 8eac1b268b1d11f46a2630a1b7f52002, type: 2}
+  backgroundMusic: {fileID: 0}
+  shopButtons:
+  - {fileID: 8459977177830445553, guid: 1c6d846b8d13fe1498db8c5ccdc6379d, type: 3}
+  - {fileID: 8459977177830445553, guid: 8005990eaf0fe8d46b0f3e919de34d8f, type: 3}
+  - {fileID: 8459977177830445553, guid: b32404368844b28418ffbb7ac3f5623a, type: 3}
+  - {fileID: 8459977177830445553, guid: cc0edc27a2796934ea444d49620ec7be, type: 3}
+  - {fileID: 8459977177830445553, guid: 00429628c4569b247ba725211b3cf308, type: 3}
+  - {fileID: 8459977177830445553, guid: 64dec5b226193d648aa1a6bdab0d680c, type: 3}
+  enemies:
+  - {fileID: 2840585089550225269, guid: 16e66ed2cd0e851449385e2857ed2e2c, type: 3}
+  - {fileID: 2840585089550225269, guid: fd40204b0195b2d4a85087420f325dea, type: 3}
+  - {fileID: 1225133467852735319, guid: 5254360aa9798f743a324a77c42ae521, type: 3}
+  - {fileID: 2840585089550225269, guid: 5f0d322e1fa5d9540a87f3708c2b4aa0, type: 3}
+  - {fileID: 5057737588349552895, guid: 875d411ed1903384089870d60c42b6c3, type: 3}
+  - {fileID: 1225133467852735319, guid: f5a8aa049b1518443bfe0ed194458766, type: 3}
+  - {fileID: 2840585089550225269, guid: 55abf37e7d2861b4499165275d2d56bf, type: 3}
+  - {fileID: 1225133467852735319, guid: 01a3fbf0042e6cb46a71691413ba6923, type: 3}
+  - {fileID: 5057737588349552895, guid: 2f65b45624867fc4b9751a8349861459, type: 3}
+  - {fileID: 9126306715050764256, guid: da32cfd20425d294faf5624789cfa6d5, type: 3}
+  - {fileID: 1225133467852735319, guid: 36f7b0a3c4f356e49aba0afa26dd34e1, type: 3}
+  - {fileID: 5057737588349552895, guid: 1effe6ce74fadc2429c3f05ef3da94e3, type: 3}
+  - {fileID: 9126306715050764256, guid: e33311315f045b64798e40361ec5d328, type: 3}
+  - {fileID: 9126306715050764256, guid: f1dd32e92ac241a4aad3e6682d91c5f0, type: 3}
+  - {fileID: 5057737588349552895, guid: 83555fb2a61449d448e6f28b04257172, type: 3}
+  - {fileID: 9126306715050764256, guid: 8a0158f687fdc0046a662b3d05b04739, type: 3}
+  - {fileID: 2840585089550225269, guid: 3dde302bfb9581546ad69767760d8a88, type: 3}
+  - {fileID: 1225133467852735319, guid: 3080abd567dbb99438a47cf62bc2f90e, type: 3}
+  - {fileID: 5057737588349552895, guid: f864e17c06b4cae4787dd7cfcbedd2b2, type: 3}
+  - {fileID: 9126306715050764256, guid: f1387a40ef26cd94a994a173f974e005, type: 3}
+  waveGoldReward: 125

@@ -19,5 +19,7 @@ public class NextWaveButton : MonoBehaviour
     {
         LevelManager.Instance.sceneData.nextWaveButton.GetComponentInChildren<TextMeshProUGUI>().color = new Color(0, 0, 0, 0f);
         LevelManager.Instance.sceneData.nextWaveButton.GetComponent<Image>().color = new Color(0, 0, 0, 0f);
+        LevelManager.Instance.sceneData.greenArrow.enabled = false;
+        LevelManager.Instance.sceneData.redArrow.enabled = false;
     }
 }

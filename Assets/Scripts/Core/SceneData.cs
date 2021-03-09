@@ -12,6 +12,8 @@ public class SceneData : MonoBehaviour
     [Header("Level Decorations")]
     public GameObject plane;
     public GameObject nodes;
+    public Canvas greenArrow;
+    public Canvas redArrow;
 
     [Header("On Screen Buttons")]
     public GameObject nextWaveButton;
