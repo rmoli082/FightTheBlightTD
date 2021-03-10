@@ -8052,6 +8052,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 535167623}
     - target: {fileID: 6806346411100390445, guid: d2b0c38e05b8c0d4ab0da7364ab0119e, type: 3}
+      propertyPath: streakPopup
+      value: 
+      objectReference: {fileID: 7253883538609260754}
+    - target: {fileID: 6806346411100390445, guid: d2b0c38e05b8c0d4ab0da7364ab0119e, type: 3}
       propertyPath: soundEffects
       value: 
       objectReference: {fileID: 1490420932}
@@ -8206,6 +8210,11 @@ PrefabInstance:
       objectReference: {fileID: 458329675}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
+--- !u!1 &7253883538609260754 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6618372117112725672, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
+  m_PrefabInstance: {fileID: 7253883538609260753}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8094898799213193257
 PrefabInstance:
   m_ObjectHideFlags: 0

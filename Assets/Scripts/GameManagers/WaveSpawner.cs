@@ -103,20 +103,22 @@ public class WaveSpawner : Singleton<WaveSpawner>
     {
         if (livesLostThisWave == 0)
         {
-            healthModifier += 0.1f;
-            speedModifier += 0.05f;
+            healthModifier += 0.15f;
+            speedModifier += 0.15f;
+            goldAdjustment += 1f;
             perfectStreak++;
             Debug.Log($"No lives lost");
         }
         else if (livesLostThisWave <= 3)
         {
-            healthModifier += 0.05f;
-            speedModifier += 0.05f;
+            healthModifier += 0.1f;
+            speedModifier += 0.1f;
             perfectStreak = 0;
             Debug.Log($"3 or less lives lost");
         }
         else if (livesLostThisWave <= 6)
         {
+            healthModifier += 0.05f;
             perfectStreak = 0;
             Debug.Log($"6 or less lives lost");
         }
@@ -142,6 +144,8 @@ public class WaveSpawner : Singleton<WaveSpawner>
         if (perfectStreak == 5)
         {
             goldAdjustment += 1.5f;
+            LevelManager.Instance.AdjustLives(5);
+            StartCoroutine(PopupStreakNotice());
             perfectStreak = 0;
         }
     }
@@ -166,5 +170,12 @@ public class WaveSpawner : Singleton<WaveSpawner>
         if (e.isBoss || e.isMiniBoss)
             return;
         enemy.GetComponent<EnemyController>().speed *= speedModifier;
+    }
+
+    private IEnumerator PopupStreakNotice()
+    {
+        LevelManager.Instance.sceneData.streakPopup.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        LevelManager.Instance.sceneData.streakPopup.SetActive(false);
     }
 }

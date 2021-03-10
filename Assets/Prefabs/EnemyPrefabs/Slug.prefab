@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 777983767873753516}
   - component: {fileID: 4465899169374001592}
   - component: {fileID: 8252485340965395375}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slug
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 964e8f5c7f3063c4691529045f91973b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 75
+  health: 80
   goldReward: 100
   dieEffect: {fileID: 5989568863842805911, guid: 03cb7549079271c408c722ca7701cd62, type: 3}
   isMiniBoss: 1
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   waypointIndex: 0
-  speed: 5
+  speed: 9
   isStunned: 0
   stunTime: 0
 --- !u!136 &8252485340965395375
@@ -147,9 +147,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5117700066308340382, guid: 4ba0e607cdbb8434aa451099c0a0fc5e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -1018664272722485354, guid: 4ba0e607cdbb8434aa451099c0a0fc5e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4ba0e607cdbb8434aa451099c0a0fc5e, type: 3}
       propertyPath: m_Name
       value: slug
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4ba0e607cdbb8434aa451099c0a0fc5e, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ba0e607cdbb8434aa451099c0a0fc5e, type: 3}

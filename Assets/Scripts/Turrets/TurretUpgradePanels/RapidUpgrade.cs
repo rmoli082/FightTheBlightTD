@@ -22,7 +22,7 @@ public class RapidUpgrade : TurretUpgradePanels
     {
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
-            upgradePanel.turretToUpgrade.DamageAmount *= 1.5f;
+            upgradePanel.turretToUpgrade.DamageAmount *= 1.25f;
             upgradePanel.turretToUpgrade.slotLevel[1]++;
             upgradePanel.turretToUpgrade.SellCost = upgradePanel.turretToUpgrade.SellCost + (upgradeCost / 2);
             LevelManager.Instance.AdjustGold(-upgradeCost);
@@ -35,7 +35,7 @@ public class RapidUpgrade : TurretUpgradePanels
     {
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
-            upgradePanel.turretToUpgrade.projectileForce *= 1.25f;
+            upgradePanel.turretToUpgrade.projectileForce *= 1.15f;
             upgradePanel.turretToUpgrade.slotLevel[2]++;
             upgradePanel.turretToUpgrade.SellCost = upgradePanel.turretToUpgrade.SellCost + (upgradeCost / 2);
             LevelManager.Instance.AdjustGold(-upgradeCost);

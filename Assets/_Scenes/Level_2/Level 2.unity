@@ -1952,6 +1952,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1060039518}
     - target: {fileID: 6806346411100390445, guid: d2b0c38e05b8c0d4ab0da7364ab0119e, type: 3}
+      propertyPath: streakPopup
+      value: 
+      objectReference: {fileID: 1060039537}
+    - target: {fileID: 6806346411100390445, guid: d2b0c38e05b8c0d4ab0da7364ab0119e, type: 3}
       propertyPath: soundEffects
       value: 
       objectReference: {fileID: 965236674}
@@ -4638,6 +4642,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6618372117112725672, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7253883537470024946, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
@@ -4682,6 +4690,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4278190080
       objectReference: {fileID: 0}
+    - target: {fileID: 7253883538062959693, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.25268555
+      objectReference: {fileID: 0}
     - target: {fileID: 7253883538170682893, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -1
@@ -4700,7 +4712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7253883538253672255, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.2000122
+      value: 2.1999512
       objectReference: {fileID: 0}
     - target: {fileID: 7253883538270031333, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
       propertyPath: m_Name
@@ -4794,6 +4806,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 7253883538737139294, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.25268555
+      objectReference: {fileID: 0}
     - target: {fileID: 7253883538748856891, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -4837,6 +4853,14 @@ PrefabInstance:
     - target: {fileID: 7253883538882906837, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -5.000061
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253883539206875400, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -20.983887
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253883539206875400, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 14.337402
       objectReference: {fileID: 0}
     - target: {fileID: 7253883539340013915, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
       propertyPath: m_fontColor.b
@@ -4885,6 +4909,10 @@ PrefabInstance:
     - target: {fileID: 7253883539447464914, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253883539447464915, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -19.5542
       objectReference: {fileID: 0}
     - target: {fileID: 7253883539455297537, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
       propertyPath: m_IsActive
@@ -5041,6 +5069,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1060039537 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6618372117112725672, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
+  m_PrefabInstance: {fileID: 1060039517}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1062895831
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5f5acaf5dd0408e4ba945dc6cdf0c2a6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -223,11 +223,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blueprint:
-    prefab: {fileID: 8974315520050402264, guid: c2c38f49bb8669548871f68f600dff49, type: 3}
+    prefab: {fileID: 4374126627709778673, guid: 9957f42a62384f745995d2db45a32cc9, type: 3}
     turretCost: 0
     turretName: Hero
     turretDescription: Deals a small amount of damage to each enemy spawned
-    turretImage: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    turretImage: {fileID: 21300000, guid: 5f5acaf5dd0408e4ba945dc6cdf0c2a6, type: 3}
   upgradeButtons: []
   screenData: {fileID: 0}
 --- !u!1 &8459977177830445553

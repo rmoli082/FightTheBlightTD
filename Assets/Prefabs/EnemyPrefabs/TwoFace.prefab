@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9111312895078284630}
   - component: {fileID: 8210410881360806075}
   - component: {fileID: 7283786176554060927}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TwoFace
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   waypointIndex: 0
-  speed: 8
+  speed: 11
   isStunned: 0
   stunTime: 0
 --- !u!136 &7283786176554060927
@@ -150,6 +150,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 815a2cea928d113499082915ff380b1b, type: 3}
       propertyPath: m_Name
       value: twoface
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 815a2cea928d113499082915ff380b1b, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 815a2cea928d113499082915ff380b1b, type: 3}

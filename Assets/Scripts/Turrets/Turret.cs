@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -13,7 +14,7 @@ public class Turret : Placeable
     public float range = 6f;
     public Transform partToRotate;
     public Transform firePoint;
-    private readonly float turnSpeed = 10f;
+    private readonly float turnSpeed = 20f;
     public float fireRate = 1f;
     public float projectileForce = 325f;
     public float stunPower = 0f;
@@ -122,20 +123,28 @@ public class Turret : Placeable
             }
         }
 
-        if (TurretType == PlaceableType.stunner && (nearestEnemy == null 
+        try
+        {
+            if (TurretType == PlaceableType.stunner && (nearestEnemy == null
             || nearestEnemy.GetComponent<EnemyController>().isStunned))
-        {
-            SetTarget(null);
+            {
+                SetTarget(null);
+            }
+            else if (nearestEnemy != null && shortestDistance <= range)
+            {
+                SetTarget(nearestEnemy.transform);
+
+            }
+            else
+            {
+                SetTarget(null);
+            }
         }
-        else if (nearestEnemy != null && shortestDistance <= range)
+        catch (NullReferenceException e)
         {
-            SetTarget(nearestEnemy.transform);
-            
+            Debug.Log(e);
         }
-        else
-        {
-            SetTarget(null);
-        }
+        
 
         
     }

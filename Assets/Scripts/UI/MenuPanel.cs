@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class MenuPanel : MonoBehaviour
 {
@@ -11,12 +12,14 @@ public class MenuPanel : MonoBehaviour
     public void MainMenu()
     {
         GameManager.Instance.LoadScene(mainMenu);
+        Analytics.CustomEvent("Level exited early");
         GameManager.Instance.PausePlay();
     }
 
     public void LevelSelect()
     {
         GameManager.Instance.LoadScene(levelSelect);
+        Analytics.CustomEvent("Level exited early");
         GameManager.Instance.PausePlay();
     }
 

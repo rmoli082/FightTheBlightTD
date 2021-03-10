@@ -9,7 +9,7 @@ public class StunnerUpgrade : TurretUpgradePanels
     {
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
-            upgradePanel.turretToUpgrade.stunPower *= 1.3f;
+            upgradePanel.turretToUpgrade.stunPower *= 1.15f;
             upgradePanel.turretToUpgrade.slotLevel[0]++;
             upgradePanel.turretToUpgrade.SellCost = upgradePanel.turretToUpgrade.SellCost + (upgradeCost / 2);
             LevelManager.Instance.AdjustGold(-upgradeCost);
@@ -22,7 +22,7 @@ public class StunnerUpgrade : TurretUpgradePanels
     {
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
-            upgradePanel.turretToUpgrade.stunTime *= 1.25f;
+            upgradePanel.turretToUpgrade.stunTime *= 1.1f;
             upgradePanel.turretToUpgrade.slotLevel[1]++;
             upgradePanel.turretToUpgrade.SellCost = upgradePanel.turretToUpgrade.SellCost + (upgradeCost / 2);
             LevelManager.Instance.AdjustGold(-upgradeCost);
@@ -35,7 +35,7 @@ public class StunnerUpgrade : TurretUpgradePanels
     {
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
-            upgradePanel.turretToUpgrade.range *= 1.2f;
+            upgradePanel.turretToUpgrade.range *= 1.15f;
             upgradePanel.turretToUpgrade.slotLevel[2]++;
             upgradePanel.turretToUpgrade.SellCost = upgradePanel.turretToUpgrade.SellCost + (upgradeCost / 2);
             LevelManager.Instance.AdjustGold(-upgradeCost);
