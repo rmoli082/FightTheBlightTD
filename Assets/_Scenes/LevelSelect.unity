@@ -523,6 +523,8 @@ MonoBehaviour:
   shopListing: {fileID: 0}
   plane: {fileID: 0}
   nodes: {fileID: 0}
+  greenArrow: {fileID: 0}
+  redArrow: {fileID: 0}
   nextWaveButton: {fileID: 0}
   playPauseButton: {fileID: 0}
   backgroundMusic: {fileID: 0}
@@ -1664,11 +1666,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8720718751620996255, guid: 04c7c03133a9b4348aeeb8523a564e9d, type: 3}
       propertyPath: m_text
-      value: Beach
+      value: The Pond
       objectReference: {fileID: 0}
     - target: {fileID: 8720718751620996255, guid: 04c7c03133a9b4348aeeb8523a564e9d, type: 3}
       propertyPath: m_fontSize
-      value: 64.45
+      value: 48.35
       objectReference: {fileID: 0}
     - target: {fileID: 8720718751620996255, guid: 04c7c03133a9b4348aeeb8523a564e9d, type: 3}
       propertyPath: m_fontSizeMax
@@ -2392,7 +2394,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 53.9
+  m_fontSize: 53.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
