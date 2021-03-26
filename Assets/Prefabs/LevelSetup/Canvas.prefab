@@ -2121,7 +2121,7 @@ GameObject:
   - component: {fileID: 1904400442709403581}
   - component: {fileID: 7102664701835826490}
   - component: {fileID: 6586593586867152039}
-  - component: {fileID: 5884210686102023691}
+  - component: {fileID: 1474879792992782982}
   m_Layer: 5
   m_Name: ContinueButtonAdSupported
   m_TagString: Untagged
@@ -2231,8 +2231,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5884210686102023691}
-        m_TargetAssemblyTypeName: AdMobRewardedAdManager, Assembly-CSharp
+      - m_Target: {fileID: 1474879792992782982}
+        m_TargetAssemblyTypeName: AdMobFreeplay, Assembly-CSharp
         m_MethodName: ShowFreeplayAd
         m_Mode: 1
         m_Arguments:
@@ -2243,7 +2243,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5884210686102023691
+--- !u!114 &1474879792992782982
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2252,13 +2252,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2150509558973459126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff29094fc36c0294cb45199edccc1acc, type: 3}
+  m_Script: {fileID: 11500000, guid: ab6e779dd8f4f6549854593dd8299be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gemAdUnitId: ca-app-pub-6385360749297822/1556222074
   replayAdUnitID: ca-app-pub-6385360749297822/4520107396
-  isGemAd: 0
-  isReplayAd: 0
 --- !u!1 &2345799203174795221
 GameObject:
   m_ObjectHideFlags: 0
@@ -10522,7 +10519,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.58525014, y: 0}
   m_AnchorMax: {x: 0.98450017, y: 0.12719837}
-  m_AnchoredPosition: {x: 0.49780273, y: 2.199707}
+  m_AnchoredPosition: {x: 0.49780273, y: 2.1999512}
   m_SizeDelta: {x: -0.79589987, y: 0.55209994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7253883538253672224

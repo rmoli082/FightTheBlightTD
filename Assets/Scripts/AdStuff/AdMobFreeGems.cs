@@ -5,29 +5,21 @@ using UnityEngine.UI;
 using GoogleMobileAds.Api;
 using System;
 
-public class AdMobRewardedAdManager : MonoBehaviour
+public class AdMobFreeGems : MonoBehaviour
 {
     [Header("Not a test ad")]
     public string gemAdUnitId = "ca-app-pub-6385360749297822/1556222074";
-    public string replayAdUnitID = "ca-app-pub-6385360749297822/4520107396";
 
     public RewardedAd freeGemsAd;
-    public RewardedAd freeReplayAd;
-
-    public bool isGemAd;
-    public bool isReplayAd;
 
     void Start()
     {
-        this.freeGemsAd = CreateAndLoadRewardedAd(gemAdUnitId, ReceiveFreeGems);
-        this.freeReplayAd = CreateAndLoadRewardedAd(replayAdUnitID, ReceiveFreeplay);
+        this.freeGemsAd = CreateAndLoadRewardedAd(gemAdUnitId);
     }
 
     public void Update()
     {
-        if (isGemAd)
-        {
-            if (!this.freeGemsAd.IsLoaded())
+        if (!this.freeGemsAd.IsLoaded())
             {
                 gameObject.GetComponent<Button>().interactable = false;
             }
@@ -35,26 +27,13 @@ public class AdMobRewardedAdManager : MonoBehaviour
             {
                 gameObject.GetComponent<Button>().interactable = true;
             }
-        }
-
-        if (isReplayAd)
-        {
-            if (!this.freeReplayAd.IsLoaded())
-            {
-                gameObject.GetComponent<Button>().interactable = false;
-            }
-            else
-            {
-                gameObject.GetComponent<Button>().interactable = true;
-            }
-        }
     }
 
-    private RewardedAd CreateAndLoadRewardedAd(string unitID, EventHandler<Reward> rewardCallback)
+    private RewardedAd CreateAndLoadRewardedAd(string unitID)
     {
         RewardedAd rewardAd = new RewardedAd(unitID);
 
-        rewardAd.OnUserEarnedReward += rewardCallback;
+        rewardAd.OnUserEarnedReward += ReceiveFreeGems;
         rewardAd.OnAdFailedToShow += HandleFailedAdLoad;
 
         RequestAd(rewardAd);
@@ -86,25 +65,12 @@ public class AdMobRewardedAdManager : MonoBehaviour
         }
     }
 
-    public void ShowFreeplayAd()
-    {
-        if (this.freeReplayAd.IsLoaded())
-        {
-            Debug.Log("Show freeplay Ad");
-            this.freeReplayAd.Show();
-        }
-    }
-
     public void ReceiveFreeGems(object sender, Reward args)
     {
         Debug.Log($"Receive free gems");
         Player.Instance.AdjustGems(25);
-    }
 
-    public void ReceiveFreeplay(object sender, Reward args)
-    {
-        Debug.Log($"Freeplay");
-        LevelManager.Instance.sceneData.losePanel.GetComponent<LosePanel>().ContinueAdWatch();
+        RequestAd((RewardedAd)sender);
     }
 
 }

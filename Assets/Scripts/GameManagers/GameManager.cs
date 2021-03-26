@@ -68,6 +68,7 @@ public class GameManager : Singleton<GameManager>
         {
             Time.timeScale = 0f;
             data.backgroundMusic.Pause();
+            data.speedButton.GetComponentInChildren<TextMeshProUGUI>().text = "Speed up";
             isPaused = !isPaused;
         }
 

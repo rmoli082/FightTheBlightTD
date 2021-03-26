@@ -51,6 +51,7 @@ public class LosePanel : MonoBehaviour
 
     public void ContinueAdWatch()
     {
+        Time.timeScale = 0f;
         LevelManager.Instance.AdjustLives(100);
         LevelManager.Instance.AdjustGold(650);
         LevelManager.Instance.sceneData.losePanel.SetActive(false);

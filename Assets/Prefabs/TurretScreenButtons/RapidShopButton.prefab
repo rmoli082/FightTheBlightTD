@@ -141,7 +141,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Yellow Mage
+  m_text: Electric Mage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17.8
+  m_fontSize: 16.5
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -225,8 +225,8 @@ MonoBehaviour:
   blueprint:
     prefab: {fileID: 3767290474766953332, guid: 28a1a1a96613d92488711dac97b7da32, type: 3}
     turretCost: 0
-    turretName: Yellow Mage
-    turretDescription: Rapidly fires a fast moving bullet at the target.
+    turretName: Electric Mage
+    turretDescription: Electric Mages shoot a fast moving spark at their enemies.
     turretImage: {fileID: 21300000, guid: 6d533c4de95717044b2f4e9a7b8f9f4e, type: 3}
   upgradeButtons:
   - {fileID: 7748248952777746512, guid: f300ab6066c226f45a2117172439edf3, type: 3}

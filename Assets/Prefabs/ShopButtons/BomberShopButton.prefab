@@ -275,7 +275,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Blue Mage
+  m_text: 'Bomber Mage
 
 '
   m_isRightToLeft: 0
@@ -304,7 +304,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.05
+  m_fontSize: 19.75
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -361,9 +361,9 @@ MonoBehaviour:
   blueprint:
     prefab: {fileID: 3767290474766953332, guid: 98fd3cc2a359cc7438c916ae087b378d, type: 3}
     turretCost: 600
-    turretName: Blue Mage
+    turretName: Bomber Mage
     turretDescription: 
-    turretImage: {fileID: 21300000, guid: 662b253ff5497744da6c6cbb2dfdb7d5, type: 3}
+    turretImage: {fileID: 21300000, guid: 4f2507528d48ce94eb0c6a1db5bc168c, type: 3}
   cost: {fileID: 4726982113734594117}
   costTag: {fileID: 6440694243924284523}
   buttonImage: {fileID: 2254995740294664444}

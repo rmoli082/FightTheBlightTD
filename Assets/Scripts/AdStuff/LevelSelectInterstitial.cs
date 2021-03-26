@@ -28,23 +28,24 @@ public class LevelSelectInterstitial : MonoBehaviour
     {
         if (this.interstitialAd.IsLoaded() && !isLocked)
         {
-            button.interactable = true;
+            this.button.interactable = true;
         }
         else if (this.interstitialAd.IsLoaded() && isLocked)
         {
             if (PlayerPrefs.GetInt($"{levelToUnlock} Complete") == 1)
             {
-                button.interactable = true;
-                button.GetComponentInChildren<TextMeshProUGUI>().color = new Color(50, 50, 50, 1f);
+                this.button.interactable = true;
+                this.gameObject.GetComponentInChildren<TextMeshProUGUI>().color = new Color32(50, 50, 50, 255);
+                this.isLocked = false;
             }
             else
             {
-                button.interactable = false;
+                this.button.interactable = false;
             }
         }
         else 
         {
-            button.interactable = false;
+            this.button.interactable = false;
         }
     }
 

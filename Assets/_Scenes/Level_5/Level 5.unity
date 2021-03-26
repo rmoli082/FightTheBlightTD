@@ -2524,6 +2524,17 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 8094898798476120825, guid: 0bd67f8c2897bbf4399d57ed362777b5, type: 3}
   m_PrefabInstance: {fileID: 590012892}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &590012895 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 458329675, guid: 0bd67f8c2897bbf4399d57ed362777b5, type: 3}
+  m_PrefabInstance: {fileID: 590012892}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17b1f20c19398f44be24d86b0b23daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &595196252
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3734,6 +3745,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7253883537470024946, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 590012895}
+    - target: {fileID: 7253883537470024946, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetMusicVol
+      objectReference: {fileID: 0}
     - target: {fileID: 7253883538253672255, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 2.1999512
@@ -3825,6 +3844,14 @@ PrefabInstance:
     - target: {fileID: 7253883538270031337, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253883539413459030, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 590012895}
+    - target: {fileID: 7253883539413459030, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetFxVol
       objectReference: {fileID: 0}
     - target: {fileID: 7253883539447464915, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
       propertyPath: m_AnchoredPosition.x

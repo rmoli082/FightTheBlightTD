@@ -141,7 +141,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Blue Mage
+  m_text: Bomber Mage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.9
+  m_fontSize: 15.8
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -225,10 +225,10 @@ MonoBehaviour:
   blueprint:
     prefab: {fileID: 3767290474766953332, guid: 98fd3cc2a359cc7438c916ae087b378d, type: 3}
     turretCost: 0
-    turretName: Blue Mage
-    turretDescription: Launches a missile that explodes on impact, damaging the surrounding
-      enemies as well.
-    turretImage: {fileID: 21300000, guid: 662b253ff5497744da6c6cbb2dfdb7d5, type: 3}
+    turretName: Bomber Mage
+    turretDescription: Bomber Mages use powerful magic that explodes on impact, damaging
+      the surrounding enemies as well.
+    turretImage: {fileID: 21300000, guid: 4f2507528d48ce94eb0c6a1db5bc168c, type: 3}
   upgradeButtons:
   - {fileID: 7748248952777746512, guid: 2c654fb391ba5404aa7ba3fc4dbbd1b9, type: 3}
   - {fileID: 7748248952777746512, guid: 986516b4f730d3a4eaa30418650163a6, type: 3}

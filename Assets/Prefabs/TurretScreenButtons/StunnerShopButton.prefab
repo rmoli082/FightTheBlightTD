@@ -141,7 +141,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Purple Mage
+  m_text: Ice Mage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17.6
+  m_fontSize: 22.05
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -225,9 +225,9 @@ MonoBehaviour:
   blueprint:
     prefab: {fileID: 3767290474766953332, guid: 9fce7e6fbd084f746a9943c1b86b243f, type: 3}
     turretCost: 0
-    turretName: Purple Mage
-    turretDescription: The stunner shoots a bullet that slows an enemy down on impact.
-    turretImage: {fileID: 21300000, guid: 4f2507528d48ce94eb0c6a1db5bc168c, type: 3}
+    turretName: Ice Mage
+    turretDescription: Ice Mages use magic that slows an enemy down.
+    turretImage: {fileID: 21300000, guid: 662b253ff5497744da6c6cbb2dfdb7d5, type: 3}
   upgradeButtons:
   - {fileID: 7748248952777746512, guid: f9287e785edb78446aea0a45a53a5a8f, type: 3}
   - {fileID: 7748248952777746512, guid: ea64cae298d976b408ba46fe30a16434, type: 3}
