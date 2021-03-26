@@ -17,7 +17,7 @@ MonoBehaviour:
   replayGems: 100
   nodeMaterial: {fileID: 2100000, guid: 3791b2a0e69690540b8258bbf26228c3, type: 2}
   planeMaterial: {fileID: 2100000, guid: 96ac6f10d768835458f731a671bb9b91, type: 2}
-  backgroundMusic: {fileID: 0}
+  backgroundMusic: {fileID: 8300000, guid: 09a8a2dcf1924054c9ef64a4a2ef5af3, type: 3}
   shopButtons:
   - {fileID: 8459977177830445553, guid: 1c6d846b8d13fe1498db8c5ccdc6379d, type: 3}
   - {fileID: 8459977177830445553, guid: 8005990eaf0fe8d46b0f3e919de34d8f, type: 3}

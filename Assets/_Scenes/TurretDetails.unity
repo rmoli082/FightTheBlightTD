@@ -880,8 +880,12 @@ MonoBehaviour:
   shopListing: {fileID: 0}
   plane: {fileID: 0}
   nodes: {fileID: 0}
+  greenArrow: {fileID: 0}
+  redArrow: {fileID: 0}
+  streakPopup: {fileID: 0}
   nextWaveButton: {fileID: 0}
   playPauseButton: {fileID: 0}
+  speedButton: {fileID: 0}
   backgroundMusic: {fileID: 0}
   soundEffects: {fileID: 0}
   menuPanel: {fileID: 0}
@@ -2440,7 +2444,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 53.85
+  m_fontSize: 53.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2497,9 +2501,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1556033016}
     m_Modifications:
+    - target: {fileID: 2233558022638851916, guid: 31a476be7244125418ce0401fc1a5f34, type: 3}
+      propertyPath: blueprint.prefab
+      value: 
+      objectReference: {fileID: 7069828742188691710, guid: 8d887889d0f0a7a429438a8f86eddd34, type: 3}
+    - target: {fileID: 2233558022638851916, guid: 31a476be7244125418ce0401fc1a5f34, type: 3}
+      propertyPath: blueprint.turretName
+      value: Red Mage
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233558022638851916, guid: 31a476be7244125418ce0401fc1a5f34, type: 3}
+      propertyPath: blueprint.turretImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 8aef5d9b2a7f5cb4d845b702ef2b3e22, type: 3}
+    - target: {fileID: 2233558022638851916, guid: 31a476be7244125418ce0401fc1a5f34, type: 3}
+      propertyPath: blueprint.turretDescription
+      value: The Red Mage shoots a fireball at approaching enemies.
+      objectReference: {fileID: 0}
     - target: {fileID: 2986706163944597561, guid: 31a476be7244125418ce0401fc1a5f34, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.17999268
+      objectReference: {fileID: 0}
+    - target: {fileID: 3499464719790853204, guid: 31a476be7244125418ce0401fc1a5f34, type: 3}
+      propertyPath: m_text
+      value: Red Mage
+      objectReference: {fileID: 0}
+    - target: {fileID: 3499464719790853204, guid: 31a476be7244125418ce0401fc1a5f34, type: 3}
+      propertyPath: m_fontSize
+      value: 53
       objectReference: {fileID: 0}
     - target: {fileID: 7774393889987482916, guid: 31a476be7244125418ce0401fc1a5f34, type: 3}
       propertyPath: m_Pivot.x

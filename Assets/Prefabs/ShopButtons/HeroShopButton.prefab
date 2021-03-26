@@ -141,7 +141,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5f5acaf5dd0408e4ba945dc6cdf0c2a6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -303,7 +303,7 @@ MonoBehaviour:
     turretCost: 950
     turretName: 
     turretDescription: 
-    turretImage: {fileID: 21300000, guid: 36ab31c4014f4844dbb69b4bfe86ef8f, type: 3}
+    turretImage: {fileID: 21300000, guid: 5f5acaf5dd0408e4ba945dc6cdf0c2a6, type: 3}
   cost: {fileID: 2131211390794883340}
   costTag: {fileID: 4261914073543983779}
   buttonImage: {fileID: 2562385233150070930}

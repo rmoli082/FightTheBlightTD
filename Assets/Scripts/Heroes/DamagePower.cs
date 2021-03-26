@@ -28,6 +28,8 @@ public class DamagePower : HeroUpgrade
         if (isActivated)
         {
             e.Damage(theHero.DamageAmount, theHero.TurretType.ToString());
+            GameObject hit = Instantiate(theHero.hitEffect, e.transform.position, Quaternion.identity);
+            Destroy(hit, 2f);
             theHero.AdjustXP(1);
             return;
         }

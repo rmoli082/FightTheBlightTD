@@ -27,4 +27,10 @@ public class UpgradePanel : MonoBehaviour
         Destroy(turretToUpgrade.gameObject);
         LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
     }
+
+    public void ClosePanel()
+    {
+        gameObject.SetActive(false);
+        turretToUpgrade.Glow(false);
+    }
 }

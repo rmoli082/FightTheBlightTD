@@ -7,10 +7,12 @@ public class CancelButton : MonoBehaviour
     public GameObject objectToClose;
     public string sceneToLoad;
 
+    public bool useUnpause = true;
+
     public void CloseItem()
     {
         objectToClose.SetActive(false);
-        if (GameManager.Instance.IsPaused)
+        if (GameManager.Instance.IsPaused && useUnpause)
             GameManager.Instance.PausePlay();
     }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Analytics;
+using TMPro;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -17,6 +18,8 @@ public class GameManager : Singleton<GameManager>
     private SceneData data;
 
     public int EnemiesRemaining;
+
+    public AsyncOperation asyncScene;
 
     protected override void Awake()
     {
@@ -47,20 +50,42 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene(sceneName);
     }
 
+    public void LoadSceneAsync(string sceneName)
+    {
+        asyncScene = SceneManager.LoadSceneAsync(sceneName);
+        asyncScene.allowSceneActivation = false;
+    }
+
     public void PausePlay()
     {
         if (isPaused)
         {
             Time.timeScale = 1f;
+            data.backgroundMusic.Play();
             isPaused = !isPaused;
         }
         else
         {
             Time.timeScale = 0f;
+            data.backgroundMusic.Pause();
             isPaused = !isPaused;
         }
 
         data.playPauseButton.GetComponent<PausePlayButton>().UpdateButtonText();
+    }
+
+    public void SpeedUp()
+    {
+        if (Time.timeScale == 1f)
+        {
+            Time.timeScale = 2f;
+            data.speedButton.GetComponentInChildren<TextMeshProUGUI>().text = "Slow down";
+        }
+        else if (Time.timeScale == 2f)
+        {
+            Time.timeScale = 1f;
+            data.speedButton.GetComponentInChildren<TextMeshProUGUI>().text = "Speed up";
+        }
     }
 
     public void UpdateGemsDisplay()
@@ -99,5 +124,13 @@ public class GameManager : Singleton<GameManager>
     {
         data = GameObject.FindObjectOfType<SceneData>();
         UpdateGemsDisplay();
+        if (PlayerPrefs.HasKey("FirstRunComplete"))
+        {
+            isFirstRun = false;
+        }
+        else
+        {
+            isFirstRun = true;
+        }
     }
 }

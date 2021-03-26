@@ -22,7 +22,7 @@ public class SeekerProjectile : MonoBehaviour
         Vector3 dir = target.position - transform.position;
         float distanceThisFrame = turret.projectileForce * Time.deltaTime;
 
-        if (dir.magnitude <= distanceThisFrame)
+        if (dir.magnitude <= distanceThisFrame + 0.2f)
         {
             HitTarget();
             return;
@@ -35,7 +35,7 @@ public class SeekerProjectile : MonoBehaviour
 
     void HitTarget()
     {
-        Enemy e = target.GetComponent<Enemy>();
+        Enemy e = target.GetComponentInParent<Enemy>();
         e.Damage(turret.DamageAmount, turret.TurretType.ToString());
         if (canExplode)
         {

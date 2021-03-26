@@ -67,9 +67,11 @@ MonoBehaviour:
   health: 25
   goldReward: 50
   dieEffect: {fileID: 5989568863842805911, guid: 03cb7549079271c408c722ca7701cd62, type: 3}
-  isMiniBoss: 1
+  isAlive: 1
+  isMiniBoss: 0
   isBoss: 0
   bossAlert: {fileID: 8300000, guid: af7a8aaf5bc23aa49a924748fc1aea28, type: 3}
+  bossSpawn: {fileID: 0}
 --- !u!54 &-3482491594215725215
 Rigidbody:
   m_ObjectHideFlags: 0

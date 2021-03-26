@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Seeker
+  m_text: Green Mage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.05
+  m_fontSize: 17.95
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -148,11 +148,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blueprint:
-    prefab: {fileID: 2779800221738684527, guid: b800c58e9aa41084cabe0ed9c9d9bac2, type: 3}
+    prefab: {fileID: 3767290474766953332, guid: 2c8c6f957eaa2374b87f97b503c5351e, type: 3}
     turretCost: 0
-    turretName: Seeker
+    turretName: Green Mage
     turretDescription: Fires a bullet that homes in on the target and chases it.
-    turretImage: {fileID: 21300000, guid: 2f1c986302e7b0a45be3856925a025e2, type: 3}
+    turretImage: {fileID: 21300000, guid: e52f711ae16e34348b867de245e9f9aa, type: 3}
   upgradeButtons:
   - {fileID: 7748248952777746512, guid: 2a0a6c94a9a9051499d03333916631bc, type: 3}
   - {fileID: 7748248952777746512, guid: c6848cd22dc9e2744a473ae15394bcff, type: 3}

@@ -6,8 +6,10 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField]
     private Transform target;
+    public Transform Target { get => target;}
     [SerializeField]
     private int waypointIndex = 0;
+    public int WaypointIndex { get => waypointIndex;}
 
     public float speed = 5f;
 
@@ -52,6 +54,10 @@ public class EnemyController : MonoBehaviour
             LevelManager.Instance.AdjustLives(-(Mathf.CeilToInt(gameObject.GetComponent<Enemy>().health)));
             WaveSpawner.Instance.livesLostThisWave += (Mathf.CeilToInt(gameObject.GetComponent<Enemy>().health));
             GameManager.Instance.EnemiesRemaining--;
+            if (gameObject.GetComponent<Enemy>().isBoss)
+            {
+                GameManager.Instance.Lose();
+            }
             Destroy(gameObject);
             return;
         }
@@ -72,6 +78,12 @@ public class EnemyController : MonoBehaviour
             }        
         }
 
+    }
+
+    public void SetTarget(Transform target, int waypointIndex)
+    {
+        this.target = target;
+        this.waypointIndex = waypointIndex;
     }
 
     private void LookAtTarget()

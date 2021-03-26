@@ -104,15 +104,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3221256063294990368}
-  m_LocalRotation: {x: -0.110334545, y: 0.6257381, z: -0.13408953, w: 0.76045924}
-  m_LocalPosition: {x: 0, y: 0.77, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.59151065, y: 0.43435764, z: 0.40206438, w: 0.54753345}
+  m_LocalPosition: {x: 0.1, y: 1.11, z: -0.35}
+  m_LocalScale: {x: 55, y: 55, z: 55}
   m_Children:
   - {fileID: 1846613572698234699}
   - {fileID: 5564227354215313433}
   m_Father: {fileID: 6529303132030634734}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 78.898, z: -20}
+  m_LocalEulerAnglesHint: {x: -94.422, y: 0, z: 72.581}
 --- !u!1 &5057737588349552895
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +141,7 @@ Transform:
   m_GameObject: {fileID: 5057737588349552895}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_LocalScale: {x: 2.3, y: 2.3, z: 2.3}
   m_Children:
   - {fileID: 2882272966835778202}
   m_Father: {fileID: 0}
@@ -162,6 +162,7 @@ MonoBehaviour:
   health: 24
   goldReward: 10
   dieEffect: {fileID: 5989568863842805911, guid: 03cb7549079271c408c722ca7701cd62, type: 3}
+  isAlive: 1
   isMiniBoss: 0
   isBoss: 0
   bossAlert: {fileID: 0}

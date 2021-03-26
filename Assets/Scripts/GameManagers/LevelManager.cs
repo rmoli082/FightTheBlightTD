@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GoogleMobileAds.Api;
 
 public class LevelManager : Singleton<LevelManager>
 {
@@ -9,6 +10,10 @@ public class LevelManager : Singleton<LevelManager>
     public PlayerStats playerStats;
 
     public int totalWaves;
+
+    public bool bossIsDead;
+
+    private BannerView bannerView;
 
     protected override void Awake()
     {
@@ -27,6 +32,8 @@ public class LevelManager : Singleton<LevelManager>
         {
             LoadTutorial();
         }
+
+        RequestBanner();
     }
 
     public int GetLives()
@@ -96,11 +103,27 @@ public class LevelManager : Singleton<LevelManager>
         TutorialManager.Instance.StartTutorial();
     }
 
+    private void RequestBanner()
+    {
+        string adUnitID = "ca-app-pub-6385360749297822/5933137708";
+
+        this.bannerView = new BannerView(adUnitID, AdSize.Banner, AdPosition.Bottom);
+
+        AdRequest request = new AdRequest.Builder().Build();
+        this.bannerView.LoadAd(request);
+    }
+
     private void CheckForWin()
     {
-        if (WaveSpawner.Instance.waveNumber >= totalWaves)
+        if (WaveSpawner.Instance.waveNumber >= totalWaves && bossIsDead)
         {
             GameManager.Instance.Win();
         }
     }
+
+    private void OnDestroy()
+    {
+        bannerView.Destroy();
+    }
+
 }

@@ -19,6 +19,7 @@ public class SceneData : MonoBehaviour
     [Header("On Screen Buttons")]
     public GameObject nextWaveButton;
     public GameObject playPauseButton;
+    public GameObject speedButton;
 
     [Header("Audio Sources")]
     public AudioSource backgroundMusic;

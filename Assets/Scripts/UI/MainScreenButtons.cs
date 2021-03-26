@@ -10,4 +10,9 @@ public class MainScreenButtons : MonoBehaviour
         GameManager.Instance.LoadScene(sceneToLoad);
     }
 
+    public void LoadAchievements()
+    {
+        PlayGames.ShowAchievementsUI();
+    }
+
 }

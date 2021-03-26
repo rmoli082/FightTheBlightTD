@@ -11,4 +11,9 @@ public class LevelSelectButton : MonoBehaviour
         GameManager.Instance.LoadScene(levelToLoad);
     }
 
+    public void LoadLevelNoSkip()
+    {
+        GameManager.Instance.LoadScene(levelToLoad);
+    }
+
 }

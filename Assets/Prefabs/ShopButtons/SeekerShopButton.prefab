@@ -200,7 +200,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Seeker
+  m_text: Green Mage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -282,14 +282,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blueprint:
-    prefab: {fileID: 2779800221738684527, guid: b800c58e9aa41084cabe0ed9c9d9bac2, type: 3}
+    prefab: {fileID: 3767290474766953332, guid: 2c8c6f957eaa2374b87f97b503c5351e, type: 3}
     turretCost: 350
     turretName: 
     turretDescription: 
-    turretImage: {fileID: 21300000, guid: 2f1c986302e7b0a45be3856925a025e2, type: 3}
+    turretImage: {fileID: 21300000, guid: e52f711ae16e34348b867de245e9f9aa, type: 3}
   cost: {fileID: 2924354128084952718}
   costTag: {fileID: 8924542177578229011}
   buttonImage: {fileID: 3684797635346568699}
+  isHeroButton: 0
 --- !u!1 &5903942905013568883
 GameObject:
   m_ObjectHideFlags: 0

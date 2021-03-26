@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 964e8f5c7f3063c4691529045f91973b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 35
+  health: 25
   goldReward: 50
   dieEffect: {fileID: 5989568863842805911, guid: 03cb7549079271c408c722ca7701cd62, type: 3}
   isMiniBoss: 1
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   waypointIndex: 0
-  speed: 5
+  speed: 3
   isStunned: 0
   stunTime: 0
 --- !u!135 &2392893287877488377
@@ -81,8 +81,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.1143733
-  m_Center: {x: 0, y: 1.4992303, z: 1.5865332}
+  m_Radius: 1.2764907
+  m_Center: {x: 0, y: 1.4587009, z: 1.5865333}
 --- !u!1001 &8733384847592095409
 PrefabInstance:
   m_ObjectHideFlags: 0

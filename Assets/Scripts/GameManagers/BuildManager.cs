@@ -36,7 +36,12 @@ public class BuildManager : Singleton<BuildManager>
                 {"Wave", WaveSpawner.Instance.waveNumber },
                 {"Turret Bought", $"{turret.GetComponent<Placeable>().TurretType}"}
             });
-                selectedTurret = null;
+            if (turret.GetComponent<Hero>())
+            {
+                HeroManager.Instance.isSpawned = true;
+                PlayGames.IncrementAchievement(GPGSIds.achievement_heroic_actions, 1);
+            }
+            selectedTurret = null;
             
         }
         else

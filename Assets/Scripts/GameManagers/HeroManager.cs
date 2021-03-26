@@ -141,12 +141,14 @@ public class HeroManager : Singleton<HeroManager>
 
     private void WinAwards()
     {
-        AddHeroXP(10);
+        if (isSpawned)
+            AddHeroXP(10);
     }
 
     private void LoseAwards()
     {
-        AddHeroXP(5);
+        if (isSpawned)
+            AddHeroXP(5);
     }
 
     [Serializable]

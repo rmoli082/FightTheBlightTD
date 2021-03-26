@@ -9,13 +9,12 @@ public class Enemy : MonoBehaviour
 
     public GameObject dieEffect;
 
-    private bool isAlive = true;
+    public bool isAlive = true;
     public bool isMiniBoss = false;
     public bool isBoss = false;
 
     public AudioClip bossAlert;
     public GameObject bossSpawn;
-
 
     public void Damage(float damageAmount, string turretType)
     {
@@ -50,6 +49,12 @@ public class Enemy : MonoBehaviour
         LevelManager.Instance.AdjustGold(goldReward);
         TurretStats.Instance.AddTurretKills(turretType, 1);
         GameManager.Instance.EnemiesRemaining--;
+
+        if (isMiniBoss)
+        {
+            PlayGames.IncrementAchievement(GPGSIds.achievement_miniboss_assassin, 1);
+            PlayGames.IncrementAchievement(GPGSIds.achievement_miniboss_terminator, 1);
+        }
         
         Destroy(gameObject);
         return;
@@ -60,13 +65,18 @@ public class Enemy : MonoBehaviour
     {
         int spawnAmount = Random.Range(5, 15);
         gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+        Transform target = gameObject.GetComponent<EnemyController>().Target;
+        int waypointIndex = gameObject.GetComponent<EnemyController>().WaypointIndex;
         gameObject.GetComponent<EnemyController>().enabled = false;
         gameObject.tag = "Waypoint";
+
+        LevelManager.Instance.bossIsDead = true;
         for (int i = 0; i < spawnAmount; i++)
         {
             GameObject b = Instantiate(LevelManager.Instance.levelData.bossSpawn, transform.position, Quaternion.identity);
-            b.GetComponent<EnemyController>().GetNearestWaypoint();
+            b.GetComponent<EnemyController>().SetTarget(target, waypointIndex);
             GameManager.Instance.EnemiesRemaining++;
+            GameEvents.OnEnemySpawned(b.GetComponent<Enemy>());
             yield return new WaitForSeconds(0.55f);
         }
         GameManager.Instance.EnemiesRemaining--;

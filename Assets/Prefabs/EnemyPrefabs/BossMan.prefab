@@ -60,13 +60,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 964e8f5c7f3063c4691529045f91973b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 400
+  health: 250
   goldReward: 1
   dieEffect: {fileID: 0}
+  isAlive: 1
   isMiniBoss: 0
   isBoss: 1
-  trojanHorseSpawns: 50
   bossAlert: {fileID: 8300000, guid: af7a8aaf5bc23aa49a924748fc1aea28, type: 3}
+  bossSpawn: {fileID: 0}
 --- !u!114 &3830499319416993290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,7 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   waypointIndex: 0
-  speed: 7
+  speed: 6
   isStunned: 0
   stunTime: 0
 --- !u!1 &6616412690835442232

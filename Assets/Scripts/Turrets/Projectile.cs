@@ -65,6 +65,8 @@ public class Projectile : MonoBehaviour
 
     void Stun(EnemyController ec)
     {
+        if (ec.isStunned)
+            return;
         Turret stunner = (Turret)turret;
         TurretStats.Instance.AddTurretKills(turret.TurretType.ToString(), 1);
         ec.speed /= stunner.stunPower;

@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Node
   - Projectile
+  - Start
   layers:
   - Default
   - TransparentFX

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LosePanel : MonoBehaviour
 {
@@ -30,12 +31,39 @@ public class LosePanel : MonoBehaviour
             LevelManager.Instance.AdjustGold(650);
             LevelManager.Instance.sceneData.losePanel.SetActive(false);
             LevelManager.Instance.playerStats.continues++;
+            WaveSpawner.Instance.healthModifier = 1;
+            WaveSpawner.Instance.speedModifier = 1;
+
+
+            LevelManager.Instance.sceneData.speedButton.GetComponentInChildren<TextMeshProUGUI>().text = "Speed Up";
+
+            if (WaveSpawner.Instance.waveNumber == WaveSpawner.Instance.GetNumberOfWaves)
+            {
+                WaveSpawner.Instance.ResetWave(WaveSpawner.Instance.GetNumberOfWaves - 1);
+            }
         }
         else
         {
             LevelManager.Instance.sceneData.loseButton.interactable = false;
         }
         
+    }
+
+    public void ContinueAdWatch()
+    {
+        LevelManager.Instance.AdjustLives(100);
+        LevelManager.Instance.AdjustGold(650);
+        LevelManager.Instance.sceneData.losePanel.SetActive(false);
+        LevelManager.Instance.playerStats.continues++;
+        WaveSpawner.Instance.healthModifier = 1;
+        WaveSpawner.Instance.speedModifier = 1;
+        if (WaveSpawner.Instance.waveNumber == WaveSpawner.Instance.GetNumberOfWaves)
+        {
+            StopCoroutine(WaveSpawner.Instance.SpawnWave());
+            WaveSpawner.Instance.ResetWave(WaveSpawner.Instance.GetNumberOfWaves - 1);
+        }
+
+        LevelManager.Instance.sceneData.speedButton.GetComponentInChildren<TextMeshProUGUI>().text = "Speed Up";
     }
 
     public void ReplayStartOver()

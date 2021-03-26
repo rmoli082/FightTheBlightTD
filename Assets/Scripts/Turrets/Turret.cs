@@ -14,7 +14,7 @@ public class Turret : Placeable
     public float range = 6f;
     public Transform partToRotate;
     public Transform firePoint;
-    private readonly float turnSpeed = 20f;
+    private readonly float turnSpeed = 10f;
     public float fireRate = 1f;
     public float projectileForce = 325f;
     public float stunPower = 0f;
@@ -26,6 +26,9 @@ public class Turret : Placeable
 
     [Header("Turret Effects")]
     public AudioClip shotFX;
+    public MeshRenderer[] glowObj;
+    public Material[] glowMat;
+    private Material[] originalMat;
 
     [Header("Upgrade Slots")]
     public Upgrade[] turretUpgrades = new Upgrade[3];
@@ -37,8 +40,14 @@ public class Turret : Placeable
 
     private void Awake()
     {
+        originalMat = new Material[glowObj.Length];
         target = null;
         upgradePanel = LevelManager.Instance.sceneData.turretUpgradePanel;
+        for (int i = 0; i < glowObj.Length; i++)
+        {
+            originalMat[i] = glowObj[i].material;
+        }
+        
     }
 
     private void Start()
@@ -99,8 +108,30 @@ public class Turret : Placeable
 
     public void PopupUpgradePanel()
     {
+        if (upgradePanel.activeSelf)
+            return;
+
         PopulateUpgradePanel();
-        upgradePanel.SetActive(!upgradePanel.activeSelf);
+        upgradePanel.SetActive(true);
+        Glow(true);
+    }
+
+    public void Glow(bool shouldGlow)
+    {
+        if (shouldGlow)
+        {
+            for (int i = 0; i < glowObj.Length; i++)
+            {
+                glowObj[i].material = glowMat[i];
+            }
+        }
+        else
+        {
+            for (int i = 0; i < glowObj.Length; i++)
+            {
+                glowObj[i].material = originalMat[i];
+            }
+        }
     }
 
     private void GetTarget()
@@ -123,29 +154,15 @@ public class Turret : Placeable
             }
         }
 
-        try
+        if (nearestEnemy != null && shortestDistance <= range)
         {
-            if (TurretType == PlaceableType.stunner && (nearestEnemy == null
-            || nearestEnemy.GetComponent<EnemyController>().isStunned))
-            {
-                SetTarget(null);
-            }
-            else if (nearestEnemy != null && shortestDistance <= range)
-            {
-                SetTarget(nearestEnemy.transform);
+            SetTarget(nearestEnemy.transform);
 
-            }
-            else
-            {
-                SetTarget(null);
-            }
         }
-        catch (NullReferenceException e)
+        else
         {
-            Debug.Log(e);
+            SetTarget(null);
         }
-        
-
         
     }
 
@@ -153,8 +170,8 @@ public class Turret : Placeable
     {
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        Vector3 rotation = Quaternion.Lerp(partToRotate.localRotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        partToRotate.localRotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
 
     private void SetTarget(Transform transform)

@@ -12,6 +12,9 @@ public class Hero : Placeable
     public GameObject mainPower;
     public int matchLevel = 1;
     public int levelXP = 0;
+    public GameObject hitEffect;
+    bool rotated = false;
+    ParticleSystem particles;
 
     [Header("Upgrade Slots")]
     public HeroUpgrade[] heroUpgrade = new HeroUpgrade[3];
@@ -26,11 +29,29 @@ public class Hero : Placeable
         GameObject mainPowerObj = Instantiate(mainPower, this.transform);
         mainPowerObj.GetComponent<HeroUpgrade>().isActivated = true;
         HeroManager.Instance.isSpawned = true;
+        particles = gameObject.GetComponent<ParticleSystem>();
+        particles.Pause();
+    }
+
+    private void Start()
+    {
+        GameEvents.WaveStarted += WaveStarted;
+        GameEvents.WaveEnded += WaveEnded;
+    }
+
+    private void Update()
+    {
+        if (!rotated)
+        {
+            StartCoroutine(LookAtStart());
+        }
     }
 
     private void OnDisable()
     {
         HeroManager.Instance.isSpawned = false;
+        GameEvents.WaveStarted -= WaveStarted;
+        GameEvents.WaveEnded -= WaveEnded;
     }
 
     public void AdjustXP(int amount)
@@ -87,6 +108,27 @@ public class Hero : Placeable
         }
 
         DamageAmount = 1 + (matchLevel / 4);
+    }
+
+    private IEnumerator LookAtStart()
+    {
+        Transform target = GameObject.FindGameObjectWithTag("Start").transform;
+        Vector3 dir = target.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(dir);
+        Vector3 rotation = Quaternion.LerpUnclamped(transform.localRotation, lookRotation, Time.deltaTime * 10f).eulerAngles;
+        transform.localRotation = Quaternion.Euler(0f, rotation.y, 0f);
+        yield return new WaitForSeconds(1.5f);
+        rotated = true;
+    }
+
+    private void WaveStarted()
+    {
+        particles.Play();
+    }
+
+    private void WaveEnded()
+    {
+        particles.Stop();
     }
     
 }

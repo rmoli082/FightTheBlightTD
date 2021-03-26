@@ -14,6 +14,7 @@ public class BomberUpgrade : TurretUpgradePanels
             upgradePanel.turretToUpgrade.SellCost = upgradePanel.turretToUpgrade.SellCost + (upgradeCost / 2);
             LevelManager.Instance.AdjustGold(-upgradeCost);
             LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
+            upgradePanel.turretToUpgrade.Glow(false);
             Analytics.CustomEvent("First Bomber Upgrade Bought");
         }
         
@@ -28,6 +29,7 @@ public class BomberUpgrade : TurretUpgradePanels
             upgradePanel.turretToUpgrade.SellCost = upgradePanel.turretToUpgrade.SellCost + (upgradeCost / 2);
             LevelManager.Instance.AdjustGold(-upgradeCost);
             LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
+            upgradePanel.turretToUpgrade.Glow(false);
             Analytics.CustomEvent("Second Bomber Upgrade Bought");
         }
         
@@ -42,6 +44,7 @@ public class BomberUpgrade : TurretUpgradePanels
             upgradePanel.turretToUpgrade.SellCost = upgradePanel.turretToUpgrade.SellCost + (upgradeCost / 2);
             LevelManager.Instance.AdjustGold(-upgradeCost);
             LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
+            upgradePanel.turretToUpgrade.Glow(false);
             Analytics.CustomEvent("Third Bomber Upgrade Bought");
         }
     }

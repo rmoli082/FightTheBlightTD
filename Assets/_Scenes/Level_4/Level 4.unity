@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 109351de91fe41945bc002fb17fd52c5, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 899647af6b79bc341b1600a9b87cec80, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -423,6 +423,10 @@ PrefabInstance:
       propertyPath: shopListing
       value: 
       objectReference: {fileID: 798129472}
+    - target: {fileID: 6806346411100390445, guid: d2b0c38e05b8c0d4ab0da7364ab0119e, type: 3}
+      propertyPath: speedButton
+      value: 
+      objectReference: {fileID: 798129477}
     - target: {fileID: 6806346411100390445, guid: d2b0c38e05b8c0d4ab0da7364ab0119e, type: 3}
       propertyPath: streakPopup
       value: 
@@ -3340,7 +3344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7253883538253672255, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.2000732
+      value: 2.1999512
       objectReference: {fileID: 0}
     - target: {fileID: 7253883538270031333, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
       propertyPath: m_Name
@@ -3470,7 +3474,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
 --- !u!114 &798129457 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7253883538719316384, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7253883539169924603, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
   m_PrefabInstance: {fileID: 798129456}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -3620,6 +3624,11 @@ MonoBehaviour:
 --- !u!1 &798129476 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6618372117112725672, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
+  m_PrefabInstance: {fileID: 798129456}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &798129477 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8230044150482295280, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
   m_PrefabInstance: {fileID: 798129456}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &805216527 stripped
@@ -8471,6 +8480,7 @@ MonoBehaviour:
     playerLives: 100
     continues: 0
   totalWaves: 0
+  bossIsDead: 0
 --- !u!1001 &1478094237790976942
 PrefabInstance:
   m_ObjectHideFlags: 0

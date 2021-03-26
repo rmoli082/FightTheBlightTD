@@ -14,6 +14,7 @@ public class RapidUpgrade : TurretUpgradePanels
             upgradePanel.turretToUpgrade.SellCost = upgradePanel.turretToUpgrade.SellCost + (upgradeCost / 2);
             LevelManager.Instance.AdjustGold(-upgradeCost);
             LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
+            upgradePanel.turretToUpgrade.Glow(false);
             Analytics.CustomEvent("First Rapid Upgrade Bought");
         }
     }
@@ -27,6 +28,7 @@ public class RapidUpgrade : TurretUpgradePanels
             upgradePanel.turretToUpgrade.SellCost = upgradePanel.turretToUpgrade.SellCost + (upgradeCost / 2);
             LevelManager.Instance.AdjustGold(-upgradeCost);
             LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
+            upgradePanel.turretToUpgrade.Glow(false);
             Analytics.CustomEvent("Second Rapid Upgrade Bought");
         }
     }
@@ -40,6 +42,7 @@ public class RapidUpgrade : TurretUpgradePanels
             upgradePanel.turretToUpgrade.SellCost = upgradePanel.turretToUpgrade.SellCost + (upgradeCost / 2);
             LevelManager.Instance.AdjustGold(-upgradeCost);
             LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
+            upgradePanel.turretToUpgrade.Glow(false);
             Analytics.CustomEvent("Third Rapid Upgrade Bought");
         }
     }

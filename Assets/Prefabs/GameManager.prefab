@@ -58,6 +58,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0cecb9ee9ca8b24eb74039a088914cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPaused: 0
+  data: {fileID: 0}
+  EnemiesRemaining: 0
 --- !u!114 &6545916789141061512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,9 +73,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b020e4e2bd86e44c9c72ef4dcfb3b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  theHero: {fileID: 0}
+  heroXP: 0
   isFirstUpgradeActive: 0
   isSecondUpgradeActive: 0
   isThirdUpgradeActive: 0
+  isSpawned: 0
+  availableBoosts: []
+  activeUpgrades:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &6545916789141061513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,3 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1081ffa4f2c0a8943b95b94787f4622f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turretPermanentBought: 
+  rapidPermanentBought: 
+  bomberPermanentBought: 
+  seekerPermanentBought: 
+  stunnerPermanentBought: 

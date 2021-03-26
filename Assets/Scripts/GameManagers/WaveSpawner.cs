@@ -14,21 +14,23 @@ public class WaveSpawner : Singleton<WaveSpawner>
     public int waveNumber = 1;
     public float spawnPause = 0.45f;
 
-    private float healthModifier = 1f;
-    private float speedModifier = 1f;
+    public float healthModifier = 1f;
+    public float speedModifier = 1f;
     private int perfectStreak = 0;
     private float goldAdjustment = 1f;
     public int livesLostThisWave = 0;
 
+    public int GetNumberOfWaves { get => waves.Length;  }
+
     protected override void Awake()
     {
         base.Awake();
-        ParseLevel();
     }
 
     private void Start()
     {
         GameEvents.WaveEnded += WaveEndedStuff;
+        ParseLevel();
     }
 
     public IEnumerator SpawnWave()
@@ -41,7 +43,8 @@ public class WaveSpawner : Singleton<WaveSpawner>
         for (int i = 0; i < order.Length; i++)
         {
             GameObject enemy = SpawnEnemy(i);
-            ApplyModifiers(enemy);
+            if (!enemy.GetComponent<Enemy>().isBoss || !enemy.GetComponent<Enemy>().isMiniBoss)
+                ApplyModifiers(enemy);
             yield return new WaitForSeconds(spawnPause);
         }
 
@@ -101,26 +104,33 @@ public class WaveSpawner : Singleton<WaveSpawner>
 
     private void SetDifficultyModifiers()
     {
+        if (livesLostThisWave > 0)
+        {
+            if (perfectStreak > 1)
+            {
+                StartCoroutine(PopupStreakNotice("Perfect Streak Broken!"));
+            }
+        }
+
         if (livesLostThisWave == 0)
         {
             healthModifier += 0.15f;
-            speedModifier += 0.15f;
+            speedModifier += 0.1f;
             goldAdjustment += 1f;
             perfectStreak++;
-            Debug.Log($"No lives lost");
+            StartCoroutine(PopupStreakNotice("Perfect"));
         }
         else if (livesLostThisWave <= 3)
         {
             healthModifier += 0.1f;
-            speedModifier += 0.1f;
+            speedModifier += 0.05f;
             perfectStreak = 0;
-            Debug.Log($"3 or less lives lost");
         }
         else if (livesLostThisWave <= 6)
         {
             healthModifier += 0.05f;
             perfectStreak = 0;
-            Debug.Log($"6 or less lives lost");
+            goldAdjustment += 0.1f;
         }
         else if (livesLostThisWave <= 9)
         {
@@ -128,7 +138,13 @@ public class WaveSpawner : Singleton<WaveSpawner>
             healthModifier -= 0.05f;
             speedModifier -= 0.05f;
             goldAdjustment += 0.25f;
-            Debug.Log($"9 or less lives lost");
+        }
+        else if (livesLostThisWave >= 20)
+        {
+            perfectStreak = 0;
+            healthModifier -= 0.2f;
+            speedModifier -= 0.2f;
+            goldAdjustment += 1f;
         }
         else if (livesLostThisWave >= 10)
         {
@@ -136,17 +152,21 @@ public class WaveSpawner : Singleton<WaveSpawner>
             healthModifier -= 0.1f;
             speedModifier -= 0.1f;
             goldAdjustment += 0.5f;
-            Debug.Log($"10 or more lives lost");
         }
 
-        Debug.Log($"Health modifier: {healthModifier}");
-        Debug.Log($"Speed modifier: {speedModifier}");
-        if (perfectStreak == 5)
+        if (perfectStreak > 0 && perfectStreak % 5 == 0)
         {
             goldAdjustment += 1.5f;
             LevelManager.Instance.AdjustLives(5);
-            StartCoroutine(PopupStreakNotice());
-            perfectStreak = 0;
+            StartCoroutine(PopupStreakNotice($"Perfect Streak {perfectStreak} Rounds"));
+            if (perfectStreak == 5)
+            {
+                PlayGames.UnlockAchievement(GPGSIds.achievement_perfect_streak_5);
+            }
+            else if (perfectStreak == 10)
+            {
+                PlayGames.UnlockAchievement(GPGSIds.achievement_perfect_streak_10);
+            }
         }
     }
 
@@ -172,10 +192,29 @@ public class WaveSpawner : Singleton<WaveSpawner>
         enemy.GetComponent<EnemyController>().speed *= speedModifier;
     }
 
-    private IEnumerator PopupStreakNotice()
+    private IEnumerator PopupStreakNotice(string message)
     {
         LevelManager.Instance.sceneData.streakPopup.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        LevelManager.Instance.sceneData.streakPopup.GetComponentInChildren<TextMeshProUGUI>().text = message;
+        yield return new WaitForSeconds(3f);
         LevelManager.Instance.sceneData.streakPopup.SetActive(false);
+    }
+
+    public void ResetWave(int waveNumber)
+    {
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+        foreach (Enemy e in enemies)
+        {
+            Destroy(e);
+        }
+        this.waveNumber = waveNumber;
+        LevelManager.Instance.sceneData.nextWaveButton.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
+        LevelManager.Instance.sceneData.nextWaveButton.GetComponentInChildren<TextMeshProUGUI>().text = "Next Wave";
+        LevelManager.Instance.sceneData.nextWaveButton.GetComponentInChildren<TextMeshProUGUI>().color = new Color(0, 0, 0, 1f);
+    }
+
+    private void OnDestroy()
+    {
+        GameEvents.WaveEnded -= WaveEndedStuff;
     }
 }
