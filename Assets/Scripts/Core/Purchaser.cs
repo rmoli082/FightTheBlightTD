@@ -14,14 +14,12 @@ public class Purchaser : MonoBehaviour, IStoreListener
     public static string bagOfGems = "gembag";
     public static string sackOfGems = "gemsack";
     public static string boxOfGems = "gembox";
-    public static string chestOfGems = "gemchest";
 
     private static readonly int pileGemAmount = 300;
     private static readonly int jarGemAmount = 635;
     private static readonly int bagGemAmount = 1300;
     private static readonly int sackGemAmount = 2600;
     private static readonly int boxGemAmount = 7500;
-    private static readonly int chestGemAmount = 20000;
 
     private void Start()
     {
@@ -45,7 +43,6 @@ public class Purchaser : MonoBehaviour, IStoreListener
         builder.AddProduct(bagOfGems, ProductType.Consumable);
         builder.AddProduct(sackOfGems, ProductType.Consumable);
         builder.AddProduct(boxOfGems, ProductType.Consumable);
-        builder.AddProduct(chestOfGems, ProductType.Consumable);
 
         UnityPurchasing.Initialize(this, builder);
     }
@@ -74,12 +71,6 @@ public class Purchaser : MonoBehaviour, IStoreListener
     {
         BuyProductID(boxOfGems);
     }
-
-    public void BuyChestOfGems()
-    {
-        BuyProductID(chestOfGems);
-    }
-
 
     public void RestorePurchases()
     {
@@ -161,11 +152,6 @@ public class Purchaser : MonoBehaviour, IStoreListener
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", purchaseEvent.purchasedProduct.definition.id));
             Player.Instance.AdjustGems(boxGemAmount);
-        }
-        else if (String.Equals(purchaseEvent.purchasedProduct.definition.id, chestOfGems, StringComparison.Ordinal))
-        {
-            Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", purchaseEvent.purchasedProduct.definition.id));
-            Player.Instance.AdjustGems(chestGemAmount);
         }
         else
         {

@@ -23,61 +23,51 @@ public class HeroUpgradesPanel : MonoBehaviour
     {
         if (HeroManager.Instance.isFirstUpgradeActive)
         {
-            firstSlot.SetActive(true);
-            if (HeroManager.Instance.activeUpgrades[0] != null)
-            {
-                firstBoost.AddComponent(HeroManager.Instance.activeUpgrades[0].GetType());
-                firstSlot.GetComponent<HeroUpgradeSlot>().FillInBoost(firstBoost.GetComponent<HeroUpgrade>());
-            }
-            else
-            {
-                firstSlot.GetComponent<HeroUpgradeSlot>().ActivateBoostButton(true);
-            }
+            ActivateSlot(ref firstBoost, ref firstSlot, 0);
         }
         else
         {
-            firstSlot.GetComponent<HeroUpgradeSlot>().titleText.text = message;
-            firstSlot.GetComponent<HeroUpgradeSlot>().titleText.gameObject.SetActive(true);
+            LockSlot(ref firstSlot);
         }
 
         if (HeroManager.Instance.isSecondUpgradeActive)
         {
-            secondSlot.SetActive(true);
-            if (HeroManager.Instance.activeUpgrades[1] != null)
-            {
-                secondBoost.AddComponent(HeroManager.Instance.activeUpgrades[1].GetType());
-                secondSlot.GetComponent<HeroUpgradeSlot>().FillInBoost(secondBoost.GetComponent<HeroUpgrade>());
-            }
-            else
-            {
-                secondSlot.GetComponent<HeroUpgradeSlot>().ActivateBoostButton(true);
-            }
+            ActivateSlot(ref secondBoost, ref secondSlot, 1);
         }
         else
         {
-            secondSlot.GetComponent<HeroUpgradeSlot>().titleText.text = message;
-            secondSlot.GetComponent<HeroUpgradeSlot>().titleText.gameObject.SetActive(true);
+            LockSlot(ref secondSlot);
         }
 
         if (HeroManager.Instance.isThirdUpgradeActive)
         {
-            thirdSlot.SetActive(true);
-            if (HeroManager.Instance.activeUpgrades[2] != null)
-            {
-                thirdBoost.AddComponent(HeroManager.Instance.activeUpgrades[2].GetType());
-                thirdSlot.GetComponent<HeroUpgradeSlot>().FillInBoost(thirdBoost.GetComponent<HeroUpgrade>());
-            }
-            else
-            {
-                thirdSlot.GetComponent<HeroUpgradeSlot>().ActivateBoostButton(true);
-            }
+            ActivateSlot(ref thirdBoost, ref thirdSlot, 2);
         }
         else
         {
-            thirdSlot.GetComponent<HeroUpgradeSlot>().titleText.text = message;
-            thirdSlot.GetComponent<HeroUpgradeSlot>().titleText.gameObject.SetActive(true);
+            LockSlot(ref thirdSlot);
         }
 
+    }
+
+    private void ActivateSlot(ref GameObject boost, ref GameObject slot, int upgradeNumber)
+    {
+        slot.SetActive(true);
+        if (HeroManager.Instance.activeUpgrades[upgradeNumber] != null)
+        {
+            boost.AddComponent(HeroManager.Instance.activeUpgrades[upgradeNumber].GetType());
+            slot.GetComponent<HeroUpgradeSlot>().FillInBoost(boost.GetComponent<HeroUpgrade>());
+        }
+        else
+        {
+            slot.GetComponent<HeroUpgradeSlot>().ActivateBoostButton(true);
+        }
+    }
+
+    private void LockSlot(ref GameObject slot)
+    {
+        slot.GetComponent<HeroUpgradeSlot>().titleText.text = message;
+        slot.GetComponent<HeroUpgradeSlot>().titleText.gameObject.SetActive(true);
     }
 
     private void SelectFirstBoost(string _boost)

@@ -117,7 +117,7 @@ public class WaveSpawner : Singleton<WaveSpawner>
             speedModifier += 0.1f;
             goldAdjustment += 1f;
             perfectStreak++;
-            if (waveNumber != waves.Length - 1)
+            if (waveNumber != waves.Length)
                 StartCoroutine(PopupStreakNotice("Perfect"));
         }
         else if (livesLostThisWave <= 3)
@@ -154,24 +154,7 @@ public class WaveSpawner : Singleton<WaveSpawner>
             goldAdjustment += 0.5f;
         }
 
-        if (perfectStreak > 0 && perfectStreak % 5 == 0)
-        {
-            goldAdjustment += 1.5f;
-            LevelManager.Instance.AdjustLives(5);
-            if (waveNumber != waves.Length)
-            {
-                StartCoroutine(PopupStreakNotice($"Perfect Streak {perfectStreak} Rounds"));
-            }
-
-            if (perfectStreak == 5)
-            {
-                PlayGames.UnlockAchievement(GPGSIds.achievement_perfect_streak_5);
-            }
-            else if (perfectStreak == 10)
-            {
-                PlayGames.UnlockAchievement(GPGSIds.achievement_perfect_streak_10);
-            }
-        }
+        StreakBonusStuff();
     }
 
     private void ApplyModifiers(GameObject enemy)
@@ -194,6 +177,28 @@ public class WaveSpawner : Singleton<WaveSpawner>
         if (e.isBoss || e.isMiniBoss)
             return;
         enemy.GetComponent<EnemyController>().speed *= speedModifier;
+    }
+
+    private void StreakBonusStuff()
+    {
+        if (perfectStreak > 0 && perfectStreak % 5 == 0)
+        {
+            goldAdjustment += 1.5f;
+            LevelManager.Instance.AdjustLives(5);
+            if (waveNumber != waves.Length)
+            {
+                StartCoroutine(PopupStreakNotice($"Perfect Streak {perfectStreak} Rounds"));
+            }
+
+            if (perfectStreak == 5)
+            {
+                PlayGames.UnlockAchievement(GPGSIds.achievement_perfect_streak_5);
+            }
+            else if (perfectStreak == 10)
+            {
+                PlayGames.UnlockAchievement(GPGSIds.achievement_perfect_streak_10);
+            }
+        }
     }
 
     private IEnumerator PopupStreakNotice(string message)

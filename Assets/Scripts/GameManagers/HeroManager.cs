@@ -9,7 +9,6 @@ public class HeroManager : Singleton<HeroManager>
     private int heroLevel = 0;
     [SerializeField]
     private int heroXP = 0;
-    private int xpCollected = 0;
 
     public bool isFirstUpgradeActive = false;
     public bool isSecondUpgradeActive = false;
@@ -65,7 +64,6 @@ public class HeroManager : Singleton<HeroManager>
     public void AddHeroXP(int xpAmount)
     {
         heroXP += xpAmount;
-        xpCollected += xpAmount;
         CheckForLevelUp();
         GameEvents.OnSaveInitiated();
     }
@@ -98,7 +96,6 @@ public class HeroManager : Singleton<HeroManager>
         if (heroXP >= XpForLevel(heroLevel + 1))
         {
             heroLevel++;
-            xpCollected -= XpForLevel(heroLevel);
         }
     }
 
