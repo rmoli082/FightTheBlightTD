@@ -15,6 +15,7 @@ public class WinPanel : MonoBehaviour
 
     private void OnEnable()
     {
+        GameManager.Instance.UpdateGemsDisplay();
         PlayGames.UnlockAchievement(GPGSIds.achievement_beat_1_level);
         PlayGames.IncrementAchievement(GPGSIds.achievement_beat_5_levels, 1);
         PlayGames.IncrementAchievement(GPGSIds.achievement_beat_10_levels, 1);

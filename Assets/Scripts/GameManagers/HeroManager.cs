@@ -67,7 +67,6 @@ public class HeroManager : Singleton<HeroManager>
         heroXP += xpAmount;
         xpCollected += xpAmount;
         CheckForLevelUp();
-        UIXpBar.Instance.SetXpValue((float)xpCollected / ((float)XpForLevel(heroLevel + 1) - XpForLevel(heroLevel)));
         GameEvents.OnSaveInitiated();
     }
 

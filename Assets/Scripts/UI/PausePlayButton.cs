@@ -1,32 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class PausePlayButton : MonoBehaviour
 {
-    public TextMeshProUGUI playPauseText;
+    public Sprite pauseImage;
+    public Sprite playImage;
+    private Image buttonImage;
 
-    void Start()
+    private void Awake()
     {
-        UpdateButtonText();
+        buttonImage = GetComponent<Image>();
     }
-    
+
     public void ClickAction()
     {
         GameManager.Instance.PausePlay();
-        UpdateButtonText();
     }
 
-    public void UpdateButtonText()
+    public void SetPlayImage()
     {
-        if (GameManager.Instance.IsPaused)
-        {
-            playPauseText.text = "Play";
-        }
-        else
-        {
-            playPauseText.text = "Pause";
-        }
+        buttonImage.sprite = playImage;
     }
+
+    public void SetPauseImage()
+    {
+        buttonImage.sprite = pauseImage;
+    }
+
 }

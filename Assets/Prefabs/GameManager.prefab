@@ -58,9 +58,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0cecb9ee9ca8b24eb74039a088914cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPaused: 0
-  data: {fileID: 0}
   EnemiesRemaining: 0
+  pauseButton: {fileID: 21300000, guid: eea42e534748972468f042a6c6d145a2, type: 3}
+  playButton: {fileID: 21300000, guid: 2d39d0704f809694680390b7f15012f9, type: 3}
+  fastButton: {fileID: 21300000, guid: a36ca44f2aedb194bb357af1e089ee6f, type: 3}
+  normalButton: {fileID: 21300000, guid: a0d7a3ec24a800447848b29a22f93562, type: 3}
 --- !u!114 &6545916789141061512
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -70,7 +70,6 @@ public class Enemy : MonoBehaviour
         gameObject.GetComponent<EnemyController>().enabled = false;
         gameObject.tag = "Waypoint";
 
-        LevelManager.Instance.bossIsDead = true;
         for (int i = 0; i < spawnAmount; i++)
         {
             GameObject b = Instantiate(LevelManager.Instance.levelData.bossSpawn, transform.position, Quaternion.identity);
@@ -80,6 +79,8 @@ public class Enemy : MonoBehaviour
             yield return new WaitForSeconds(0.55f);
         }
         GameManager.Instance.EnemiesRemaining--;
+
+        LevelManager.Instance.bossIsDead = true;
         yield return new WaitUntil(() => GameManager.Instance.EnemiesRemaining == 0);
         GameEvents.OnEnemyKilled();
         TurretStats.Instance.AddTurretKills(turretType, 1);

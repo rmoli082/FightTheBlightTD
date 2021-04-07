@@ -8,6 +8,15 @@ public class RapidUpgradeButton : TurretScreenUpgrade
     {
         base.Awake();
     }
+    protected override void Update()
+    {
+        if (!TurretStats.Instance.rapidPermanentBought[upgradeNumber] &&
+            TurretStats.Instance.GetTurretStats(PlaceableType.rapid.ToString()) >= blueprint.cost)
+        {
+            this.button.interactable = true;
+        }
+    }
+
     public override void BuyUpgrade()
     {
         if (TurretStats.Instance.GetTurretStats(PlaceableType.rapid.ToString()) >= blueprint.cost)

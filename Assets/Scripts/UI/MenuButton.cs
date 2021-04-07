@@ -6,7 +6,8 @@ public class MenuButton : MonoBehaviour
 {
     public void OpenMenuPanel()
     {
-        GameManager.Instance.PausePlay();
+        if (!GameManager.Instance.IsPaused)
+            GameManager.Instance.PausePlay();
         LevelManager.Instance.sceneData.menuPanel.SetActive(true);
     }
 }

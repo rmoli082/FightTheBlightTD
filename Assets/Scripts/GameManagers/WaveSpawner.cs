@@ -82,7 +82,7 @@ public class WaveSpawner : Singleton<WaveSpawner>
         GameObject e = Instantiate(enemies[enemy], transform.position, Quaternion.identity);
         Enemy en = e.GetComponent<Enemy>();
         if (en.bossAlert)
-            LevelManager.Instance.sceneData.soundEffects.PlayOneShot(en.bossAlert);
+            LevelManager.Instance.sceneData.soundEffectsPlayer.PlayBossAudio(en.bossAlert);
         GameManager.Instance.EnemiesRemaining++;
         Vector3 pos = transform.position;
         pos.y = 0;
@@ -93,9 +93,7 @@ public class WaveSpawner : Singleton<WaveSpawner>
 
     private void WaveEndedStuff()
     {
-        LevelManager.Instance.sceneData.nextWaveButton.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
-        LevelManager.Instance.sceneData.nextWaveButton.GetComponentInChildren<TextMeshProUGUI>().text = "Next Wave";
-        LevelManager.Instance.sceneData.nextWaveButton.GetComponentInChildren<TextMeshProUGUI>().color = new Color(0, 0, 0, 1f);
+        LevelManager.Instance.sceneData.nextWaveButton.SetColor (new Color(255, 255, 255, 1f));
         SetDifficultyModifiers();
         LevelManager.Instance.AdjustGold(Mathf.CeilToInt(LevelManager.Instance.levelData.waveGoldReward * goldAdjustment));
         livesLostThisWave = 0;
@@ -108,7 +106,8 @@ public class WaveSpawner : Singleton<WaveSpawner>
         {
             if (perfectStreak > 1)
             {
-                StartCoroutine(PopupStreakNotice("Perfect Streak Broken!"));
+                if (waveNumber != waves.Length)
+                    StartCoroutine(PopupStreakNotice("Perfect Streak Broken!"));
             }
         }
 
@@ -118,7 +117,8 @@ public class WaveSpawner : Singleton<WaveSpawner>
             speedModifier += 0.1f;
             goldAdjustment += 1f;
             perfectStreak++;
-            StartCoroutine(PopupStreakNotice("Perfect"));
+            if (waveNumber != waves.Length - 1)
+                StartCoroutine(PopupStreakNotice("Perfect"));
         }
         else if (livesLostThisWave <= 3)
         {
@@ -158,7 +158,11 @@ public class WaveSpawner : Singleton<WaveSpawner>
         {
             goldAdjustment += 1.5f;
             LevelManager.Instance.AdjustLives(5);
-            StartCoroutine(PopupStreakNotice($"Perfect Streak {perfectStreak} Rounds"));
+            if (waveNumber != waves.Length)
+            {
+                StartCoroutine(PopupStreakNotice($"Perfect Streak {perfectStreak} Rounds"));
+            }
+
             if (perfectStreak == 5)
             {
                 PlayGames.UnlockAchievement(GPGSIds.achievement_perfect_streak_5);
@@ -208,9 +212,7 @@ public class WaveSpawner : Singleton<WaveSpawner>
             Destroy(e);
         }
         this.waveNumber = waveNumber;
-        LevelManager.Instance.sceneData.nextWaveButton.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
-        LevelManager.Instance.sceneData.nextWaveButton.GetComponentInChildren<TextMeshProUGUI>().text = "Next Wave";
-        LevelManager.Instance.sceneData.nextWaveButton.GetComponentInChildren<TextMeshProUGUI>().color = new Color(0, 0, 0, 1f);
+        LevelManager.Instance.sceneData.nextWaveButton.SetColor(new Color(255, 255, 255, 1f));
     }
 
     private void OnDestroy()

@@ -35,7 +35,7 @@ public class LevelSelectInterstitial : MonoBehaviour
             if (PlayerPrefs.GetInt($"{levelToUnlock} Complete") == 1)
             {
                 this.button.interactable = true;
-                this.gameObject.GetComponentInChildren<TextMeshProUGUI>().color = new Color32(50, 50, 50, 255);
+                this.gameObject.GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
                 this.isLocked = false;
             }
             else

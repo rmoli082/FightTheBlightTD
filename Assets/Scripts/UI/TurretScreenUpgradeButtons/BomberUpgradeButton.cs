@@ -9,6 +9,15 @@ public class BomberUpgradeButton : TurretScreenUpgrade
         base.Awake();
     }
 
+    protected override void Update()
+    {
+        if (!TurretStats.Instance.bomberPermanentBought[upgradeNumber] &&
+            TurretStats.Instance.GetTurretStats(PlaceableType.bomber.ToString()) >= blueprint.cost)
+        {
+            this.button.interactable = true;
+        }
+    }
+
     public override void BuyUpgrade()
     {
         if (TurretStats.Instance.GetTurretStats(PlaceableType.bomber.ToString()) >= blueprint.cost)

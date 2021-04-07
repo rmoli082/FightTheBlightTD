@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 3767290474766952586}
   - component: {fileID: 2499237330905839336}
   m_Layer: 0
-  m_Name: Wizard_A
+  m_Name: Wizard_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,8 +139,14 @@ MonoBehaviour:
   stunPower: 0
   stunTime: 0
   explodeRange: 0
+  shotInterval: 0.62
   shotCounter: 0
+  amountToPool: 7
   projectilePrefab: {fileID: 1765683876587122627, guid: 17410fcdfd5010945ab770070a75bfa0, type: 3}
+  projectile:
+    m_AssetGUID: 17410fcdfd5010945ab770070a75bfa0
+    m_SubObjectName: 
+    m_SubObjectType: 
   shotFX: {fileID: 8300000, guid: 0031da416027f8c49a41e7082d67fb3c, type: 3}
   glowObj:
   - {fileID: 3591357792605434093}
@@ -148,7 +154,6 @@ MonoBehaviour:
   glowMat:
   - {fileID: 2100000, guid: a044cb97fc0229046b304c1cda4f5c80, type: 2}
   - {fileID: 2100000, guid: 260c471df313eed40bb9969d0acdfb5f, type: 2}
-  originalMat: []
   turretUpgrades:
   - {fileID: 11400000, guid: 64cf906c942857e49aa020d2287ae13c, type: 2}
   - {fileID: 11400000, guid: 958e2860d93e83d44b726bcd615f9932, type: 2}

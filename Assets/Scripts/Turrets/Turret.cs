@@ -5,6 +5,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.ResourceLocations;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
 
 public class Turret : Placeable
 {
@@ -22,7 +26,11 @@ public class Turret : Placeable
     public float explodeRange = 0f;
     [SerializeField]
     private float shotCounter = 0;
-    public GameObject projectilePrefab;
+
+    private List<GameObject> pooledProjectiles;
+    public int amountToPool = 7;
+    public AssetReferenceGameObject projectile;
+    public AssetReferenceGameObject upgradedProjectile;
 
     [Header("Turret Effects")]
     public AudioClip shotFX;
@@ -72,6 +80,10 @@ public class Turret : Placeable
                 GetStunnerPerms();
                 break;
         }
+
+        pooledProjectiles = new List<GameObject>();
+
+        PoolProjectiles(amountToPool);
     }
 
     private void Update()
@@ -181,11 +193,13 @@ public class Turret : Placeable
 
     private void Shoot()
     {
-        if (shotFX != null)
-            LevelManager.Instance.sceneData.soundEffects.PlayOneShot(shotFX);
+        if (shotFX != null )
+        {
+            LevelManager.Instance.sceneData.soundEffectsPlayer.PlayAudio(shotFX);
+        }
 
-        GameObject bullet = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-        Destroy(bullet, 2f);
+        GameObject bullet = GetProjectile();
+        bullet.SetActive(true);
 
         if (TurretType == PlaceableType.seeker)
         {
@@ -278,7 +292,7 @@ public class Turret : Placeable
         if (TurretStats.Instance.rapidPermanentBought[2])
         {
             projectileForce = 15f;
-            projectilePrefab = Resources.Load<GameObject>("Projectile/RapidSeeker.prefab");
+            projectile = upgradedProjectile;
         }
     }
 
@@ -301,8 +315,7 @@ public class Turret : Placeable
 
     private void GetSeekerPerms()
     {
-        if (TurretStats.Instance.seekerPermanentBought[0])
-        {
+       
             if (TurretStats.Instance.seekerPermanentBought[0])
             {
                 fireRate = 1.35f;
@@ -314,9 +327,8 @@ public class Turret : Placeable
             }
             if (TurretStats.Instance.seekerPermanentBought[2])
             {
-                projectilePrefab = Resources.Load<GameObject>("Projectile/SeekerExplode.prefab");
+            projectile = upgradedProjectile;
             }
-        }
     }
 
     private void GetStunnerPerms()
@@ -334,6 +346,44 @@ public class Turret : Placeable
         {
             stunTime = float.PositiveInfinity;
         }
+    }
+
+    private void PoolProjectiles(int _amountToPool)
+    {
+        for (int i = 0; i < _amountToPool; i++)
+        {
+            ReferenceManager.Instance.Instantiate(projectile, transform.position, transform.rotation, transform)
+                .Completed += reference =>
+                {
+                    reference.Result.gameObject.SetActive(false);
+                    pooledProjectiles.Add(reference.Result);
+                };
+        }
+    }
+
+    private GameObject GetProjectile()
+    {
+        
+        for (int i = 0; i < pooledProjectiles.Count; i++)
+        {
+            if (!pooledProjectiles[i].activeInHierarchy)
+            {
+                pooledProjectiles[i].GetComponent<Collider>().enabled = true;
+                pooledProjectiles[i].transform.position = firePoint.position;
+                pooledProjectiles[i].transform.rotation = Quaternion.LookRotation(firePoint.position - target.position);
+                return pooledProjectiles[i];
+            }
+        }
+
+        GameObject tmp = new GameObject();
+        ReferenceManager.Instance.Instantiate(projectile, transform.position, transform.rotation, transform)
+                .Completed += reference =>
+                {
+                    pooledProjectiles.Add(reference.Result);
+                    tmp = reference.Result;
+                };
+
+        return tmp;
     }
 
     private void OnDrawGizmos()

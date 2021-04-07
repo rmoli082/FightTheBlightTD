@@ -8,6 +8,15 @@ public class StunnerUpgradeButton : TurretScreenUpgrade
     {
         base.Awake();
     }
+    protected override void Update()
+    {
+        if (!TurretStats.Instance.stunnerPermanentBought[upgradeNumber] &&
+            TurretStats.Instance.GetTurretStats(PlaceableType.stunner.ToString()) >= blueprint.cost)
+        {
+            this.button.interactable = true;
+        }
+    }
+
     public override void BuyUpgrade()
     {
         if (TurretStats.Instance.GetTurretStats(PlaceableType.stunner.ToString()) >= blueprint.cost)

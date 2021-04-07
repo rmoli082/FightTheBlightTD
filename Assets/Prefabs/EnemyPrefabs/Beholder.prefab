@@ -49,6 +49,7 @@ MonoBehaviour:
   health: 25
   goldReward: 50
   dieEffect: {fileID: 5989568863842805911, guid: 03cb7549079271c408c722ca7701cd62, type: 3}
+  isAlive: 1
   isMiniBoss: 1
   isBoss: 0
   bossAlert: {fileID: 8300000, guid: af7a8aaf5bc23aa49a924748fc1aea28, type: 3}
@@ -134,6 +135,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: bdbbbe3dbc170e04d8432b264803fa1d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8835ffcb4ce74174fa9a2828a55166b7, type: 2}
     - target: {fileID: 919132149155446097, guid: bdbbbe3dbc170e04d8432b264803fa1d, type: 3}
       propertyPath: m_Name
       value: beholder

@@ -13,14 +13,17 @@ public class Projectile : MonoBehaviour
 
     private static object mLock = new object();
 
-    private void Awake()
+    private void OnEnable()
     {
         rb = GetComponent<Rigidbody>();
         if (rb == null)
             rb = gameObject.AddComponent<Rigidbody>();
        coll = GetComponent<Collider>();
        coll.enabled = true;
+        rb.velocity = new Vector3(0, 0, 0);
+        rb.angularVelocity = new Vector3(0, 0, 0);
     }
+
 
     public void SetTurret(Placeable placeable)
     {
@@ -30,8 +33,14 @@ public class Projectile : MonoBehaviour
     public void Launch(Vector3 direction, float force)
     {
         rb.AddForce(direction * force);
+        StartCoroutine(Disappear());
     }
 
+    private IEnumerator Disappear()
+    {
+        yield return new WaitForSeconds(2.0f);
+        gameObject.SetActive(false);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -45,8 +54,10 @@ public class Projectile : MonoBehaviour
 
                 if (isStunner && !ec.isStunned)
                 {
+                    e.Damage(turret.DamageAmount, turret.TurretType.ToString());
                     Stun(ec);
-                    Destroy(gameObject);
+                    // Destroy(gameObject);
+                    gameObject.SetActive(false);
                     return;
                 }
                 else
@@ -57,7 +68,8 @@ public class Projectile : MonoBehaviour
                     {
                         Explode(exploder.explodeRange);
                     }
-                    Destroy(gameObject);
+                    // Destroy(gameObject);
+                    gameObject.SetActive(false);
                 }
             }
         }

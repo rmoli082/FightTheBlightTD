@@ -6,18 +6,17 @@ using TMPro;
 
 public abstract class TurretScreenUpgrade : MonoBehaviour
 {
-    public TextMeshProUGUI upgradeDescription;
-    public TextMeshProUGUI upgradeCost;
     public PermaGradeBlueprint blueprint;
     protected TurretScreen screenData;
     public int upgradeNumber;
+    protected Button button;
 
     protected virtual void Awake()
     {
-        upgradeDescription.text = blueprint.description;
-        upgradeCost.text = blueprint.cost.ToString();
-        
+        button = GetComponentInParent<Button>();
     }
+
+    protected virtual void Update() { }
 
     protected virtual void Start()
     {

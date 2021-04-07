@@ -8,6 +8,16 @@ public class SeekerUpgradeButton : TurretScreenUpgrade
     {
         base.Awake();
     }
+
+    protected override void Update()
+    {
+        if (!TurretStats.Instance.seekerPermanentBought[upgradeNumber] &&
+            TurretStats.Instance.GetTurretStats(PlaceableType.seeker.ToString()) >= blueprint.cost)
+        {
+            this.button.interactable = true;
+        }
+    }
+
     public override void BuyUpgrade()
     {
         if (TurretStats.Instance.GetTurretStats(PlaceableType.seeker.ToString()) >= blueprint.cost)

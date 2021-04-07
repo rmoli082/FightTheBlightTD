@@ -17,19 +17,20 @@ public class SceneData : MonoBehaviour
     public GameObject streakPopup;
 
     [Header("On Screen Buttons")]
-    public GameObject nextWaveButton;
-    public GameObject playPauseButton;
-    public GameObject speedButton;
+    public NextWaveButton nextWaveButton;
+    public PausePlayButton playPauseButton;
+    public SpeedButton speedButton;
 
     [Header("Audio Sources")]
     public AudioSource backgroundMusic;
-    public AudioSource soundEffects;
+    public FXManager soundEffectsPlayer;
 
     [Header("Screen Panels")]
     public GameObject menuPanel;
     public GameObject settingsPanel;
 
     [Header("Game Over")]
+    public GameObject gameOverPanel;
     public GameObject winPanel;
     public TextMeshProUGUI winGems;
     public GameObject losePanel;

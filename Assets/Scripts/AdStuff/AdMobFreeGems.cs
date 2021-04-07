@@ -56,7 +56,6 @@ public class AdMobFreeGems : MonoBehaviour
     {
         if (this.freeGemsAd.IsLoaded())
         {
-            Debug.Log("Show Gems Ad");
             this.freeGemsAd.Show();
         }
         else
@@ -67,10 +66,13 @@ public class AdMobFreeGems : MonoBehaviour
 
     public void ReceiveFreeGems(object sender, Reward args)
     {
-        Debug.Log($"Receive free gems");
         Player.Instance.AdjustGems(25);
+    }
 
-        RequestAd((RewardedAd)sender);
+    private void HandleClose(object sender, EventArgs args)
+    {
+
+        this.freeGemsAd = CreateAndLoadRewardedAd(gemAdUnitId);
     }
 
 }

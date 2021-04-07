@@ -139,8 +139,17 @@ MonoBehaviour:
   stunPower: 0
   stunTime: 0
   explodeRange: 0
+  shotInterval: 0.62
   shotCounter: 0
-  projectilePrefab: {fileID: 1765683876587122627, guid: dccc148c8587b7042bf80f5e6fa6a969, type: 3}
+  amountToPool: 7
+  projectile:
+    m_AssetGUID: dccc148c8587b7042bf80f5e6fa6a969
+    m_SubObjectName: 
+    m_SubObjectType: 
+  upgradedProjectile:
+    m_AssetGUID: fe8551af34dda2e44b628822c608daf1
+    m_SubObjectName: 
+    m_SubObjectType: 
   shotFX: {fileID: 8300000, guid: 0031da416027f8c49a41e7082d67fb3c, type: 3}
   glowObj:
   - {fileID: 3591357792605434093}

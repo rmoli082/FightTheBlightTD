@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: ProjectilePrefabs
+  m_EditorClassIdentifier: 
+  m_GroupName: ProjectilePrefabs
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 2f03b5d60399b184ba245564450b248c
+  m_SerializeEntries:
+  - m_GUID: 17410fcdfd5010945ab770070a75bfa0
+    m_Address: Fireball
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 1765683876587122627, guid: 17410fcdfd5010945ab770070a75bfa0, type: 3}
+    m_TargetAsset: {fileID: 1765683876587122627, guid: 17410fcdfd5010945ab770070a75bfa0, type: 3}
+  - m_GUID: c4b12b9074ede9d4ea72a2267916d006
+    m_Address: SeekShot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 40900625891239519, guid: c4b12b9074ede9d4ea72a2267916d006, type: 3}
+    m_TargetAsset: {fileID: 40900625891239519, guid: c4b12b9074ede9d4ea72a2267916d006, type: 3}
+  - m_GUID: dccc148c8587b7042bf80f5e6fa6a969
+    m_Address: Stingshot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 1765683876587122627, guid: dccc148c8587b7042bf80f5e6fa6a969, type: 3}
+    m_TargetAsset: {fileID: 1765683876587122627, guid: dccc148c8587b7042bf80f5e6fa6a969, type: 3}
+  - m_GUID: 2d89a543124ae104e81979ccb51f9e1a
+    m_Address: StunShot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 1765683876587122627, guid: 2d89a543124ae104e81979ccb51f9e1a, type: 3}
+    m_TargetAsset: {fileID: 1765683876587122627, guid: 2d89a543124ae104e81979ccb51f9e1a, type: 3}
+  - m_GUID: 415505e4a07099e429c2dc3eccd7c2d0
+    m_Address: SeekerExplode
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 40900625891239519, guid: 415505e4a07099e429c2dc3eccd7c2d0, type: 3}
+    m_TargetAsset: {fileID: 40900625891239519, guid: 415505e4a07099e429c2dc3eccd7c2d0, type: 3}
+  - m_GUID: fe8551af34dda2e44b628822c608daf1
+    m_Address: RapidSeeker
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 1765683876587122627, guid: fe8551af34dda2e44b628822c608daf1, type: 3}
+    m_TargetAsset: {fileID: 1765683876587122627, guid: fe8551af34dda2e44b628822c608daf1, type: 3}
+  - m_GUID: 94d4597708ef8194aa634565ebf8903b
+    m_Address: Missile
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 4800236456513058916, guid: 94d4597708ef8194aa634565ebf8903b, type: 3}
+    m_TargetAsset: {fileID: 4800236456513058916, guid: 94d4597708ef8194aa634565ebf8903b, type: 3}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a7832206e015f2444aa23518e2e9c7e6, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: c6d68ca1bebd5d44898dfd9e203ae214, type: 2}
+    - {fileID: 11400000, guid: a06a127460e162343bc2d64c545cd719, type: 2}

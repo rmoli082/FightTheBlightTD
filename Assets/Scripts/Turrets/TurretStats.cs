@@ -68,7 +68,7 @@ public class TurretStats : Singleton<TurretStats>
         turretKills = saveData.turretKills;
         turretPermanentBought = saveData.turretPermanentBought;
         rapidPermanentBought = saveData.rapidPermanentBought;
-        bomberPermanentBought = saveData.rapidPermanentBought;
+        bomberPermanentBought = saveData.bomberPermanentBought;
         seekerPermanentBought = saveData.seekerPermanentBought;
         stunnerPermanentBought = saveData.stunnerPermanentBought;
     }

@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "802KPGS1530607",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "802KPGS1530607",
+        "name": "com.MorashStudios.FighttheBlightTD",
+        "processId": 31517,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,32 +11,44 @@
         {
             "deviceId": "802KPGS1530607",
             "name": "com.MorashStudios.FighttheBlightTD",
-            "processId": 18574,
+            "processId": 29453,
             "exited": true
         },
         {
             "deviceId": "802KPGS1530607",
             "name": "com.MorashStudios.FighttheBlightTD",
-            "processId": 19623,
+            "processId": 30658,
             "exited": true
         },
         {
             "deviceId": "802KPGS1530607",
             "name": "com.MorashStudios.FighttheBlightTD",
-            "processId": 12723,
+            "processId": 2550,
             "exited": true
         },
         {
             "deviceId": "802KPGS1530607",
-            "name": "com.android.vending",
-            "processId": 27572,
+            "name": "com.google.android.apps.nexuslauncher",
+            "processId": 14245,
+            "exited": false
+        },
+        {
+            "deviceId": "802KPGS1530607",
+            "name": "com.MorashStudios.FighttheBlightTD",
+            "processId": 5844,
             "exited": true
         },
         {
             "deviceId": "802KPGS1530607",
             "name": "com.MorashStudios.FighttheBlightTD",
-            "processId": 18175,
+            "processId": 12202,
             "exited": true
+        },
+        {
+            "deviceId": "802KPGS1530607",
+            "name": "com.MorashStudios.FighttheBlightTD",
+            "processId": 31517,
+            "exited": false
         }
     ],
     "m_Tags": {

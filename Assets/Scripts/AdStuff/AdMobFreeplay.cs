@@ -36,6 +36,7 @@ public class AdMobFreeplay : MonoBehaviour
 
         rewardAd.OnUserEarnedReward += ReceiveFreeplay;
         rewardAd.OnAdFailedToShow += HandleFailedAdLoad;
+        rewardAd.OnAdClosed += HandleClose;
 
         RequestAd(rewardAd);
 
@@ -57,17 +58,19 @@ public class AdMobFreeplay : MonoBehaviour
     {
         if (this.freeReplayAd.IsLoaded())
         {
-            Debug.Log("Show freeplay Ad");
             this.freeReplayAd.Show();
         }
     }
 
     public void ReceiveFreeplay(object sender, Reward args)
     {
-        Debug.Log($"Freeplay");
         LevelManager.Instance.sceneData.losePanel.GetComponent<LosePanel>().ContinueAdWatch();
+        //this.freeReplayAd = CreateAndLoadRewardedAd(replayAdUnitID);
+    }
 
-        RequestAd((RewardedAd)sender);
+    void HandleClose(object sender, EventArgs args)
+    {
+        this.freeReplayAd = CreateAndLoadRewardedAd(replayAdUnitID);
     }
 
 }

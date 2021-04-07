@@ -11,6 +11,12 @@ public class ShopButton : MonoBehaviour
     public GameObject costTag;
 
     public Image buttonImage;
+    private Image costImage;
+    public Color fadedCost;
+    private Color fullCost;
+
+    public Sprite redTag;
+    private Sprite originalTag;
 
     public bool isHeroButton = false;
 
@@ -21,6 +27,9 @@ public class ShopButton : MonoBehaviour
         cost.text = blueprint.turretCost.ToString();
         buttonImage.sprite = blueprint.turretImage;
         button = gameObject.GetComponentInParent<Button>();
+        costImage = costTag.GetComponent<Image>();
+        originalTag = costImage.sprite;
+        fullCost = costImage.color;
     }
 
     private void Update()
@@ -29,18 +38,21 @@ public class ShopButton : MonoBehaviour
         if (LevelManager.Instance.GetGold() < blueprint.turretCost)
         {
             button.interactable = false;
-            costTag.SetActive(false);
+            costImage.color = fadedCost;
+            costImage.sprite = redTag;
         }
         else
         {
             button.interactable = true;
-            costTag.SetActive(true);
+            costImage.color = fullCost;
+            costImage.sprite = originalTag;
         }
 
         if (isHeroButton && HeroManager.Instance.isSpawned)
         {
             button.interactable = false;
-            costTag.SetActive(false);
+            costImage.color = fadedCost;
+            costImage.sprite = redTag;
         }
     }
 

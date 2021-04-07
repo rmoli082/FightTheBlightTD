@@ -19,8 +19,8 @@ public class TurretScreenButton : MonoBehaviour
 
     public void SetDetails()
     {
-        screenData.turretName.text = blueprint.turretName;
-        screenData.turretKills.text = TurretStats.Instance.GetTurretStats(blueprint.prefab.GetComponent<Turret>().TurretType.ToString()).ToString();
+        screenData.turretImage.gameObject.SetActive(true);
+        screenData.turretKills.text = $"{TurretStats.Instance.GetTurretStats(blueprint.prefab.GetComponent<Turret>().TurretType.ToString())} points";
         screenData.turretDescription.text = blueprint.turretDescription;
         screenData.turretImage.sprite = blueprint.turretImage;
 

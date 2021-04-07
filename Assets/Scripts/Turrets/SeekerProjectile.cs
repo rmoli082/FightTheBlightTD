@@ -11,29 +11,40 @@ public class SeekerProjectile : MonoBehaviour
     public bool canExplode = false;
     private float range = 3f;
 
+    float bulletTimer = 2f;
+
+    Collider coll;
+
+    private void OnEnable()
+    {
+        coll = GetComponent<Collider>();
+        coll.enabled = true;
+    }
+
     private void Update()
     {
         if (target == null)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             return;
         }
 
         Vector3 dir = target.position - transform.position;
         float distanceThisFrame = turret.projectileForce * Time.deltaTime;
 
-        if (dir.magnitude <= distanceThisFrame + 0.2f)
-        {
-            HitTarget();
-            return;
-        }
-
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
         transform.LookAt(target);
 
+        bulletTimer -= Time.deltaTime;
+        if (bulletTimer == 0)
+        {
+            gameObject.SetActive(false);
+            bulletTimer = 2;
+        }
+
     }
 
-    void HitTarget()
+    void OnTriggerEnter()
     {
         Enemy e = target.GetComponentInParent<Enemy>();
         e.Damage(turret.DamageAmount, turret.TurretType.ToString());
@@ -41,7 +52,7 @@ public class SeekerProjectile : MonoBehaviour
         {
             Explode(range);
         }
-        Destroy(gameObject);
+        gameObject.SetActive(false);
         return;
     }
 
@@ -64,8 +75,6 @@ public class SeekerProjectile : MonoBehaviour
             {
                 Enemy e = c.GetComponentInParent<Enemy>();
                 e.Damage(turret.DamageAmount, turret.TurretType.ToString());
-                Destroy(gameObject);
-                return;
             }
 
         }

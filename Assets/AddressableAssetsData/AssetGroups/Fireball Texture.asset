@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Fireball Texture
+  m_EditorClassIdentifier: 
+  m_GroupName: Fireball Texture
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 5f82c7fc724d7774d8ff9d61fe8c21f4
+  m_SerializeEntries:
+  - m_GUID: 432a0a30e6c6a234ea08fa25a77722fc
+    m_Address: snowcoveredpath_normal-ogl
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2800000, guid: 432a0a30e6c6a234ea08fa25a77722fc, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: 432a0a30e6c6a234ea08fa25a77722fc, type: 3}
+  - m_GUID: 75fa27e7a3d82f5438f229b8feaa8886
+    m_Address: snowcoveredpath_height
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2800000, guid: 75fa27e7a3d82f5438f229b8feaa8886, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: 75fa27e7a3d82f5438f229b8feaa8886, type: 3}
+  - m_GUID: 8442461d901bb6943b91c00d14a54b99
+    m_Address: snowcoveredpath_ao
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2800000, guid: 8442461d901bb6943b91c00d14a54b99, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: 8442461d901bb6943b91c00d14a54b99, type: 3}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a7832206e015f2444aa23518e2e9c7e6, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 8e2d04434c31f6d4fafb1a3151154633, type: 2}
+    - {fileID: 11400000, guid: 0660b2a7a6fa43c41adce6ced73b25ad, type: 2}

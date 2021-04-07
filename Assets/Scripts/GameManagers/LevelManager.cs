@@ -90,12 +90,12 @@ public class LevelManager : Singleton<LevelManager>
 
     public void UpdateLives()
     {
-        sceneData.playerLives.text = playerStats.playerLives.ToString() + " LIVES";
+        sceneData.playerLives.text = playerStats.playerLives.ToString();
     }
 
     private void UpdateGold()
     {
-        sceneData.playerGold.text = playerStats.playerGold.ToString() + " GOLD";
+        sceneData.playerGold.text = playerStats.playerGold.ToString();
     }
 
     private void LoadTutorial()
@@ -115,7 +115,7 @@ public class LevelManager : Singleton<LevelManager>
 
     private void CheckForWin()
     {
-        if (WaveSpawner.Instance.waveNumber >= totalWaves && bossIsDead)
+        if (WaveSpawner.Instance.waveNumber >= totalWaves && bossIsDead && GameManager.Instance.EnemiesRemaining == 0)
         {
             GameManager.Instance.Win();
         }
