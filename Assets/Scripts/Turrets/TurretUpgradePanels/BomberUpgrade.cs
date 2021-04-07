@@ -10,11 +10,7 @@ public class BomberUpgrade : TurretUpgradePanels
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
             upgradePanel.turretToUpgrade.DamageAmount *= 1.1f;
-            upgradePanel.turretToUpgrade.slotLevel[0]++;
-            upgradePanel.turretToUpgrade.SellCost = upgradePanel.turretToUpgrade.SellCost + (upgradeCost / 2);
-            LevelManager.Instance.AdjustGold(-upgradeCost);
-            LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
-            upgradePanel.turretToUpgrade.Glow(false);
+            PurchaseUpgrade(0);
             Analytics.CustomEvent("First Bomber Upgrade Bought");
         }
         
@@ -25,11 +21,7 @@ public class BomberUpgrade : TurretUpgradePanels
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
             upgradePanel.turretToUpgrade.explodeRange *= 1.15f;
-            upgradePanel.turretToUpgrade.slotLevel[1]++;
-            upgradePanel.turretToUpgrade.SellCost = upgradePanel.turretToUpgrade.SellCost + (upgradeCost / 2);
-            LevelManager.Instance.AdjustGold(-upgradeCost);
-            LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
-            upgradePanel.turretToUpgrade.Glow(false);
+            PurchaseUpgrade(1);
             Analytics.CustomEvent("Second Bomber Upgrade Bought");
         }
         
@@ -40,11 +32,7 @@ public class BomberUpgrade : TurretUpgradePanels
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
             upgradePanel.turretToUpgrade.range *= 1.1f;
-            upgradePanel.turretToUpgrade.slotLevel[2]++;
-            upgradePanel.turretToUpgrade.SellCost = upgradePanel.turretToUpgrade.SellCost + (upgradeCost / 2);
-            LevelManager.Instance.AdjustGold(-upgradeCost);
-            LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
-            upgradePanel.turretToUpgrade.Glow(false);
+            PurchaseUpgrade(2);
             Analytics.CustomEvent("Third Bomber Upgrade Bought");
         }
     }

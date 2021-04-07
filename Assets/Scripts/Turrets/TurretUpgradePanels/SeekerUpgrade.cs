@@ -10,11 +10,7 @@ public class SeekerUpgrade : TurretUpgradePanels
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
             upgradePanel.turretToUpgrade.projectileForce *= 1.1f;
-            upgradePanel.turretToUpgrade.slotLevel[0]++;
-            upgradePanel.turretToUpgrade.SellCost = upgradePanel.turretToUpgrade.SellCost + (upgradeCost / 2);
-            LevelManager.Instance.AdjustGold(-upgradeCost);
-            LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
-            upgradePanel.turretToUpgrade.Glow(false);
+            PurchaseUpgrade(0);
             Analytics.CustomEvent("First Seeker Upgrade Bought");
         }
     }
@@ -24,11 +20,7 @@ public class SeekerUpgrade : TurretUpgradePanels
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
             upgradePanel.turretToUpgrade.fireRate *= 1.15f;
-            upgradePanel.turretToUpgrade.slotLevel[1]++;
-            upgradePanel.turretToUpgrade.SellCost = upgradePanel.turretToUpgrade.SellCost + (upgradeCost / 2);
-            LevelManager.Instance.AdjustGold(-upgradeCost);
-            LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
-            upgradePanel.turretToUpgrade.Glow(false);
+            PurchaseUpgrade(1);
             Analytics.CustomEvent("Second Seeker Upgrade Bought");
         }
     }
@@ -38,11 +30,7 @@ public class SeekerUpgrade : TurretUpgradePanels
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
             upgradePanel.turretToUpgrade.DamageAmount *= 1.15f;
-            upgradePanel.turretToUpgrade.slotLevel[2]++;
-            upgradePanel.turretToUpgrade.SellCost = upgradePanel.turretToUpgrade.SellCost + (upgradeCost / 2);
-            LevelManager.Instance.AdjustGold(-upgradeCost);
-            LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
-            upgradePanel.turretToUpgrade.Glow(false);
+            PurchaseUpgrade(2);
             Analytics.CustomEvent("Third Seeker Upgrade Bought");
         }
     }

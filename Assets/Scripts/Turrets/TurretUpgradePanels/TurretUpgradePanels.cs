@@ -14,4 +14,13 @@ public class TurretUpgradePanels : MonoBehaviour
     {
         upgradePanel = LevelManager.Instance.sceneData.turretUpgradePanel.GetComponent<UpgradePanel>();
     }
+
+    protected void PurchaseUpgrade(int slotNumber)
+    {
+        upgradePanel.turretToUpgrade.slotLevel[slotNumber]++;
+        upgradePanel.turretToUpgrade.SellCost += (upgradeCost / 2);
+        LevelManager.Instance.AdjustGold(-upgradeCost);
+        LevelManager.Instance.sceneData.turretUpgradePanel.SetActive(false);
+        upgradePanel.turretToUpgrade.Glow(false);
+    }
 }
