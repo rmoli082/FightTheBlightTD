@@ -139,12 +139,15 @@ MonoBehaviour:
   stunPower: 0
   stunTime: 0
   explodeRange: 0
-  shotInterval: 0.62
   shotCounter: 0
+  pooledProjectiles: []
   amountToPool: 7
-  projectilePrefab: {fileID: 1765683876587122627, guid: 17410fcdfd5010945ab770070a75bfa0, type: 3}
   projectile:
     m_AssetGUID: 17410fcdfd5010945ab770070a75bfa0
+    m_SubObjectName: 
+    m_SubObjectType: 
+  upgradedProjectile:
+    m_AssetGUID: 
     m_SubObjectName: 
     m_SubObjectType: 
   shotFX: {fileID: 8300000, guid: 0031da416027f8c49a41e7082d67fb3c, type: 3}

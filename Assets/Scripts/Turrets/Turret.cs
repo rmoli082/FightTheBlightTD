@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.AddressableAssets;
 
@@ -20,10 +19,9 @@ public class Turret : Placeable
     public float stunPower = 0f;
     public float stunTime = 0f;
     public float explodeRange = 0f;
-    [SerializeField]
     private float shotCounter = 0;
 
-    private List<GameObject> pooledProjectiles;
+    public List<GameObject> pooledProjectiles;
     public int amountToPool = 7;
     public AssetReferenceGameObject projectile;
     public AssetReferenceGameObject upgradedProjectile;
@@ -42,6 +40,8 @@ public class Turret : Placeable
     public GameObject upgradePanel;
     public GameObject[] upgradeSlotButtons = new GameObject[3];
 
+    private UpgradePanel _upgradePanel;
+
     private void Awake()
     {
         originalMat = new Material[glowObj.Length];
@@ -51,7 +51,7 @@ public class Turret : Placeable
         {
             originalMat[i] = glowObj[i].material;
         }
-        
+        _upgradePanel = upgradePanel.GetComponent<UpgradePanel>();
     }
 
     private void Start()
@@ -79,7 +79,7 @@ public class Turret : Placeable
 
         pooledProjectiles = new List<GameObject>();
 
-        PoolProjectiles(amountToPool);
+        ProjectilePooler.PoolProjectiles(this);
     }
 
     private void Update()
@@ -110,18 +110,8 @@ public class Turret : Placeable
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            PopupUpgradePanel();
+            _upgradePanel.PopupUpgradePanel(this);
         }
-    }
-
-    public void PopupUpgradePanel()
-    {
-        if (upgradePanel.activeSelf)
-            return;
-
-        PopulateUpgradePanel();
-        upgradePanel.SetActive(true);
-        Glow(true);
     }
 
     public void Glow(bool shouldGlow)
@@ -194,7 +184,7 @@ public class Turret : Placeable
             LevelManager.Instance.sceneData.soundEffectsPlayer.PlayAudio(shotFX);
         }
 
-        GameObject bullet = GetProjectile();
+        GameObject bullet = ProjectilePooler.GetProjectile(this);
         bullet.SetActive(true);
 
         if (TurretType == PlaceableType.seeker)
@@ -219,47 +209,6 @@ public class Turret : Placeable
         Shoot();
         yield return new WaitForSeconds(0.125f);
         Shoot();
-    }
-
-   private void PopulateUpgradePanel()
-    {
-        upgradePanel.GetComponent<UpgradePanel>().SetTurret(this);
-        int index = 0;
-
-        foreach (Transform child in LevelManager.Instance.sceneData.turretButtonList)
-        {
-            if (child.GetComponent<Button>() != null)
-                Destroy(child.gameObject);
-        }
-
-        foreach (GameObject button in upgradeSlotButtons)
-        {
-            if (index < upgradeSlotButtons.Length)
-            {
-                CreateButtons(button, index);
-            }
-            index++;
-        }
-    }
-
-    private GameObject CreateButtons(GameObject button, int index)
-    {
-        GameObject b = Instantiate(button);
-        TurretUpgradePanels uPanel = b.GetComponentInChildren<TurretUpgradePanels>();
-        b.transform.SetParent(LevelManager.Instance.sceneData.turretButtonList);
-        uPanel.upgradeCost = (int)((((slotLevel[index] * (slotLevel[index] + 1)) / 2) * turretUpgrades[index].upgradeCost) 
-            + turretUpgrades[index].upgradeCost);
-        if (slotLevel[index] >= 5 || slotLevel[0] + slotLevel[1] + slotLevel[2] >= 12)
-        {
-            uPanel.costSlot.text = "MAX";
-            b.GetComponent<Button>().interactable = false;
-        }
-        else
-        {
-            uPanel.costSlot.text = uPanel.upgradeCost.ToString();
-        }
-        
-        return b;
     }
 
     private void GetTurretPerms()
@@ -342,44 +291,6 @@ public class Turret : Placeable
         {
             stunTime = float.PositiveInfinity;
         }
-    }
-
-    private void PoolProjectiles(int _amountToPool)
-    {
-        for (int i = 0; i < _amountToPool; i++)
-        {
-            ReferenceManager.Instance.Instantiate(projectile, transform.position, transform.rotation, transform)
-                .Completed += reference =>
-                {
-                    reference.Result.gameObject.SetActive(false);
-                    pooledProjectiles.Add(reference.Result);
-                };
-        }
-    }
-
-    private GameObject GetProjectile()
-    {
-        
-        for (int i = 0; i < pooledProjectiles.Count; i++)
-        {
-            if (!pooledProjectiles[i].activeInHierarchy)
-            {
-                pooledProjectiles[i].GetComponent<Collider>().enabled = true;
-                pooledProjectiles[i].transform.position = firePoint.position;
-                pooledProjectiles[i].transform.rotation = Quaternion.LookRotation(firePoint.position - target.position);
-                return pooledProjectiles[i];
-            }
-        }
-
-        GameObject tmp = new GameObject();
-        ReferenceManager.Instance.Instantiate(projectile, transform.position, transform.rotation, transform)
-                .Completed += reference =>
-                {
-                    pooledProjectiles.Add(reference.Result);
-                    tmp = reference.Result;
-                };
-
-        return tmp;
     }
 
     private void OnDrawGizmos()

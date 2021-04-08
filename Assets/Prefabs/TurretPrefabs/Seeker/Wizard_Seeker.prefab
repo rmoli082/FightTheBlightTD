@@ -139,8 +139,8 @@ MonoBehaviour:
   stunPower: 0
   stunTime: 0
   explodeRange: 0
-  shotInterval: 0.62
   shotCounter: 0
+  pooledProjectiles: []
   amountToPool: 7
   projectile:
     m_AssetGUID: c4b12b9074ede9d4ea72a2267916d006
