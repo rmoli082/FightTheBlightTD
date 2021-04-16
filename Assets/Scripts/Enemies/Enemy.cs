@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float health = 1;
+    public float health;
+    public float speed;
     public int goldReward = 1;
 
     public GameObject dieEffect;
@@ -15,6 +16,12 @@ public class Enemy : MonoBehaviour
 
     public AudioClip bossAlert;
     public GameObject bossSpawn;
+
+    public void Initialize(float speed, float health)
+    {
+        this.health = health;
+        this.speed = speed;
+    }
 
     public void Damage(float damageAmount, string turretType)
     {

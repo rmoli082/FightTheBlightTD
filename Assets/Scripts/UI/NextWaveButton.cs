@@ -24,8 +24,7 @@ public class NextWaveButton : MonoBehaviour
             Time.timeScale = 1f;
             LevelManager.Instance.sceneData.speedButton.SetFastImage();
         }
-        
-        StartCoroutine(WaveSpawner.Instance.SpawnWave());
+        StartCoroutine(NewWaveSpawner.Instance.SpawnWave());
     }
 
     public void SetColor(Color color)

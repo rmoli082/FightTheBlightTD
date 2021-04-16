@@ -93,11 +93,11 @@ public class WaveSpawner : Singleton<WaveSpawner>
 
     private void WaveEndedStuff()
     {
-        LevelManager.Instance.sceneData.nextWaveButton.SetColor (new Color(255, 255, 255, 1f));
+        //LevelManager.Instance.sceneData.nextWaveButton.SetColor (new Color(255, 255, 255, 1f));
         SetDifficultyModifiers();
-        LevelManager.Instance.AdjustGold(Mathf.CeilToInt(LevelManager.Instance.levelData.waveGoldReward * goldAdjustment));
-        livesLostThisWave = 0;
-        goldAdjustment = 1f;
+        //LevelManager.Instance.AdjustGold(Mathf.CeilToInt(LevelManager.Instance.levelData.waveGoldReward * goldAdjustment));
+        //livesLostThisWave = 0;
+        //goldAdjustment = 1f;
     }
 
     private void SetDifficultyModifiers()
@@ -113,45 +113,45 @@ public class WaveSpawner : Singleton<WaveSpawner>
 
         if (livesLostThisWave == 0)
         {
-            healthModifier += 0.15f;
-            speedModifier += 0.1f;
-            goldAdjustment += 1f;
-            perfectStreak++;
+           // healthModifier += 0.15f;
+           // speedModifier += 0.1f;
+            //goldAdjustment += 1f;
+           // perfectStreak++;
             if (waveNumber != waves.Length)
                 StartCoroutine(PopupStreakNotice("Perfect"));
         }
         else if (livesLostThisWave <= 3)
         {
-            healthModifier += 0.1f;
-            speedModifier += 0.05f;
+            //healthModifier += 0.1f;
+            //speedModifier += 0.05f;
             perfectStreak = 0;
         }
         else if (livesLostThisWave <= 6)
         {
-            healthModifier += 0.05f;
+            //healthModifier += 0.05f;
             perfectStreak = 0;
-            goldAdjustment += 0.1f;
+           // goldAdjustment += 0.1f;
         }
         else if (livesLostThisWave <= 9)
         {
             perfectStreak = 0;
-            healthModifier -= 0.05f;
-            speedModifier -= 0.05f;
-            goldAdjustment += 0.25f;
+            //healthModifier -= 0.05f;
+            //speedModifier -= 0.05f;
+            //goldAdjustment += 0.25f;
         }
         else if (livesLostThisWave >= 20)
         {
             perfectStreak = 0;
-            healthModifier -= 0.2f;
-            speedModifier -= 0.2f;
-            goldAdjustment += 1f;
+            //healthModifier -= 0.2f;
+            //speedModifier -= 0.2f;
+            //goldAdjustment += 1f;
         }
         else if (livesLostThisWave >= 10)
         {
             perfectStreak = 0;
-            healthModifier -= 0.1f;
-            speedModifier -= 0.1f;
-            goldAdjustment += 0.5f;
+            //healthModifier -= 0.1f;
+            //speedModifier -= 0.1f;
+            //goldAdjustment += 0.5f;
         }
 
         StreakBonusStuff();
@@ -176,7 +176,7 @@ public class WaveSpawner : Singleton<WaveSpawner>
         Enemy e = enemy.GetComponent<Enemy>();
         if (e.isBoss || e.isMiniBoss)
             return;
-        enemy.GetComponent<EnemyController>().speed *= speedModifier;
+        e.speed *= speedModifier;
     }
 
     private void StreakBonusStuff()

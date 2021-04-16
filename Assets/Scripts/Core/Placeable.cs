@@ -23,4 +23,3 @@ public class Placeable : MonoBehaviour
 
 }
 
-public enum PlaceableType { turret, rapid, bomber, seeker, stunner, hero}

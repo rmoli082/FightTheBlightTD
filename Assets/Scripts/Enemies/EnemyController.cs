@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Enemy))]
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField]
     private Transform target;
     public Transform Target { get => target;}
-    [SerializeField]
     private int waypointIndex = 0;
     public int WaypointIndex { get => waypointIndex;}
-
-    public float speed = 5f;
 
     public bool isStunned = false;
     public float stunTime = 0f;
 
+    private float speed = 5f;
     private float originalSpeed;
+
+    public float Speed { get => speed; }
 
     private void Awake()
     {
@@ -33,7 +33,7 @@ public class EnemyController : MonoBehaviour
         }
             
         Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+        transform.Translate(dir.normalized * GetComponent<Enemy>().speed * Time.deltaTime, Space.World);
 
         if (Vector3.Distance(target.position, transform.position) <= 0.4f)
         {
@@ -76,6 +76,11 @@ public class EnemyController : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 10).eulerAngles;
         transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+    }
+
+    public void SetSpeed(float speed)
+    {
+        this.speed = speed;
     }
 
 }

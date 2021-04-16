@@ -18,6 +18,8 @@ public class GameManager : Singleton<GameManager>
 
     public int EnemiesRemaining;
 
+    public DifficultyAdjuster.DifficultyConfig Difficulty { get; set; }
+
 
     protected override void Awake()
     {

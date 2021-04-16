@@ -3,34 +3,16 @@
     "m_SelectedPackage": {
         "deviceId": "802KPGS1530607",
         "name": "com.MorashStudios.FighttheBlightTD",
-        "processId": 31517,
+        "processId": 20610,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "802KPGS1530607",
-            "name": "com.MorashStudios.FighttheBlightTD",
-            "processId": 29453,
-            "exited": true
-        },
-        {
-            "deviceId": "802KPGS1530607",
-            "name": "com.MorashStudios.FighttheBlightTD",
-            "processId": 30658,
-            "exited": true
-        },
-        {
-            "deviceId": "802KPGS1530607",
-            "name": "com.MorashStudios.FighttheBlightTD",
-            "processId": 2550,
-            "exited": true
-        },
-        {
-            "deviceId": "802KPGS1530607",
             "name": "com.google.android.apps.nexuslauncher",
             "processId": 14245,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "802KPGS1530607",
@@ -48,6 +30,24 @@
             "deviceId": "802KPGS1530607",
             "name": "com.MorashStudios.FighttheBlightTD",
             "processId": 31517,
+            "exited": true
+        },
+        {
+            "deviceId": "802KPGS1530607",
+            "name": "com.MorashStudios.FighttheBlightTD",
+            "processId": 10878,
+            "exited": true
+        },
+        {
+            "deviceId": "802KPGS1530607",
+            "name": "com.google.android.apps.nexuslauncher",
+            "processId": 26939,
+            "exited": false
+        },
+        {
+            "deviceId": "802KPGS1530607",
+            "name": "com.MorashStudios.FighttheBlightTD",
+            "processId": 20610,
             "exited": false
         }
     ],

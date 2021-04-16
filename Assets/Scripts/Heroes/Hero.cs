@@ -107,7 +107,7 @@ public class Hero : Placeable
             }
         }
 
-        DamageAmount = 1 + (matchLevel / 4);
+        DamageAmount += (matchLevel / 4);
     }
 
     private IEnumerator LookAtStart()

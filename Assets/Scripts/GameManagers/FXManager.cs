@@ -41,5 +41,6 @@ public class FXManager : MonoBehaviour
     private IEnumerator BossResetter()
     {
         yield return new WaitForSecondsRealtime(3.0f);
+        canPlay = true;
     }
 }
