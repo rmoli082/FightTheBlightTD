@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1679480050095453256}
-  - component: {fileID: 1679480050095453257}
+  - component: {fileID: 1679480049860432341}
   m_Layer: 0
   m_Name: Start
   m_TagString: Start
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1679480050095453257
+--- !u!114 &1679480049860432341
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,9 +40,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1679480050095453258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52b29285d24ebda44af281d9ac747322, type: 3}
+  m_Script: {fileID: 11500000, guid: d3ca06f189cb07f41afb90d889b1a95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveNumber: 1
+  factory:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  bossFactory: {fileID: 0}
+  mainBossPrefab: {fileID: 0}
   spawnPause: 0.45
-  livesLostThisWave: 0
+  seed: 19831980
+  minibossSpawnPercent: 0

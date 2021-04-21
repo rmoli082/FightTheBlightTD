@@ -18,6 +18,11 @@ public class SeekerProjectile : MonoBehaviour
     private void OnEnable()
     {
         coll = GetComponent<Collider>();
+        if (coll == null)
+        {
+            coll = gameObject.AddComponent<SphereCollider>();
+            coll.isTrigger = true;
+        }
         coll.enabled = true;
     }
 

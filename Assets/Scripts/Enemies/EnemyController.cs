@@ -29,6 +29,7 @@ public class EnemyController : MonoBehaviour
         if (isStunned && stunTime <= 0)
         {
             speed = originalSpeed;
+            GetComponent<Enemy>().speed = originalSpeed;
             isStunned = false;
         }
             
@@ -52,7 +53,7 @@ public class EnemyController : MonoBehaviour
         if (waypointIndex >= WaypointManager.Instance.Waypoints.Length)
         {
             LevelManager.Instance.AdjustLives(-(Mathf.CeilToInt(gameObject.GetComponent<Enemy>().health)));
-            WaveSpawner.Instance.livesLostThisWave += (Mathf.CeilToInt(gameObject.GetComponent<Enemy>().health));
+            NewWaveSpawner.Instance.LivesLostThisWave += (Mathf.CeilToInt(gameObject.GetComponent<Enemy>().health));
             GameManager.Instance.EnemiesRemaining--;
             if (gameObject.GetComponent<Enemy>().isBoss)
             {

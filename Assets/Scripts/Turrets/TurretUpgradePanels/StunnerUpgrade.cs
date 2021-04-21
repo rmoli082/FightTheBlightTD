@@ -29,7 +29,7 @@ public class StunnerUpgrade : TurretUpgradePanels
     {
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
-            upgradePanel.turretToUpgrade.range *= 1.15f;
+            upgradePanel.turretToUpgrade.range *= 1.65f;
             PurchaseUpgrade(2);
             Analytics.CustomEvent("Third Stunner Upgrade Bought");
         }

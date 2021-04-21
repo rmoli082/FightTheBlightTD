@@ -18,7 +18,9 @@ public class GameManager : Singleton<GameManager>
 
     public int EnemiesRemaining;
 
-    public DifficultyAdjuster.DifficultyConfig Difficulty { get; set; }
+    [SerializeField]
+    private DifficultyAdjuster.DifficultyConfig _difficulty;
+    public DifficultyAdjuster.DifficultyConfig Difficulty { get => _difficulty; set => value = _difficulty; }
 
 
     protected override void Awake()
@@ -120,7 +122,7 @@ public class GameManager : Singleton<GameManager>
         Analytics.CustomEvent("LevelLose",
             new Dictionary<string, object> {
                 { "Level", SceneManager.GetActiveScene().name},
-                { $"{SceneManager.GetActiveScene().name} wave", WaveSpawner.Instance.waveNumber + 1 },
+                { $"{SceneManager.GetActiveScene().name} wave", NewWaveSpawner.Instance.CurrentWave + 1 },
                 { "Gold", LevelManager.Instance.playerStats.playerGold }
             });
     }

@@ -115,7 +115,7 @@ public class LevelManager : Singleton<LevelManager>
 
     private void CheckForWin()
     {
-        if (WaveSpawner.Instance.waveNumber >= totalWaves && bossIsDead && GameManager.Instance.EnemiesRemaining == 0)
+        if (NewWaveSpawner.Instance.CurrentWave >= NewWaveSpawner.Instance.TotalWaves && bossIsDead && GameManager.Instance.EnemiesRemaining == 0)
         {
             GameManager.Instance.Win();
         }

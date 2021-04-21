@@ -61,7 +61,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 250
-  goldReward: 1
+  speed: 5
+  goldReward: 100
   dieEffect: {fileID: 0}
   isAlive: 1
   isMiniBoss: 0
@@ -80,9 +81,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149d330dbc7083a4dbb6f2cfc54cfa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  waypointIndex: 0
-  speed: 6
   isStunned: 0
   stunTime: 0
 --- !u!1001 &3154114790534653210

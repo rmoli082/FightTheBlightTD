@@ -33,7 +33,7 @@ public class BuildManager : Singleton<BuildManager>
             Analytics.CustomEvent("TurretPurchase", new Dictionary<string, object>
             {
                 {"Level", SceneManager.GetActiveScene().name },
-                {"Wave", WaveSpawner.Instance.waveNumber },
+                {"Wave", NewWaveSpawner.Instance.CurrentWave },
                 {"Turret Bought", $"{turret.GetComponent<Placeable>().TurretType}"}
             });
             if (turret.GetComponent<Hero>())

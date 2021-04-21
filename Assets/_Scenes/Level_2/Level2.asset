@@ -48,4 +48,4 @@ MonoBehaviour:
   - {fileID: 9165491610208846969, guid: d3d37b0bd96223c42ac8a1b35e6d571e, type: 3}
   - {fileID: 3450155919337267295, guid: 35ce802f3e697e94095139fc1e6dcefb, type: 3}
   bossSpawn: {fileID: 1225133467852735319, guid: 3080abd567dbb99438a47cf62bc2f90e, type: 3}
-  waveGoldReward: 125
+  waveGoldReward: 200

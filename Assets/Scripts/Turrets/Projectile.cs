@@ -55,10 +55,7 @@ public class Projectile : MonoBehaviour
                 if (isStunner && !ec.isStunned)
                 {
                     e.Damage(turret.DamageAmount, turret.TurretType.ToString());
-                    Stun(ec);
-                    // Destroy(gameObject);
-                    gameObject.SetActive(false);
-                    return;
+                    Stun(ec, e);
                 }
                 else
                 {
@@ -68,20 +65,20 @@ public class Projectile : MonoBehaviour
                     {
                         Explode(exploder.explodeRange);
                     }
-                    // Destroy(gameObject);
-                    gameObject.SetActive(false);
                 }
+                gameObject.SetActive(false);
             }
         }
     }
 
-    void Stun(EnemyController ec)
+    void Stun(EnemyController ec, Enemy e)
     {
         if (ec.isStunned)
             return;
         Turret stunner = (Turret)turret;
         TurretStats.Instance.AddTurretKills(turret.TurretType.ToString(), 1);
         ec.SetSpeed(ec.Speed / stunner.stunPower);
+        e.speed = (ec.Speed / stunner.stunPower);
         ec.isStunned = true;
         ec.stunTime = stunner.stunTime;
     }
@@ -95,7 +92,7 @@ public class Projectile : MonoBehaviour
             if (c.gameObject.CompareTag("Enemy"))
             {
                 Enemy e = c.GetComponent<Enemy>();
-                e.Damage(turret.DamageAmount, turret.TurretType.ToString());
+                e.Damage(turret.DamageAmount/2, turret.TurretType.ToString());
             }  
         }
     }

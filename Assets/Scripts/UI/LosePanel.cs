@@ -34,15 +34,14 @@ public class LosePanel : MonoBehaviour
             LevelManager.Instance.sceneData.losePanel.SetActive(false);
             LevelManager.Instance.sceneData.gameOverPanel.SetActive(false);
             LevelManager.Instance.playerStats.continues++;
-            WaveSpawner.Instance.healthModifier = 1;
-            WaveSpawner.Instance.speedModifier = 1;
+            NewWaveSpawner.Instance.Modifier = 1;
 
 
            LevelManager.Instance.sceneData.speedButton.SetFastImage();
 
-            if (WaveSpawner.Instance.waveNumber == WaveSpawner.Instance.GetNumberOfWaves)
+            if (NewWaveSpawner.Instance.CurrentWave == NewWaveSpawner.Instance.TotalWaves)
             {
-                WaveSpawner.Instance.ResetWave(WaveSpawner.Instance.GetNumberOfWaves - 1);
+                NewWaveSpawner.Instance.ResetWave(NewWaveSpawner.Instance.TotalWaves - 1);
             }
         }
         else
@@ -60,12 +59,11 @@ public class LosePanel : MonoBehaviour
         LevelManager.Instance.sceneData.losePanel.SetActive(false);
         LevelManager.Instance.sceneData.gameOverPanel.SetActive(false);
         LevelManager.Instance.playerStats.continues++;
-        WaveSpawner.Instance.healthModifier = 1;
-        WaveSpawner.Instance.speedModifier = 1;
-        if (WaveSpawner.Instance.waveNumber == WaveSpawner.Instance.GetNumberOfWaves)
+        NewWaveSpawner.Instance.Modifier = 1;
+        if (NewWaveSpawner.Instance.CurrentWave == NewWaveSpawner.Instance.TotalWaves)
         {
-            StopCoroutine(WaveSpawner.Instance.SpawnWave());
-            WaveSpawner.Instance.ResetWave(WaveSpawner.Instance.GetNumberOfWaves - 1);
+            StopCoroutine(NewWaveSpawner.Instance.SpawnWave());
+            NewWaveSpawner.Instance.ResetWave(NewWaveSpawner.Instance.TotalWaves - 1);
             LevelManager.Instance.bossIsDead = false;
         }
 

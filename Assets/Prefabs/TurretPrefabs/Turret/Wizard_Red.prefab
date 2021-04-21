@@ -51,6 +51,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -131,7 +132,7 @@ MonoBehaviour:
   _damageAmount: 1.2
   _sellCost: 0
   target: {fileID: 0}
-  range: 8
+  range: 9
   partToRotate: {fileID: 3729723517543802212}
   firePoint: {fileID: 3767290475648326323}
   fireRate: 1
@@ -139,7 +140,6 @@ MonoBehaviour:
   stunPower: 0
   stunTime: 0
   explodeRange: 0
-  shotCounter: 0
   pooledProjectiles: []
   amountToPool: 7
   projectile:
@@ -296,6 +296,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -377,6 +378,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

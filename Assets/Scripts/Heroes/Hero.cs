@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 [Serializable]
 public class Hero : Placeable
@@ -14,6 +13,7 @@ public class Hero : Placeable
     public int levelXP = 0;
     public GameObject hitEffect;
     bool rotated = false;
+    bool doUpgrade = true;
     ParticleSystem particles;
 
     [Header("Upgrade Slots")]
@@ -30,7 +30,6 @@ public class Hero : Placeable
         mainPowerObj.GetComponent<HeroUpgrade>().isActivated = true;
         HeroManager.Instance.isSpawned = true;
         particles = gameObject.GetComponent<ParticleSystem>();
-        particles.Pause();
     }
 
     private void Start()
@@ -107,7 +106,12 @@ public class Hero : Placeable
             }
         }
 
-        DamageAmount += (matchLevel / 4);
+        if (doUpgrade)
+        {
+            DamageAmount += (matchLevel / 4);
+            doUpgrade = false;
+        }
+            
     }
 
     private IEnumerator LookAtStart()

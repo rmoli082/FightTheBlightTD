@@ -89,8 +89,9 @@ public class Enemy : MonoBehaviour
 
         LevelManager.Instance.bossIsDead = true;
         yield return new WaitUntil(() => GameManager.Instance.EnemiesRemaining == 0);
+        GameEvents.OnWaveEnded();
         GameEvents.OnEnemyKilled();
-        TurretStats.Instance.AddTurretKills(turretType, 1);
+        TurretStats.Instance.AddTurretKills(turretType, 15);
         Destroy(gameObject);
 
     }

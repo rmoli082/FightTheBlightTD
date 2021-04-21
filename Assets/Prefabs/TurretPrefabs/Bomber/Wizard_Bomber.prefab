@@ -51,6 +51,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -128,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _locationNode: {fileID: 0}
   _turretType: 2
-  _damageAmount: 3
+  _damageAmount: 2.4
   _sellCost: 0
   target: {fileID: 0}
   range: 12
@@ -139,7 +140,6 @@ MonoBehaviour:
   stunPower: 0
   stunTime: 0
   explodeRange: 2
-  shotCounter: 0
   pooledProjectiles: []
   amountToPool: 7
   projectile:
@@ -296,6 +296,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -377,6 +378,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

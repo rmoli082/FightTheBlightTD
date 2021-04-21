@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class DifficultyAdjuster : MonoBehaviour
 {
+    [System.Serializable]
     public class DifficultyConfig
     {
         public int TotalWaves;

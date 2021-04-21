@@ -7,20 +7,26 @@ public class NewWaveSpawner : Singleton<NewWaveSpawner>
 {
     public int CurrentWave { get; set; } = 1;
     public int LivesLostThisWave { get; set; }
+    public float Modifier { get; set; }  = 1;
+    public int TotalWaves { get => config.TotalWaves; }
 
     public EnemyFactory[] factory;
-    public EnemyFactory[] bossFactory;
+    public EnemyFactory bossFactory;
+    public GameObject mainBossPrefab;
 
     int enemiesThisWave;
     [SerializeField]
     float spawnPause = 0.45f;
+    [SerializeField]
     DifficultyAdjuster.DifficultyConfig config;
-    float modifier = 1;
+    
     System.Random randomFactoryGenerator;
     System.Random randomEnemyGenerator;
     System.Random randomDifficultyGenerator;
     [SerializeField]
     int seed = 19831980;
+    [SerializeField]
+    int minibossSpawnPercent;
 
     private void Start()
     {
@@ -44,37 +50,53 @@ public class NewWaveSpawner : Singleton<NewWaveSpawner>
 
     public IEnumerator SpawnWave()
     {
-        if (CurrentWave >= config.TotalWaves)
+        if (CurrentWave > config.TotalWaves)
         {
             yield break;
         }
-
-        ParseWaveData();
-
-        GameEvents.OnWaveStarted();
-        LevelManager.Instance.sceneData.currentWave.text = $"WAVE {CurrentWave}"; 
-
-        for (int i = 0; i < enemiesThisWave; i++)
+        
+        if (CurrentWave == config.TotalWaves)
         {
-            Enemy enemy;
-            if (CurrentWave % 5 == 0 && randomEnemyGenerator.Next(0,101) <= 10)
-            {
-                enemy = SelectMiniBoss();
-            }
-            else
-            {
-                enemy = SelectEnemy();
-            }
-            
-            ApplyDifficultyModifier(enemy);
-            ApplySkillLevelModifier(enemy, modifier);
-            GameEvents.OnEnemySpawned(enemy);
+            GameEvents.OnWaveStarted();
+            LevelManager.Instance.sceneData.currentWave.text = $"BOSS FIGHT";
+            Enemy boss = Instantiate(mainBossPrefab, transform.position, Quaternion.identity).GetComponent<Enemy>();
+            if (boss.bossAlert != null)
+                LevelManager.Instance.sceneData.soundEffectsPlayer.PlayBossAudio(boss.bossAlert);
             GameManager.Instance.EnemiesRemaining++;
-            yield return new WaitForSeconds(spawnPause);
+        }
+        else
+        {
+            ParseWaveData();
+
+            GameEvents.OnWaveStarted();
+            LevelManager.Instance.sceneData.currentWave.text = $"WAVE {CurrentWave}";
+
+            for (int i = 0; i < enemiesThisWave; i++)
+            {
+                Enemy enemy;
+                if (CurrentWave % 5 == 0 && randomEnemyGenerator.Next(0, 101) <= minibossSpawnPercent)
+                {
+                    enemy = SelectMiniBoss();
+                    if (enemy.bossAlert != null)
+                        LevelManager.Instance.sceneData.soundEffectsPlayer.PlayBossAudio(enemy.bossAlert);
+                }
+                else
+                {
+                    enemy = SelectEnemy();
+                }
+
+                ApplyDifficultyModifier(enemy);
+                ApplySkillLevelModifier(enemy, Modifier);
+                GameEvents.OnEnemySpawned(enemy);
+                GameManager.Instance.EnemiesRemaining++;
+                yield return new WaitForSeconds(spawnPause);
+            }
+        
         }
 
         yield return new WaitUntil(() => GameManager.Instance.EnemiesRemaining <= 0);
-        CurrentWave = CurrentWave + 1; 
+        CurrentWave = CurrentWave + 1;
+        SetModifier();
         GameEvents.OnWaveEnded();
         GameEvents.OnSaveInitiated();
     }
@@ -87,7 +109,13 @@ public class NewWaveSpawner : Singleton<NewWaveSpawner>
     private void ParseWaveData()
     {
         // Set EnemiesThisWave
-        enemiesThisWave = 10 + (CurrentWave * 2) + (int)(Mathf.Pow(CurrentWave, 2) / 3);
+        enemiesThisWave = 10 + (int)(Mathf.Pow(CurrentWave, 2) / 2) ;
+        if (CurrentWave >= 17)
+        {
+            enemiesThisWave = 10 + (int)(Mathf.Pow(CurrentWave, 2) / 4); 
+        }
+
+        LivesLostThisWave = 0;
     }
 
     private Enemy SelectEnemy()
@@ -116,7 +144,18 @@ public class NewWaveSpawner : Singleton<NewWaveSpawner>
             bossType = randomEnemyGenerator.Next(0, 4);
         }
 
-        return bossFactory[0].Get(GenerateType(bossType));
+        return bossFactory.Get(GenerateType(bossType));
+    }
+
+    public void ResetWave(int waveNumber)
+    {
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+        foreach (Enemy e in enemies)
+        {
+            Destroy(e);
+        }
+        this.CurrentWave = waveNumber;
+        LevelManager.Instance.sceneData.nextWaveButton.SetColor(new Color(255, 255, 255, 1f));
     }
 
     private void ApplyDifficultyModifier(Enemy enemy)
@@ -135,36 +174,40 @@ public class NewWaveSpawner : Singleton<NewWaveSpawner>
     {
         if (LivesLostThisWave == 0)
         {
-            modifier = 1.15f;
+            Modifier = 1.15f;
+            WaveBonusStuff.Instance.PerfectStreak++;
         }
         else if (LivesLostThisWave <= 3)
         {
-            modifier += 0.1f;
+            Modifier += 0.1f;
+            WaveBonusStuff.Instance.PerfectStreak = 0;
         }
         else if (LivesLostThisWave <= 6)
         {
-            modifier += 0.05f;
+            Modifier += 0.05f;
+            WaveBonusStuff.Instance.PerfectStreak = 0;
         }
         else if (LivesLostThisWave <= 9)
         {
-            modifier -= 0.05f;
+            Modifier -= 0.05f;
+            WaveBonusStuff.Instance.PerfectStreak = 0;
         }
         else if (LivesLostThisWave >= 20)
         {
-            modifier -= 0.2f;
+            Modifier -= 0.2f;
+            WaveBonusStuff.Instance.PerfectStreak = 0;
         }
         else if (LivesLostThisWave >= 10)
         {
-            modifier -= 0.1f;
+            Modifier -= 0.1f;
+            WaveBonusStuff.Instance.PerfectStreak = 0;
         }
     }
 
     private void WaveEnded()
     {
         LevelManager.Instance.sceneData.nextWaveButton.SetColor(new Color(255, 255, 255, 1f));
-        SetModifier();
-        LevelManager.Instance.AdjustGold(Mathf.CeilToInt(LevelManager.Instance.levelData.waveGoldReward * (modifier)));
-        LivesLostThisWave = 0;
+        LevelManager.Instance.AdjustGold(Mathf.CeilToInt(LevelManager.Instance.levelData.waveGoldReward * (Modifier)));
     }
 
     private int GenerateDifficulty(int factoryNumber)

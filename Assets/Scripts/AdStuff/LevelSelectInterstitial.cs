@@ -53,7 +53,6 @@ public class LevelSelectInterstitial : MonoBehaviour
     {
         if (this.interstitialAd.IsLoaded())
         {
-            Debug.Log("Ad shown");
             this.interstitialAd.Show();
             GameManager.Instance.LoadScene(levelToLoad);
         }
