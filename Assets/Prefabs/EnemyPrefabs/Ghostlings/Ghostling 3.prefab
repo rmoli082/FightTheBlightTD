@@ -44,10 +44,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.88540095
-  m_Height: 1.7708019
+  m_Radius: 1.0627182
+  m_Height: 2.9766202
   m_Direction: 1
-  m_Center: {x: -0.051012434, y: 1.4374311, z: 0.009335478}
+  m_Center: {x: -0.09278605, y: 1.1751107, z: -0.12620807}
 --- !u!114 &6192155406178540303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,8 +61,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 16
+  speed: 0
   goldReward: 6
   dieEffect: {fileID: 5989568863842805911, guid: 03cb7549079271c408c722ca7701cd62, type: 3}
+  isAlive: 1
+  isMiniBoss: 0
+  isBoss: 0
+  bossAlert: {fileID: 0}
+  bossSpawn: {fileID: 0}
 --- !u!114 &2538840640203100023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,9 +81,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149d330dbc7083a4dbb6f2cfc54cfa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  waypointIndex: 0
-  speed: 16
   isStunned: 0
   stunTime: 0
 --- !u!1001 &5486976708820773413

@@ -37,6 +37,12 @@ public class SeekerProjectile : MonoBehaviour
         Vector3 dir = target.position - transform.position;
         float distanceThisFrame = turret.projectileForce * Time.deltaTime;
 
+        if (dir.magnitude <= distanceThisFrame)
+        {
+            HitTarget();
+            return;
+        }
+
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
         transform.LookAt(target);
 
@@ -49,10 +55,11 @@ public class SeekerProjectile : MonoBehaviour
 
     }
 
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider other)
     {
-        Enemy e = target.GetComponentInParent<Enemy>();
-        e.Damage(turret.DamageAmount, turret.TurretType.ToString());
+        Debug.Log($"Collider of {other.gameObject.name} entered");
+        Enemy e = other.GetComponentInParent<Enemy>();
+        e.Damage(turret.DamageAmount/2, turret.TurretType.ToString());
         if (canExplode)
         {
             Explode(range);
@@ -83,5 +90,11 @@ public class SeekerProjectile : MonoBehaviour
             }
 
         }
+    }
+
+    void HitTarget()
+    {
+        target.GetComponent<Enemy>().Damage(turret.DamageAmount, turret.TurretType.ToString());
+        Debug.Log($"{target.name} hit using HitTarget");
     }
 }

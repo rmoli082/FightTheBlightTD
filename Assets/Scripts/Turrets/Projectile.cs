@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
     Placeable turret;
+    Turret _turret;
     Rigidbody rb;
     Collider coll;
 
@@ -22,8 +24,8 @@ public class Projectile : MonoBehaviour
        coll.enabled = true;
         rb.velocity = new Vector3(0, 0, 0);
         rb.angularVelocity = new Vector3(0, 0, 0);
+        
     }
-
 
     public void SetTurret(Placeable placeable)
     {
@@ -74,7 +76,11 @@ public class Projectile : MonoBehaviour
     void Stun(EnemyController ec, Enemy e)
     {
         if (ec.isStunned)
+        {
+            gameObject.SetActive(false);
             return;
+        }
+            
         Turret stunner = (Turret)turret;
         TurretStats.Instance.AddTurretKills(turret.TurretType.ToString(), 1);
         ec.SetSpeed(ec.Speed / stunner.stunPower);

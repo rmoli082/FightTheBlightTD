@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 16
+  speed: 0
   goldReward: 8
   dieEffect: {fileID: 5989568863842805911, guid: 03cb7549079271c408c722ca7701cd62, type: 3}
   isAlive: 1
@@ -66,9 +67,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149d330dbc7083a4dbb6f2cfc54cfa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  waypointIndex: 0
-  speed: 9
   isStunned: 0
   stunTime: 0
 --- !u!136 &-5431618355797527861
@@ -81,10 +79,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.78950447
-  m_Height: 2.2367272
+  m_Radius: 1.1222374
+  m_Height: 3.2583432
   m_Direction: 1
-  m_Center: {x: 0.08139529, y: 1.6322377, z: -0.38627517}
+  m_Center: {x: 0.08139527, y: 1.7380345, z: -0.053542137}
 --- !u!1001 &3202883172020999067
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -155,6 +153,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: be71144b4d0a50145840c5f870898483, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167280743394806330, guid: be71144b4d0a50145840c5f870898483, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167280743394806330, guid: be71144b4d0a50145840c5f870898483, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.021
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167280743394806330, guid: be71144b4d0a50145840c5f870898483, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.161
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be71144b4d0a50145840c5f870898483, type: 3}
