@@ -10,6 +10,7 @@ public class HeroScreen : MonoBehaviour
     public TextMeshProUGUI heroName;
     public TextMeshProUGUI heroXP;
     public TextMeshProUGUI heroDescription;
+    public TextMeshProUGUI heroLevel;
     public Transform upgradesPanel;
     public Transform selectionPanel;
 

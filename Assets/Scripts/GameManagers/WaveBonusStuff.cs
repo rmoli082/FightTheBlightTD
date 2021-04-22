@@ -5,7 +5,7 @@ using TMPro;
 
 public class WaveBonusStuff : Singleton<WaveBonusStuff>
 {
-    public int PerfectStreak { get; set; }
+    public int PerfectStreak { get; set; } = 0;
 
     private void Start()
     {
@@ -16,7 +16,7 @@ public class WaveBonusStuff : Singleton<WaveBonusStuff>
     {
         LevelManager.Instance.sceneData.streakPopup.SetActive(true);
         LevelManager.Instance.sceneData.streakPopup.GetComponentInChildren<TextMeshProUGUI>().text = message;
-        yield return new WaitForSecondsRealtime(3f);
+        yield return new WaitForSecondsRealtime(1.5f);
         LevelManager.Instance.sceneData.streakPopup.SetActive(false);
     }
 

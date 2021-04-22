@@ -70,17 +70,18 @@ public class HeroManager : Singleton<HeroManager>
 
     public void ActivateUpgradeSlots()
     {
-        if (heroLevel >= 10)
+        CheckForLevelUp();
+        if (heroLevel >= 5)
         {
             isFirstUpgradeActive = true;
         }
 
-        if (heroLevel >= 20)
+        if (heroLevel >= 10)
         {
             isSecondUpgradeActive = true;
         }
 
-        if (heroLevel >= 30)
+        if (heroLevel >= 20)
         {
             isThirdUpgradeActive = true;
         }
@@ -91,7 +92,7 @@ public class HeroManager : Singleton<HeroManager>
         return 25 * level * (1 + level);
     }
 
-    private void CheckForLevelUp()
+    public void CheckForLevelUp()
     {
         if (heroXP >= XpForLevel(heroLevel + 1))
         {

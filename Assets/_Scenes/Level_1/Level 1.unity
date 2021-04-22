@@ -3803,7 +3803,6 @@ GameObject:
   m_Component:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
-  - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
@@ -3812,14 +3811,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &963194226
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -8233,6 +8224,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1490420932}
     - target: {fileID: 6806346411100390445, guid: d2b0c38e05b8c0d4ab0da7364ab0119e, type: 3}
+      propertyPath: audioListener
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806346411100390445, guid: d2b0c38e05b8c0d4ab0da7364ab0119e, type: 3}
       propertyPath: gameOverPanel
       value: 
       objectReference: {fileID: 7253883538609260760}
@@ -8272,6 +8267,10 @@ PrefabInstance:
       propertyPath: turretUpgradePanel
       value: 
       objectReference: {fileID: 799213243}
+    - target: {fileID: 6806346411100390445, guid: d2b0c38e05b8c0d4ab0da7364ab0119e, type: 3}
+      propertyPath: powerActivatedPopup
+      value: 
+      objectReference: {fileID: 7253883538609260761}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2b0c38e05b8c0d4ab0da7364ab0119e, type: 3}
 --- !u!1001 &7253883538609260753
@@ -8442,6 +8441,11 @@ MonoBehaviour:
 --- !u!1 &7253883538609260760 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4816869197835529759, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
+  m_PrefabInstance: {fileID: 7253883538609260753}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7253883538609260761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 757591673150703350, guid: e109b4020339b954fbaf9f7177682f59, type: 3}
   m_PrefabInstance: {fileID: 7253883538609260753}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8094898799213193257

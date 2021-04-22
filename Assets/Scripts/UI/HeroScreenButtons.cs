@@ -16,10 +16,14 @@ public class HeroScreenButtons : MonoBehaviour
 
     public void SetDetails()
     {
+        HeroManager.Instance.CheckForLevelUp();
+        HeroManager.Instance.ActivateUpgradeSlots();
+        screenData.heroImage.gameObject.SetActive(true);
         screenData.heroName.text = blueprint.turretName;
-        screenData.heroXP.text = HeroManager.Instance.GetHeroXP().ToString();
+        screenData.heroXP.text = $"{HeroManager.Instance.GetHeroXP()} XP";
         screenData.heroDescription.text = blueprint.turretDescription;
         screenData.heroImage.sprite = blueprint.turretImage;
+        screenData.heroLevel.text = $"Lvl {HeroManager.Instance.GetHeroLevel()}";
 
         foreach (Transform child in screenData.upgradesPanel)
         {

@@ -12,6 +12,7 @@ public class GameEvents : MonoBehaviour
     public static System.Action WaveEnded;
     public static System.Action GameOverWin;
     public static System.Action GameOverLose;
+    public static System.Action GemsChanged;
 
     public static void OnSaveInitiated()
     {
@@ -51,5 +52,10 @@ public class GameEvents : MonoBehaviour
     public static void OnGameOverLose()
     {
         GameOverLose?.Invoke();
+    }
+
+    public static void OnGemsChanged()
+    {
+        GemsChanged?.Invoke();
     }
 }

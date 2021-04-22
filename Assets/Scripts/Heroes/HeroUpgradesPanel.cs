@@ -24,7 +24,7 @@ public class HeroUpgradesPanel : MonoBehaviour
         }
         else
         {
-            LockSlot(firstSlot);
+            LockSlot(firstSlot, message + " (Lvl 5)");
         }
 
         if (HeroManager.Instance.isSecondUpgradeActive)
@@ -33,7 +33,7 @@ public class HeroUpgradesPanel : MonoBehaviour
         }
         else
         {
-            LockSlot(secondSlot);
+            LockSlot(secondSlot, message + " (Lvl 10)");
         }
 
         if (HeroManager.Instance.isThirdUpgradeActive)
@@ -42,7 +42,7 @@ public class HeroUpgradesPanel : MonoBehaviour
         }
         else
         {
-            LockSlot(thirdSlot);
+            LockSlot(thirdSlot, message + " (Lvl 20)");
         }
 
     }
@@ -61,9 +61,9 @@ public class HeroUpgradesPanel : MonoBehaviour
         }
     }
 
-    private void LockSlot(GameObject slot)
+    private void LockSlot(GameObject slot, string _message)
     {
-        slot.GetComponent<HeroUpgradeSlot>().titleText.text = message;
+        slot.GetComponent<HeroUpgradeSlot>().titleText.text = _message;
         slot.GetComponent<HeroUpgradeSlot>().titleText.gameObject.SetActive(true);
     }
 

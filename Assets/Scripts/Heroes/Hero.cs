@@ -12,9 +12,13 @@ public class Hero : Placeable
     public int matchLevel = 1;
     public int levelXP = 0;
     public GameObject hitEffect;
+    public GameObject levelEffect;
+    GameObject textyCanvas;
     bool rotated = false;
-    bool doUpgrade = true;
+    bool doUpgrade = false;
     ParticleSystem particles;
+    [SerializeField]
+    Transform partToRotate;
 
     [Header("Upgrade Slots")]
     public HeroUpgrade[] heroUpgrade = new HeroUpgrade[3];
@@ -30,6 +34,7 @@ public class Hero : Placeable
         mainPowerObj.GetComponent<HeroUpgrade>().isActivated = true;
         HeroManager.Instance.isSpawned = true;
         particles = gameObject.GetComponent<ParticleSystem>();
+        textyCanvas = LevelManager.Instance.sceneData.powerActivatedPopup;
     }
 
     private void Start()
@@ -83,6 +88,10 @@ public class Hero : Placeable
                 HeroUpgrade k = Instantiate(heroUpgrade[0], this.transform);
                 k.isActivated = true;
                 slotSpawned[0] = true;
+                textyCanvas.SetActive(true);
+                StartCoroutine(FadeCanvas());
+                GameObject effect = Instantiate(levelEffect, transform.position, Quaternion.identity);
+                Destroy(effect, 5);
             }
         }
 
@@ -93,6 +102,10 @@ public class Hero : Placeable
                 HeroUpgrade k = Instantiate(heroUpgrade[1], this.transform);
                 k.isActivated = true;
                 slotSpawned[1] = true;
+                textyCanvas.SetActive(true);
+                StartCoroutine(FadeCanvas());
+                GameObject effect = Instantiate(levelEffect);
+                Destroy(effect, 5);
             }
         }
 
@@ -103,26 +116,42 @@ public class Hero : Placeable
                 HeroUpgrade k = Instantiate(heroUpgrade[2], this.transform);
                 k.isActivated = true;
                 slotSpawned[2] = true;
+                textyCanvas.SetActive(true);
+                StartCoroutine(FadeCanvas());
+                GameObject effect = Instantiate(levelEffect);
+                Destroy(effect, 5);
             }
         }
 
-        if (doUpgrade)
+        if (matchLevel % 4 != 0)
         {
-            DamageAmount += (matchLevel / 4);
-            doUpgrade = false;
+            doUpgrade = true;
         }
-            
+
+        if (matchLevel % 4 == 0 && doUpgrade == true)
+        {
+            DamageAmount++;
+            doUpgrade = false;
+            GameObject effect = Instantiate(levelEffect);
+            Destroy(effect, 5);
+        }
     }
 
     private IEnumerator LookAtStart()
     {
         Transform target = GameObject.FindGameObjectWithTag("Start").transform;
-        Vector3 dir = target.position - transform.position;
+        Vector3 dir = target.position - partToRotate.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = Quaternion.LerpUnclamped(transform.localRotation, lookRotation, Time.deltaTime * 10f).eulerAngles;
-        transform.localRotation = Quaternion.Euler(0f, rotation.y, 0f);
+        Vector3 rotation = Quaternion.LerpUnclamped(partToRotate.localRotation, lookRotation, Time.deltaTime * 10f).eulerAngles;
+        partToRotate.localRotation = Quaternion.Euler(0f, rotation.y, 0f);
         yield return new WaitForSeconds(1.5f);
         rotated = true;
+    }
+
+    private IEnumerator FadeCanvas()
+    {
+        yield return new WaitForSeconds(1.5f);
+        textyCanvas.SetActive(false);
     }
 
     private void WaveStarted()

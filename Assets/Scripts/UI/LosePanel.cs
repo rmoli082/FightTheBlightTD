@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class LosePanel : MonoBehaviour
 {
     public int replayCost;
+    public GameObject buyGemsPanel;
+    public string storeScene;
     private int currentReplayCost;
     Scene current;
 
@@ -19,7 +21,6 @@ public class LosePanel : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.Instance.UpdateGemsDisplay();
         currentReplayCost = replayCost + (LevelManager.Instance.playerStats.continues * replayCost);
         LevelManager.Instance.sceneData.loseReplayText.text = $"-{currentReplayCost}";
     }
@@ -46,7 +47,7 @@ public class LosePanel : MonoBehaviour
         }
         else
         {
-            LevelManager.Instance.sceneData.loseButton.interactable = false;
+            buyGemsPanel.SetActive(true);
         }
         
     }
@@ -86,5 +87,16 @@ public class LosePanel : MonoBehaviour
         GameManager.Instance.LoadScene("MainMenu");
         GameManager.Instance.PausePlay();
         GameEvents.OnGameOverLose();
+    }
+
+    public void YesButton()
+    {
+        buyGemsPanel.SetActive(false);
+        SceneManager.LoadScene(storeScene, LoadSceneMode.Additive);
+    }
+
+    public void NoButton()
+    {
+        buyGemsPanel.SetActive(false);
     }
 }

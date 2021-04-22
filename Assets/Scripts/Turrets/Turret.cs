@@ -97,7 +97,8 @@ public class Turret : Placeable
                 }
                 else
                 {
-                    Shoot();
+                    if (target != null)
+                        Shoot();
                 }               
                 shotCounter = 1 / fireRate;
             }
@@ -201,8 +202,12 @@ public class Turret : Placeable
         else
         {
             Projectile projectile = bullet.GetComponent<Projectile>();
-            projectile.SetTurret(this);
-            projectile.Launch(target.position - firePoint.position, projectileForce);
+            if (projectile != null)
+            {
+                projectile.SetTurret(this);
+                projectile.Launch(target.position - firePoint.position, projectileForce);
+            }
+            
         }
 
     }

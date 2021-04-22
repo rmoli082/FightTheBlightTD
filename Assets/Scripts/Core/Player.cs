@@ -20,7 +20,7 @@ public class Player : Singleton<Player>
         }
         else
         {
-            gems = 1500;
+            gems = 500;
             boosts = new List<string>();
         }
 
@@ -45,7 +45,7 @@ public class Player : Singleton<Player>
     public void AdjustGems(int amount)
     {
         gems += amount;
-        GameManager.Instance.UpdateGemsDisplay();
+        GameEvents.OnGemsChanged();
         GameEvents.OnSaveInitiated();
     }
 

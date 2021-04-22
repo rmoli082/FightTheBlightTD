@@ -91,7 +91,7 @@ public class Enemy : MonoBehaviour
         yield return new WaitUntil(() => GameManager.Instance.EnemiesRemaining == 0);
         GameEvents.OnWaveEnded();
         GameEvents.OnEnemyKilled();
-        TurretStats.Instance.AddTurretKills(turretType, 15);
+        TurretStats.Instance.AddTurretKills(turretType, 1);
         Destroy(gameObject);
 
     }

@@ -57,7 +57,6 @@ public class SeekerProjectile : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"Collider of {other.gameObject.name} entered");
         Enemy e = other.GetComponentInParent<Enemy>();
         e.Damage(turret.DamageAmount/2, turret.TurretType.ToString());
         if (canExplode)
@@ -95,6 +94,6 @@ public class SeekerProjectile : MonoBehaviour
     void HitTarget()
     {
         target.GetComponent<Enemy>().Damage(turret.DamageAmount, turret.TurretType.ToString());
-        Debug.Log($"{target.name} hit using HitTarget");
+        gameObject.SetActive(false);
     }
 }

@@ -11,6 +11,7 @@ public class BoostButton : MonoBehaviour
     public GameObject boostSelectorPanel;
     public GameObject boost;
     public GameObject slot;
+    public int slotNumber;
 
     public void OnEnable()
     {
@@ -19,31 +20,37 @@ public class BoostButton : MonoBehaviour
 
     public void PopBoostSelector(GameObject boost, GameObject slot)
     {
-        boostSelectorPanel.SetActive(true);
+        boostSelectorPanel.transform.parent.gameObject.SetActive(true);
+
+        foreach(string s in Player.Instance.GetBoosts())
+        {
+            Debug.Log(s);
+        }
+
         foreach (string boostString in Player.Instance.GetBoosts())
         {
             GameObject b = Instantiate(boostButtonPrefab, boostSelectorPanel.transform);
             Button button = b.GetComponent<Button>();
             b.GetComponentInChildren<TextMeshProUGUI>().text = boostString;
 
-            button.onClick.AddListener(() => SelectBoost(boost, slot, boostString));
+            button.onClick.AddListener(() => SelectBoost(boost, slot, boostString, slotNumber));
         }
     }
 
-    private void SelectBoost(GameObject boost, GameObject slot, string _boost)
+    private void SelectBoost(GameObject boost, GameObject slot, string _boost, int _index)
     {
         foreach (HeroUpgrade b in HeroManager.Instance.availableBoosts)
         {
             if (b.UpgradeName.Equals(_boost))
             {
                 SetBoost(boost, b, _boost);
-                HeroManager.Instance.activeUpgrades[1] = b.GetComponent<HeroUpgrade>();
+                HeroManager.Instance.activeUpgrades[_index] = b.GetComponent<HeroUpgrade>();
             }
         }
 
         slot.GetComponent<HeroUpgradeSlot>().ActivateBoostButton(false);
         slot.GetComponent<HeroUpgradeSlot>().FillInBoost(boost.GetComponent<HeroUpgrade>());
-        boostSelectorPanel.SetActive(false);
+        boostSelectorPanel.transform.parent.gameObject.SetActive(false);
         Player.Instance.ApplyBoost(_boost);
 
         GameEvents.OnSaveInitiated();

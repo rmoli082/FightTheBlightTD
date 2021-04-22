@@ -24,7 +24,7 @@ public class SeekerUpgradeButton : TurretScreenUpgrade
         {
             TurretStats.Instance.seekerPermanentBought[upgradeNumber] = true;
             TurretStats.Instance.AddTurretKills(PlaceableType.seeker.ToString(), -blueprint.cost);
-            screenData.turretKills.text = TurretStats.Instance.GetTurretStats(PlaceableType.turret.ToString()).ToString();
+            screenData.turretKills.text = $"{TurretStats.Instance.GetTurretStats(PlaceableType.seeker.ToString())} points";
             GameEvents.OnSaveInitiated();
         }
     }

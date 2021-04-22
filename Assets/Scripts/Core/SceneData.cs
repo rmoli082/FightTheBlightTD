@@ -15,6 +15,7 @@ public class SceneData : MonoBehaviour
     public Canvas greenArrow;
     public Canvas redArrow;
     public GameObject streakPopup;
+    public GameObject powerActivatedPopup;
 
     [Header("On Screen Buttons")]
     public NextWaveButton nextWaveButton;

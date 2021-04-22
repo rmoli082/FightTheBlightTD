@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CancelButton : MonoBehaviour
 {
@@ -18,6 +19,13 @@ public class CancelButton : MonoBehaviour
 
     public void ExitScreen()
     {
-        GameManager.Instance.LoadScene(sceneToLoad);
+        if (SceneManager.sceneCount > 1)
+        {
+            SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("Shop"));
+        }
+        else
+        {
+            GameManager.Instance.LoadScene(sceneToLoad);
+        }
     }
 }

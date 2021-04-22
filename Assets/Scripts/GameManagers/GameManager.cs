@@ -93,15 +93,13 @@ public class GameManager : Singleton<GameManager>
     public void UpdateGemsDisplay()
     {
         data.playerGems.text = Player.Instance.GetGems().ToString();
-
     }
 
     public void Win()
     {
         PausePlay();
-        LevelManager.Instance.sceneData.winGems.text = $"§{LevelManager.Instance.levelData.winGems}";
+        LevelManager.Instance.sceneData.winGems.text = $"{LevelManager.Instance.levelData.winGems}";
         LevelManager.Instance.sceneData.gameOverPanel.SetActive(true);
-        UpdateGemsDisplay();
         LevelManager.Instance.sceneData.winPanel.SetActive(true);
         Player.Instance.AdjustGems(LevelManager.Instance.levelData.winGems);
         Analytics.CustomEvent("LevelWin", 
@@ -117,7 +115,6 @@ public class GameManager : Singleton<GameManager>
     {
         PausePlay();
         LevelManager.Instance.sceneData.gameOverPanel.SetActive(true);
-        UpdateGemsDisplay();
         LevelManager.Instance.sceneData.losePanel.SetActive(true);
         Analytics.CustomEvent("LevelLose",
             new Dictionary<string, object> {
@@ -140,4 +137,5 @@ public class GameManager : Singleton<GameManager>
             isFirstRun = true;
         }
     }
+
 }

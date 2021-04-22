@@ -9,8 +9,8 @@ using TMPro;
 public class RewardButton : MonoBehaviour
 {
     private string dateCheckUrl = "https://www.morashstudios.com/getdate.php";
-    private string currentDate;
-    private string currentTime;
+    private string currentDate = "";
+    private string currentTime = "";
     private bool timerReady;
     private bool timerComplete;
     public Button rewardButton;
@@ -23,7 +23,7 @@ public class RewardButton : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(CheckTimeRemaining());
+        StartCoroutine(CheckConnection());
     }
 
     private void Update()
@@ -67,9 +67,25 @@ public class RewardButton : MonoBehaviour
         currentTime = tokens[1];
     }
 
+    private IEnumerator CheckConnection()
+    {
+        UnityWebRequest www = UnityWebRequest.Get(dateCheckUrl);
+        yield return www.SendWebRequest();
+
+        if (www.error == null)
+        {
+            StartCoroutine(CheckTimeRemaining());
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
     private IEnumerator CheckTimeRemaining()
     {
         //disable button
+        rewardButton.interactable = false;
 
         yield return GetDate();
 

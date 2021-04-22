@@ -23,7 +23,7 @@ public class RapidUpgradeButton : TurretScreenUpgrade
         {
             TurretStats.Instance.rapidPermanentBought[upgradeNumber] = true;
             TurretStats.Instance.AddTurretKills(PlaceableType.rapid.ToString(), -blueprint.cost);
-            screenData.turretKills.text = TurretStats.Instance.GetTurretStats(PlaceableType.turret.ToString()).ToString();
+            screenData.turretKills.text = $"{TurretStats.Instance.GetTurretStats(PlaceableType.rapid.ToString())} points";
             GameEvents.OnSaveInitiated();
         }
 

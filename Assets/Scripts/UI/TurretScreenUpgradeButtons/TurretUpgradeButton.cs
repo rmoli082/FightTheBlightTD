@@ -24,7 +24,7 @@ public class TurretUpgradeButton : TurretScreenUpgrade
         {
             TurretStats.Instance.turretPermanentBought[upgradeNumber] = true;
             TurretStats.Instance.AddTurretKills(PlaceableType.turret.ToString(), -blueprint.cost);
-            screenData.turretKills.text = TurretStats.Instance.GetTurretStats(PlaceableType.turret.ToString()).ToString();
+            screenData.turretKills.text = $"{TurretStats.Instance.GetTurretStats(PlaceableType.turret.ToString())} points";
             this.button.interactable = false;
             GameEvents.OnSaveInitiated();
         }
