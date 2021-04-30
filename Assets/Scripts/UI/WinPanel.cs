@@ -29,11 +29,13 @@ public class WinPanel : MonoBehaviour
     {
         GameManager.Instance.LoadScene(current.name);
         GameManager.Instance.PausePlay();
+        GameEvents.OnNewGame();
     }
 
     public void Exit()
     {
         GameManager.Instance.LoadScene("MainMenu");
         GameManager.Instance.PausePlay();
+        GameEvents.OnNewGame();
     }
 }

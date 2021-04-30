@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 24
   speed: 0
-  goldReward: 10
+  goldReward: 20
   dieEffect: {fileID: 5989568863842805911, guid: 03cb7549079271c408c722ca7701cd62, type: 3}
   isAlive: 1
   isMiniBoss: 0

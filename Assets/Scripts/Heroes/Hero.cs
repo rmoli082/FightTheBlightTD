@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using TMPro;
 
 [Serializable]
 public class Hero : Placeable
@@ -88,8 +89,7 @@ public class Hero : Placeable
                 HeroUpgrade k = Instantiate(heroUpgrade[0], this.transform);
                 k.isActivated = true;
                 slotSpawned[0] = true;
-                textyCanvas.SetActive(true);
-                StartCoroutine(FadeCanvas());
+                PopupLevelupText("Power Activated!!");
                 GameObject effect = Instantiate(levelEffect, transform.position, Quaternion.identity);
                 Destroy(effect, 5);
             }
@@ -102,9 +102,8 @@ public class Hero : Placeable
                 HeroUpgrade k = Instantiate(heroUpgrade[1], this.transform);
                 k.isActivated = true;
                 slotSpawned[1] = true;
-                textyCanvas.SetActive(true);
-                StartCoroutine(FadeCanvas());
-                GameObject effect = Instantiate(levelEffect);
+                PopupLevelupText("Power Activated!!");
+                GameObject effect = Instantiate(levelEffect, transform.position, Quaternion.identity);
                 Destroy(effect, 5);
             }
         }
@@ -116,9 +115,8 @@ public class Hero : Placeable
                 HeroUpgrade k = Instantiate(heroUpgrade[2], this.transform);
                 k.isActivated = true;
                 slotSpawned[2] = true;
-                textyCanvas.SetActive(true);
-                StartCoroutine(FadeCanvas());
-                GameObject effect = Instantiate(levelEffect);
+                PopupLevelupText("Power Activated!!");
+                GameObject effect = Instantiate(levelEffect, transform.position, Quaternion.identity);
                 Destroy(effect, 5);
             }
         }
@@ -132,7 +130,8 @@ public class Hero : Placeable
         {
             DamageAmount++;
             doUpgrade = false;
-            GameObject effect = Instantiate(levelEffect);
+            PopupLevelupText("Damage Increased!!");
+            GameObject effect = Instantiate(levelEffect, transform.position, Quaternion.identity);
             Destroy(effect, 5);
         }
     }
@@ -146,6 +145,13 @@ public class Hero : Placeable
         partToRotate.localRotation = Quaternion.Euler(0f, rotation.y, 0f);
         yield return new WaitForSeconds(1.5f);
         rotated = true;
+    }
+
+    private void PopupLevelupText(string message)
+    {
+        textyCanvas.GetComponentInChildren<TextMeshProUGUI>().text = message;
+        textyCanvas.SetActive(true);
+        StartCoroutine(FadeCanvas());
     }
 
     private IEnumerator FadeCanvas()

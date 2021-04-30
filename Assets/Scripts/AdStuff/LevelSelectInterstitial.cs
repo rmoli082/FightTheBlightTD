@@ -55,6 +55,9 @@ public class LevelSelectInterstitial : MonoBehaviour
         {
             this.interstitialAd.Show();
             GameManager.Instance.LoadScene(levelToLoad);
+            PlayGames.IncrementAchievement(GPGSIds.achievement_play_10_games, 1);
+            PlayGames.IncrementAchievement(GPGSIds.achievement_play_100_games, 1);
+            GameEvents.OnNewGame();
         }
     }
 

@@ -9,7 +9,7 @@ public class RapidUpgrade : TurretUpgradePanels
     {
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
-            upgradePanel.turretToUpgrade.fireRate *= 1.2f;
+            upgradePanel.turretToUpgrade.fireRate *= 1.3f;
             PurchaseUpgrade(0);
             Analytics.CustomEvent("First Rapid Upgrade Bought");
         }
@@ -19,7 +19,7 @@ public class RapidUpgrade : TurretUpgradePanels
     {
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
-            upgradePanel.turretToUpgrade.DamageAmount *= 1.25f;
+            upgradePanel.turretToUpgrade.DamageAmount *= 1.45f;
             PurchaseUpgrade(1);
             Analytics.CustomEvent("Second Rapid Upgrade Bought");
         }
@@ -29,7 +29,7 @@ public class RapidUpgrade : TurretUpgradePanels
     {
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
-            upgradePanel.turretToUpgrade.projectileForce *= 1.15f;
+            upgradePanel.turretToUpgrade.projectileForce *= 1.35f;
             PurchaseUpgrade(2);
             Analytics.CustomEvent("Third Rapid Upgrade Bought");
         }

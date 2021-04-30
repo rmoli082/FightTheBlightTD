@@ -10,6 +10,7 @@ public class WaveBonusStuff : Singleton<WaveBonusStuff>
     private void Start()
     {
         GameEvents.WaveEnded += DoStreakBonus;
+        GameEvents.NewGame += Reset;
     }
 
     private IEnumerator StreakBonusPopup(string message)
@@ -62,5 +63,10 @@ public class WaveBonusStuff : Singleton<WaveBonusStuff>
     private void OnDestroy()
     {
         GameEvents.WaveEnded -= DoStreakBonus;
+    }
+
+    private void Reset()
+    {
+        PerfectStreak = 0;
     }
 }

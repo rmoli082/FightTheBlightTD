@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "802KPGS1530607",
         "name": "com.MorashStudios.FighttheBlightTD",
-        "processId": 20610,
+        "processId": 11721,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -48,6 +48,12 @@
             "deviceId": "802KPGS1530607",
             "name": "com.MorashStudios.FighttheBlightTD",
             "processId": 20610,
+            "exited": false
+        },
+        {
+            "deviceId": "802KPGS1530607",
+            "name": "com.MorashStudios.FighttheBlightTD",
+            "processId": 11721,
             "exited": false
         }
     ],

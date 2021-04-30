@@ -9,7 +9,7 @@ public class SeekerUpgrade : TurretUpgradePanels
     {
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
-            upgradePanel.turretToUpgrade.projectileForce *= 1.1f;
+            upgradePanel.turretToUpgrade.projectileForce *= 1.3f;
             PurchaseUpgrade(0);
             Analytics.CustomEvent("First Seeker Upgrade Bought");
         }
@@ -19,7 +19,7 @@ public class SeekerUpgrade : TurretUpgradePanels
     {
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
-            upgradePanel.turretToUpgrade.fireRate *= 1.15f;
+            upgradePanel.turretToUpgrade.fireRate *= 1.4f;
             PurchaseUpgrade(1);
             Analytics.CustomEvent("Second Seeker Upgrade Bought");
         }
@@ -29,7 +29,7 @@ public class SeekerUpgrade : TurretUpgradePanels
     {
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
-            upgradePanel.turretToUpgrade.DamageAmount *= 1.15f;
+            upgradePanel.turretToUpgrade.DamageAmount *= 1.4f;
             PurchaseUpgrade(2);
             Analytics.CustomEvent("Third Seeker Upgrade Bought");
         }

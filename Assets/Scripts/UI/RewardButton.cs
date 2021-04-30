@@ -95,7 +95,7 @@ public class RewardButton : MonoBehaviour
 
     private bool ValidateTime()
     {
-        StartCoroutine(CheckTimeRemaining());
+        StartCoroutine(CheckConnection());
 
         string oldDate = PlayerPrefs.GetString("Reward Date");
 

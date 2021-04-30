@@ -6,7 +6,7 @@ using System.Linq;
 public class NewWaveSpawner : Singleton<NewWaveSpawner>
 {
     public int CurrentWave { get; set; } = 1;
-    public int LivesLostThisWave { get; set; }
+    public int LivesLostThisWave { get; set; } = 0;
     public float Modifier { get; set; }  = 1;
     public int TotalWaves { get => config.TotalWaves; }
 
@@ -31,6 +31,7 @@ public class NewWaveSpawner : Singleton<NewWaveSpawner>
     private void Start()
     {
         GameEvents.WaveEnded += WaveEnded;
+        GameEvents.NewGame += Reset;
         ParseLevelData();
         System.Random seeder = new System.Random(seed);
         randomFactoryGenerator = new System.Random(seeder.Next());
@@ -86,7 +87,8 @@ public class NewWaveSpawner : Singleton<NewWaveSpawner>
                 }
 
                 ApplyDifficultyModifier(enemy);
-                ApplySkillLevelModifier(enemy, Modifier);
+                if (!enemy.isMiniBoss)
+                    ApplySkillLevelModifier(enemy, Modifier);
                 GameEvents.OnEnemySpawned(enemy);
                 GameManager.Instance.EnemiesRemaining++;
                 yield return new WaitForSeconds(spawnPause);
@@ -149,12 +151,13 @@ public class NewWaveSpawner : Singleton<NewWaveSpawner>
 
     public void ResetWave(int waveNumber)
     {
-        Enemy[] enemies = FindObjectsOfType<Enemy>();
-        foreach (Enemy e in enemies)
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject e in enemies)
         {
             Destroy(e);
         }
         this.CurrentWave = waveNumber;
+        LevelManager.Instance.bossIsDead = false;
         LevelManager.Instance.sceneData.nextWaveButton.SetColor(new Color(255, 255, 255, 1f));
     }
 
@@ -167,6 +170,10 @@ public class NewWaveSpawner : Singleton<NewWaveSpawner>
     private void ApplySkillLevelModifier(Enemy enemy, float modifier)
     {
         enemy.speed *= modifier;
+        if (enemy.speed > 20)
+        {
+            enemy.speed = 20;
+        }
         enemy.health *= modifier;
     }
 
@@ -174,17 +181,17 @@ public class NewWaveSpawner : Singleton<NewWaveSpawner>
     {
         if (LivesLostThisWave == 0)
         {
-            Modifier = 1.15f;
+            Modifier += 0.07f;
             WaveBonusStuff.Instance.PerfectStreak++;
         }
         else if (LivesLostThisWave <= 3)
         {
-            Modifier += 0.1f;
+            Modifier += 0.05f;
             WaveBonusStuff.Instance.PerfectStreak = 0;
         }
         else if (LivesLostThisWave <= 6)
         {
-            Modifier += 0.05f;
+            Modifier += 0.03f;
             WaveBonusStuff.Instance.PerfectStreak = 0;
         }
         else if (LivesLostThisWave <= 9)
@@ -202,12 +209,20 @@ public class NewWaveSpawner : Singleton<NewWaveSpawner>
             Modifier -= 0.1f;
             WaveBonusStuff.Instance.PerfectStreak = 0;
         }
+
     }
 
     private void WaveEnded()
     {
         LevelManager.Instance.sceneData.nextWaveButton.SetColor(new Color(255, 255, 255, 1f));
         LevelManager.Instance.AdjustGold(Mathf.CeilToInt(LevelManager.Instance.levelData.waveGoldReward * (Modifier)));
+    }
+
+    private void Reset()
+    {
+        CurrentWave = 1;
+        LivesLostThisWave = 0;
+        Modifier = 1;
     }
 
     private int GenerateDifficulty(int factoryNumber)

@@ -11,7 +11,7 @@ public class LevelManager : Singleton<LevelManager>
 
     public int totalWaves;
 
-    public bool bossIsDead;
+    public bool bossIsDead = false;
 
     private BannerView bannerView;
 
@@ -28,6 +28,7 @@ public class LevelManager : Singleton<LevelManager>
     private void Start()
     {
         GameEvents.WaveEnded += CheckForWin;
+        GameEvents.NewGame += Reset;
         if (GameManager.Instance.IsFirstRun)
         {
             LoadTutorial();
@@ -119,6 +120,11 @@ public class LevelManager : Singleton<LevelManager>
         {
             GameManager.Instance.Win();
         }
+    }
+
+    private void Reset()
+    {
+        bossIsDead = false;
     }
 
     private void OnDestroy()

@@ -12,7 +12,7 @@ public class TurretUpgrade : TurretUpgradePanels
     {
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
-            upgradePanel.turretToUpgrade.DamageAmount *= 1.2f;
+            upgradePanel.turretToUpgrade.DamageAmount *= 1.3f;
             PurchaseUpgrade(0);
             Analytics.CustomEvent("First Turret Upgrade Bought");
         }
@@ -22,7 +22,7 @@ public class TurretUpgrade : TurretUpgradePanels
     {
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
-            upgradePanel.turretToUpgrade.fireRate *= 1.15f;
+            upgradePanel.turretToUpgrade.fireRate *= 1.3f;
             PurchaseUpgrade(1);
             Analytics.CustomEvent("Second Turret Upgrade Bought");
         }
@@ -32,7 +32,7 @@ public class TurretUpgrade : TurretUpgradePanels
     {
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
-            upgradePanel.turretToUpgrade.range *= 1.15f;
+            upgradePanel.turretToUpgrade.range *= 1.25f;
             PurchaseUpgrade(2);
             Analytics.CustomEvent("Third Turret Upgrade Bought");
         }

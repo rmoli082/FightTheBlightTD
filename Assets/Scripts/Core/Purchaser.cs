@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Purchasing;
+using TMPro;
 
 public class Purchaser : MonoBehaviour, IStoreListener
 {
@@ -14,6 +16,8 @@ public class Purchaser : MonoBehaviour, IStoreListener
     public static string bagOfGems = "gembag";
     public static string sackOfGems = "gemsack";
     public static string boxOfGems = "gembox";
+
+    public GameObject messageBox;
 
     private static readonly int pileGemAmount = 300;
     private static readonly int jarGemAmount = 635;
@@ -132,26 +136,31 @@ public class Purchaser : MonoBehaviour, IStoreListener
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", purchaseEvent.purchasedProduct.definition.id));
             Player.Instance.AdjustGems(pileGemAmount);
+            StartCoroutine(PopMessageBox("Gem Pile"));
         }
         else if (String.Equals(purchaseEvent.purchasedProduct.definition.id, jarOfGems, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", purchaseEvent.purchasedProduct.definition.id));
             Player.Instance.AdjustGems(jarGemAmount);
+            StartCoroutine(PopMessageBox("Gem Jar"));
         }
         else if (String.Equals(purchaseEvent.purchasedProduct.definition.id, bagOfGems, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", purchaseEvent.purchasedProduct.definition.id));
             Player.Instance.AdjustGems(bagGemAmount);
+            StartCoroutine(PopMessageBox("Gem Bag"));
         }
         else if (String.Equals(purchaseEvent.purchasedProduct.definition.id, sackOfGems, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", purchaseEvent.purchasedProduct.definition.id));
             Player.Instance.AdjustGems(sackGemAmount);
+            StartCoroutine(PopMessageBox("Gem Sack"));
         }
         else if (String.Equals(purchaseEvent.purchasedProduct.definition.id, boxOfGems, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", purchaseEvent.purchasedProduct.definition.id));
             Player.Instance.AdjustGems(boxGemAmount);
+            StartCoroutine(PopMessageBox("Gem Box"));
         }
         else
         {
@@ -159,5 +168,13 @@ public class Purchaser : MonoBehaviour, IStoreListener
         }
 
         return PurchaseProcessingResult.Complete;
+    }
+
+    private IEnumerator PopMessageBox(string boostName)
+    {
+        messageBox.GetComponentInChildren<TextMeshProUGUI>().text = $"{boostName} purchased!";
+        messageBox.SetActive(true);
+        yield return new WaitForSeconds(2.0f);
+        messageBox.SetActive(false);
     }
 }

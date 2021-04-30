@@ -9,7 +9,7 @@ public class StunnerUpgrade : TurretUpgradePanels
     {
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
-            upgradePanel.turretToUpgrade.stunPower *= 1.15f;
+            upgradePanel.turretToUpgrade.stunPower *= 1.35f;
             PurchaseUpgrade(0);
             Analytics.CustomEvent("First Stunner Upgrade Bought");
         }
@@ -19,7 +19,7 @@ public class StunnerUpgrade : TurretUpgradePanels
     {
         if (LevelManager.Instance.GetGold() >= upgradeCost)
         {
-            upgradePanel.turretToUpgrade.stunTime *= 1.1f;
+            upgradePanel.turretToUpgrade.stunTime *= 1.4f;
             PurchaseUpgrade(1);
             Analytics.CustomEvent("Second Stunner Upgrade Bought");
         }

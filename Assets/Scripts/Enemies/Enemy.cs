@@ -70,7 +70,7 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator TrojanHorse(string turretType)
     {
-        int spawnAmount = Random.Range(5, 15);
+        int spawnAmount = Random.Range(5, 10);
         gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
         Transform target = gameObject.GetComponent<EnemyController>().Target;
         int waypointIndex = gameObject.GetComponent<EnemyController>().WaypointIndex;

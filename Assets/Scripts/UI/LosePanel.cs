@@ -42,7 +42,7 @@ public class LosePanel : MonoBehaviour
 
             if (NewWaveSpawner.Instance.CurrentWave == NewWaveSpawner.Instance.TotalWaves)
             {
-                NewWaveSpawner.Instance.ResetWave(NewWaveSpawner.Instance.TotalWaves - 1);
+                NewWaveSpawner.Instance.ResetWave(NewWaveSpawner.Instance.TotalWaves);
             }
         }
         else
@@ -63,9 +63,7 @@ public class LosePanel : MonoBehaviour
         NewWaveSpawner.Instance.Modifier = 1;
         if (NewWaveSpawner.Instance.CurrentWave == NewWaveSpawner.Instance.TotalWaves)
         {
-            StopCoroutine(NewWaveSpawner.Instance.SpawnWave());
-            NewWaveSpawner.Instance.ResetWave(NewWaveSpawner.Instance.TotalWaves - 1);
-            LevelManager.Instance.bossIsDead = false;
+            NewWaveSpawner.Instance.ResetWave(NewWaveSpawner.Instance.TotalWaves);
         }
 
         LevelManager.Instance.sceneData.speedButton.SetFastImage();
@@ -78,6 +76,7 @@ public class LosePanel : MonoBehaviour
         GameManager.Instance.LoadScene(current.name);
         GameManager.Instance.PausePlay();
         GameEvents.OnGameOverLose();
+        GameEvents.OnNewGame();
     }
 
     public void Exit()
@@ -87,6 +86,7 @@ public class LosePanel : MonoBehaviour
         GameManager.Instance.LoadScene("MainMenu");
         GameManager.Instance.PausePlay();
         GameEvents.OnGameOverLose();
+        GameEvents.OnNewGame();
     }
 
     public void YesButton()
