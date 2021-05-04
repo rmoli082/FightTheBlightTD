@@ -129,6 +129,8 @@ public class LevelManager : Singleton<LevelManager>
 
     private void OnDestroy()
     {
+        GameEvents.WaveEnded -= CheckForWin;
+        GameEvents.NewGame -= Reset;
         bannerView.Destroy();
     }
 

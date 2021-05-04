@@ -218,6 +218,12 @@ public class NewWaveSpawner : Singleton<NewWaveSpawner>
         LevelManager.Instance.AdjustGold(Mathf.CeilToInt(LevelManager.Instance.levelData.waveGoldReward * (Modifier)));
     }
 
+    private void OnDestroy()
+    {
+        GameEvents.WaveEnded -= WaveEnded;
+        GameEvents.NewGame -= Reset;
+    }
+
     private void Reset()
     {
         CurrentWave = 1;

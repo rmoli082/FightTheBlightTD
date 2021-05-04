@@ -39,6 +39,7 @@ public class BuildManager : Singleton<BuildManager>
             if (turret.GetComponent<Hero>())
             {
                 HeroManager.Instance.isSpawned = true;
+                HeroManager.Instance.waveSpawned = NewWaveSpawner.Instance.CurrentWave;
                 PlayGames.IncrementAchievement(GPGSIds.achievement_heroic_actions, 1);
             }
             selectedTurret = null;

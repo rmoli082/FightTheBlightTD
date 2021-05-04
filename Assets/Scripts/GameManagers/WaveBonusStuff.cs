@@ -63,6 +63,7 @@ public class WaveBonusStuff : Singleton<WaveBonusStuff>
     private void OnDestroy()
     {
         GameEvents.WaveEnded -= DoStreakBonus;
+        GameEvents.NewGame -= Reset;
     }
 
     private void Reset()

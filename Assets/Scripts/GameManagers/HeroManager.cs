@@ -15,6 +15,7 @@ public class HeroManager : Singleton<HeroManager>
     public bool isThirdUpgradeActive = false;
 
     public bool isSpawned = false;
+    public int waveSpawned = 0;
 
     public HeroUpgrade[] availableBoosts;
 
@@ -39,6 +40,7 @@ public class HeroManager : Singleton<HeroManager>
         GameEvents.SaveInitiated += Save;
         GameEvents.GameOverWin += WinAwards;
         GameEvents.GameOverLose += LoseAwards;
+        GameEvents.NewGame += Reset;
     }
 
     public int GetHeroXP()
@@ -136,16 +138,38 @@ public class HeroManager : Singleton<HeroManager>
         }
     }
 
+    private int WaveBonus()
+    {
+        return NewWaveSpawner.Instance.CurrentWave - waveSpawned - 1;
+    }
+
     private void WinAwards()
     {
         if (isSpawned)
-            AddHeroXP(10);
+        {
+            AddHeroXP(10 + WaveBonus());
+        }
+            
     }
 
     private void LoseAwards()
     {
         if (isSpawned)
-            AddHeroXP(5);
+            AddHeroXP(5 + WaveBonus());
+    }
+
+    private void Reset()
+    {
+        isSpawned = false;
+        waveSpawned = 0;
+    }
+
+    private void OnDestroy()
+    {
+        GameEvents.SaveInitiated -= Save;
+        GameEvents.GameOverWin -= WinAwards;
+        GameEvents.GameOverLose -= LoseAwards;
+        GameEvents.NewGame -= Reset;
     }
 
     [Serializable]
